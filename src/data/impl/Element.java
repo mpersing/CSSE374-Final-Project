@@ -5,7 +5,8 @@ import jdk.internal.org.objectweb.asm.Opcodes;
 
 public abstract class Element implements IElement {
 
-	int access;
+	protected int access;
+	protected String name;
 	
 	@Override
 	public void setAccess(int a) {
@@ -25,6 +26,11 @@ public abstract class Element implements IElement {
 	@Override
 	public boolean isStatic() {
 		return (this.access & Opcodes.ACC_STATIC) != 0;
+	}
+	
+	@Override
+	public void setName(String n){
+		this.name = n;
 	}
 
 }

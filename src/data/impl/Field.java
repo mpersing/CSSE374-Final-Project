@@ -4,15 +4,9 @@ import visitor.api.ITraverser;
 import visitor.impl.OutputVisitor;
 import data.api.IField;
 
-public class Field extends data.impl.Element implements IField, ITraverser {
+public class Field extends Element implements IField, ITraverser {
 
-	private String name;
 	private String type;
-	
-	@Override
-	public void setName(String n) {
-		this.name = n;
-	}
 
 	@Override
 	public void setType(String t) {

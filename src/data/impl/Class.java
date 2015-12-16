@@ -3,7 +3,6 @@ package data.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import visitor.api.ITraverser;
 import visitor.impl.OutputVisitor;
 import data.api.IClass;
 import data.api.IField;

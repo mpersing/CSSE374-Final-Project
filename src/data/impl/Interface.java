@@ -8,9 +8,8 @@ import visitor.impl.OutputVisitor;
 import data.api.IInterface;
 import data.api.IMethod;
 
-public class Interface extends data.impl.Element implements IInterface, ITraverser {
+public class Interface extends Element implements IInterface, ITraverser {
 
-	private String name;
 	private List<String> extendList;
 	private List<IMethod> methodList;
 	
@@ -28,11 +27,6 @@ public class Interface extends data.impl.Element implements IInterface, ITravers
 	@Override
 	public void addMethod(IMethod m) {
 		this.methodList.add(m);
-	}
-
-	@Override
-	public void setName(String n) {
-		this.name = n;
 	}
 
 	@Override
