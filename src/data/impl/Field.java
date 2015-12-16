@@ -2,42 +2,19 @@ package data.impl;
 
 import data.api.IField;
 
-public class Field implements IField {
+public class Field extends data.impl.Element implements IField {
 
-	@Override
-	public void setAccess(int a) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public boolean isPublic() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isPrivate() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isStatic() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	private String name;
+	private String type;
+	
 	@Override
 	public void setName(String n) {
-		// TODO Auto-generated method stub
-
+		this.name = n;
 	}
 
 	@Override
 	public void setType(String t) {
-		// TODO Auto-generated method stub
-
+		this.type = t;
 	}
 
 }

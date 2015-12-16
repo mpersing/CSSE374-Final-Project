@@ -9,40 +9,36 @@ import data.api.IMethod;
 
 public class Class extends Element implements IClass {
 	
-	List<IMethod> methodList;
-	List<IField> fieldList;
-	String extendsClass;
-	List<String> implementList;
+	private List<IMethod> methodList;
+	private List<IField> fieldList;
+	private String extendsClass;
+	private List<String> implementList;
 	
 	public Class() {
-		methodList = new ArrayList<IMethod>();
-		fieldList = new ArrayList<IField>();
-		implementList = new ArrayList<String>();
-		extendsClass = null;
+		this.methodList = new ArrayList<IMethod>();
+		this.fieldList = new ArrayList<IField>();
+		this.implementList = new ArrayList<String>();
+		this.extendsClass = null;
 	}
 	
 	@Override
 	public void addMethod(IMethod m) {
-		// TODO Auto-generated method stub
-
+		this.methodList.add(m);
 	}
 
 	@Override
 	public void addField(IField f) {
-		// TODO Auto-generated method stub
-
+		this.fieldList.add(f);
 	}
 
 	@Override
 	public void setExtends(String e) {
-		// TODO Auto-generated method stub
-
+		this.extendsClass = e;
 	}
 
 	@Override
 	public void addImplements(String i) {
-		// TODO Auto-generated method stub
-
+		this.implementList.add(i);
 	}
 
 }

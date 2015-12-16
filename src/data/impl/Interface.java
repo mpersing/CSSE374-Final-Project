@@ -1,50 +1,36 @@
 package data.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import data.api.IInterface;
 import data.api.IMethod;
 
-public class Interface implements IInterface {
+public class Interface extends data.impl.Element implements IInterface {
 
-	@Override
-	public void setAccess(int a) {
-		// TODO Auto-generated method stub
-
+	private String name;
+	private List<String> extendList;
+	private List<IMethod> methodList;
+	
+	public Interface() {
+		this.name = null;
+		this.extendList = new ArrayList<String>();
+		this.methodList = new ArrayList<IMethod>();
 	}
-
-	@Override
-	public boolean isPublic() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isPrivate() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isStatic() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	
 	@Override
 	public void addExtends(String e) {
-		// TODO Auto-generated method stub
-
+		this.extendList.add(e);
 	}
 
 	@Override
 	public void addMethod(IMethod m) {
-		// TODO Auto-generated method stub
-
+		this.methodList.add(m);
 	}
 
 	@Override
 	public void setName(String n) {
-		// TODO Auto-generated method stub
-
+		this.name = n;
 	}
 
 }
