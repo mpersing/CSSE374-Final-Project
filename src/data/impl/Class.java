@@ -3,6 +3,8 @@ package data.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.xml.internal.ws.org.objectweb.asm.Opcodes;
+
 import visitor.impl.OutputVisitor;
 import data.api.IClass;
 import data.api.IField;
@@ -20,6 +22,10 @@ public class Class extends Element implements IClass {
 		this.fieldList = new ArrayList<IField>();
 		this.implementArray = null;
 		this.setExtendsClass(null);
+	}
+	
+	public boolean isInterface() {
+		return (this.access & Opcodes.ACC_INTERFACE) != 0;
 	}
 	
 	@Override
