@@ -3,14 +3,13 @@ package data.impl;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.sun.xml.internal.ws.org.objectweb.asm.ClassReader;
-import com.sun.xml.internal.ws.org.objectweb.asm.ClassVisitor;
-
 import asm.ClassDeclarationVisitor;
 import asm.ClassFieldVisitor;
 import asm.ClassMethodVisitor;
 import data.api.IClass;
 import data.api.IDataManager;
+import jdk.internal.org.objectweb.asm.ClassReader;
+import jdk.internal.org.objectweb.asm.ClassVisitor;
 import jdk.internal.org.objectweb.asm.Opcodes;
 import visitor.api.ITraverser;
 import visitor.impl.OutputVisitor;
