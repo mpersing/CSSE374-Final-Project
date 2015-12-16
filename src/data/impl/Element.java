@@ -1,31 +1,30 @@
 package data.impl;
 
 import data.api.IElement;
+import jdk.internal.org.objectweb.asm.Opcodes;
 
 public abstract class Element implements IElement {
 
+	int access;
+	
 	@Override
 	public void setAccess(int a) {
-		// TODO Auto-generated method stub
-
+		this.access = a;
 	}
 
 	@Override
 	public boolean isPublic() {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.access & Opcodes.ACC_PUBLIC) != 0;
 	}
 
 	@Override
 	public boolean isPrivate() {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.access & Opcodes.ACC_PRIVATE) != 0;
 	}
 
 	@Override
 	public boolean isStatic() {
-		// TODO Auto-generated method stub
-		return false;
+		return (this.access & Opcodes.ACC_STATIC) != 0;
 	}
 
 }
