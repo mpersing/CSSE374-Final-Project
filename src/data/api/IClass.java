@@ -7,6 +7,6 @@ public interface IClass extends IElement, ITraverser {
 	public void addMethod(IMethod m);
 	public void addField(IField f);
 	public void setExtends(String e);
-	public void addImplements(String i);
+	public void setImplements(String[] i);
 	
 }

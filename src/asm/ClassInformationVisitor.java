@@ -5,7 +5,7 @@ import jdk.internal.org.objectweb.asm.ClassVisitor;
 
 public abstract class ClassInformationVisitor extends ClassVisitor {
 	
-	private IClass newClass;
+	protected IClass newClass;
 
 	public ClassInformationVisitor(int arg0) {
 		super(arg0);

@@ -13,12 +13,12 @@ public class Class extends Element implements IClass {
 	private List<IMethod> methodList;
 	private List<IField> fieldList;
 	private String extendsClass;
-	private List<String> implementList;
+	private String[] implementArray;
 	
 	public Class() {
 		this.methodList = new ArrayList<IMethod>();
 		this.fieldList = new ArrayList<IField>();
-		this.implementList = new ArrayList<String>();
+		this.implementArray = null;
 		this.setExtendsClass(null);
 	}
 	
@@ -38,8 +38,8 @@ public class Class extends Element implements IClass {
 	}
 
 	@Override
-	public void addImplements(String i) {
-		this.implementList.add(i);
+	public void setImplements(String[] i) {
+		this.implementArray = i;
 	}
 
 	@Override
