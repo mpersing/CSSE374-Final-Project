@@ -1,6 +1,8 @@
 package data.api;
 
-public interface IClass extends IElement {
+import visitor.api.ITraverser;
+
+public interface IClass extends IElement, ITraverser {
 	
 	public void addMethod(IMethod m);
 	public void addField(IField f);

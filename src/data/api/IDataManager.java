@@ -1,6 +1,8 @@
 package data.api;
 
-public interface IDataManager {
+import visitor.api.ITraverser;
+
+public interface IDataManager extends ITraverser{
 	
 	public String output(StringBuffer sb);
 	

@@ -1,6 +1,8 @@
 package data.api;
 
-public interface IMethod extends IElement {
+import visitor.api.ITraverser;
+
+public interface IMethod extends IElement, ITraverser {
 
 	public void setArguments(String[] args);
 	public void setName(String n);

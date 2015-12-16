@@ -1,6 +1,8 @@
 package data.api;
 
-public interface IElement {
+import visitor.api.ITraverser;
+
+public interface IElement extends ITraverser {
 	public void setAccess(int a);
 	public boolean isPublic();
 	public boolean isPrivate();
