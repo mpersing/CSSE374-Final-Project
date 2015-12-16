@@ -1,5 +1,5 @@
 package data.api;
 
-public interface IField {
+public interface IField extends IElement {
 
 }

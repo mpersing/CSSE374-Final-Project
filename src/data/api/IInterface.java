@@ -1,5 +1,5 @@
 package data.api;
 
-public interface IInterface {
-
+public interface IInterface extends IElement {
+	
 }
