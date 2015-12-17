@@ -18,4 +18,9 @@ public class Field extends Element implements IField, ITraverser {
 		v.visit(this);
 	}
 
+	@Override
+	public String getType() {
+		return this.type;
+	}
+
 }

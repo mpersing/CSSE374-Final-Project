@@ -32,5 +32,10 @@ public abstract class Element implements IElement {
 	public void setName(String n){
 		this.name = n;
 	}
+	
+	@Override
+	public String getName(){
+		return this.name;
+	}
 
 }

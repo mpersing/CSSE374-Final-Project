@@ -24,4 +24,14 @@ public class Method extends Element implements IMethod, ITraverser {
 		v.visit(this);
 	}
 
+	@Override
+	public String[] getArguments() {
+		return this.arguments;
+	}
+
+	@Override
+	public String getReturnType() {
+		return this.returnType;
+	}
+
 }

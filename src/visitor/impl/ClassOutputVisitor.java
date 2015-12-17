@@ -4,9 +4,16 @@ import data.api.IClass;
 
 public class ClassOutputVisitor extends OutputVisitor {
 
+	/* Format:
+	 Animal [
+     	label = "{Animal|+ name : string\l+ age : int\l|+ die() : void\l}"
+     ]
+	 */
+	
 	@Override
 	public void visit(IClass c){
-		// TODO: write data from c to this.sb
+		// Get the name
+		this.sb.append("");
 	};
 	
 }
