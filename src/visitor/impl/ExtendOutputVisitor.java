@@ -12,7 +12,7 @@ public class ExtendOutputVisitor extends OutputVisitor {
 	 */
 	@Override
 	public void visit(IDataManager d){
-		this.sb.append("        edge [\n                arrowhead = \"empty\"        ]");
+		this.sb.append("        edge [\n                arrowhead = \"empty\"\n        ]\n");
 	}
 	
 	/* Format:

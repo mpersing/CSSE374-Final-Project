@@ -17,9 +17,11 @@ import visitor.impl.OutputVisitor;
 public class DataManager implements IDataManager, ITraverser {
 
 	private ArrayList<IClass> classes;
+	private ArrayList<OutputVisitor> visitors;
 	
 	public DataManager(){
 		this.classes = new ArrayList<IClass>();
+		this.visitors = new ArrayList<OutputVisitor>();
 	}
 	
 	public void add(String toAdd) throws IOException{
@@ -39,10 +41,20 @@ public class DataManager implements IDataManager, ITraverser {
 		reader.accept((ClassVisitor)methodVisitor, ClassReader.EXPAND_FRAMES);
 	}
 	
+	public void addOutputVisitor(OutputVisitor v){
+		this.visitors.add(v);
+	}
+	
 	@Override
-	public String output(StringBuffer sb) {
-		// TODO Auto-generated method stub
-		return null;
+	public void output(StringBuffer sb) {
+		for(OutputVisitor v : this.visitors){
+			v.setStringBuffer(sb);
+			v.visit(this);
+		}
+		
+		for(OutputVisitor v : this.visitors){
+			v.postVisit(this);
+		}
 	}
 
 	@Override

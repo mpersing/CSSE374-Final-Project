@@ -1,8 +1,7 @@
 package visitor.impl;
 
-import java.util.List;
-
 import data.api.IClass;
+import data.api.IDataManager;
 import data.api.IField;
 import data.api.IMethod;
 
@@ -65,6 +64,12 @@ public class ClassOutputVisitor extends OutputVisitor {
 		this.sb.append("}\"\n        ]\n");
 	}
 	
+	public void visit(IDataManager d){
+		this.sb.append("diagraph g {\n");
+	}
 	
+	public void postVisit(IDataManager d){
+		this.sb.append("}\n");
+	}
 	
 }
