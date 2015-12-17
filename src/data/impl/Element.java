@@ -22,6 +22,11 @@ public abstract class Element implements IElement {
 	public boolean isPrivate() {
 		return (this.access & Opcodes.ACC_PRIVATE) != 0;
 	}
+	
+	@Override
+	public boolean isProtected() {
+		return (this.access & Opcodes.ACC_PROTECTED) != 0;
+	}
 
 	@Override
 	public boolean isStatic() {
