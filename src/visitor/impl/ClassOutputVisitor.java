@@ -21,8 +21,13 @@ public class ClassOutputVisitor extends OutputVisitor {
 		this.sb.append(c.getName());
 		this.sb.append(" [ \n");
 		
-		// open the label
+		// Open the label
 		this.sb.append("                label = \"{");
+		
+		// If it is an interface
+		if (c.isInterface()) this.sb.append("<<Interface>>\\l");
+		
+		// Write the name
 		this.sb.append(c.getName());
 		this.sb.append("|");
 		
