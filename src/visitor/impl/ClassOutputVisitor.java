@@ -50,7 +50,7 @@ public class ClassOutputVisitor extends OutputVisitor {
 		this.sb.append("                label = \"{");
 		
 		// If it is an interface
-		if (c.isInterface()) this.sb.append("\\<\\<Interface\\>\\>\\l");
+		if (c.isInterface()) this.sb.append("\\<\\<Interface\\>\\>\\n");
 		
 		// Write the name
 		this.sb.append(c.getName());

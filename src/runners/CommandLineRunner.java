@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import visitor.impl.ClassOutputVisitor;
 import visitor.impl.ExtendOutputVisitor;
@@ -13,23 +15,19 @@ import data.impl.DataManager;
 
 public class CommandLineRunner {
 	
-	public static Process runApplication(String command, String arg) {
-		ProcessBuilder processBuilder;
+	public static void runApplication(String command, String arg) {
 
 		// Run the application if support is available
 		try {
 			System.out.format("Launching %s ...%n", command);
-			processBuilder = new ProcessBuilder(command, arg);
+			Runtime.getRuntime().exec("cmd /c start " + command + " " + arg);
 			
-			// Start and add the process to the processes list
-			Process process = processBuilder.start();
-			return process;
-		} catch (IOException e) {
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return null;
 	}
-
+	
 	public static void main(String[] args) throws IOException {
 		IDataManager data = new DataManager();
 		data.addOutputVisitor(new ClassOutputVisitor());
@@ -56,8 +54,9 @@ public class CommandLineRunner {
         //close the stream
         bwr.close();
         
-        CommandLineRunner.runApplication("dot", "-Tpng test.gv > graph1.png");
+        // runs the dot
+        CommandLineRunner.runApplication("dot", "-Tpng test.gv -o graph1.png");
         
-       
+        System.out.println("done, I gues?");
 	}
 }
