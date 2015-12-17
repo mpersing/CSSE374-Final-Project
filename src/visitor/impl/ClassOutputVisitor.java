@@ -44,11 +44,13 @@ public class ClassOutputVisitor extends OutputVisitor {
 		this.sb.append(c.getName());
 		this.sb.append(" [ \n");
 		
+		this.sb.append("                shape=\"record\",\n");
+		
 		// Open the label
 		this.sb.append("                label = \"{");
 		
 		// If it is an interface
-		if (c.isInterface()) this.sb.append("<<Interface>>\\l");
+		if (c.isInterface()) this.sb.append("\\<\\<Interface\\>\\>\\l");
 		
 		// Write the name
 		this.sb.append(c.getName());
@@ -61,11 +63,11 @@ public class ClassOutputVisitor extends OutputVisitor {
 	
 	public void postVisit(IClass c) {
 		// Close the label
-		this.sb.append("}\"\n        ]\n\n");
+		this.sb.append("}\"\n        ];\n\n");
 	}
 	
 	public void visit(IDataManager d){
-		this.sb.append("diagraph g {\n");
+		this.sb.append("digraph g {\n");
 	}
 	
 	public void postVisit(IDataManager d){

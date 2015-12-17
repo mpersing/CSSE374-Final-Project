@@ -45,10 +45,10 @@ public class CommandLineRunner {
 		
 		System.out.println(sb.toString());
 		
-		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("test.dot")));
+		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("test.gv")));
         
         //write contents of StringBuffer to a file
-        bwr.write(sb.toString());
+        bwr.write(sb.toString().replace('/', '_'));
        
         //flush the stream
         bwr.flush();
@@ -56,7 +56,8 @@ public class CommandLineRunner {
         //close the stream
         bwr.close();
         
-        CommandLineRunner.runApplication("dot", "test.dot");
+        CommandLineRunner.runApplication("dot", "-Tpng test.gv > graph1.png");
+        
        
 	}
 }
