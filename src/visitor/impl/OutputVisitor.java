@@ -17,6 +17,9 @@ public abstract class OutputVisitor {
 	public void visit(IDataManager d){};
 	public void visit(IField f){};
 	public void visit(IMethod m){};
+	public void midVisit(IClass c){};
+	public void postVisit(IClass c){};
+	public void postVisit(IDataManager d){};
 	
 
 }

@@ -14,6 +14,30 @@ public class ClassOutputVisitor extends OutputVisitor {
      ]
 	 */
 	
+	public void visit(IField f) {
+		// Decide prefix
+		String pre = f.isPrivate()?"- ":f.isPublic()?"+ ":f.isProtected()?"# ":"";
+		
+		// The rest of the field
+		this.sb.append(pre);
+		this.sb.append(f.getName());
+		this.sb.append(" : ");
+		this.sb.append(f.getType());
+		this.sb.append("\\l");
+	}
+	
+	public void visit(IMethod m) {
+		// Decide prefix
+		String pre = m.isPrivate()?"- ":m.isPublic()?"+ ":"";
+		
+		// The rest of the method
+		this.sb.append(pre);
+		this.sb.append(m.getName());
+		this.sb.append("() : ");
+		this.sb.append(m.getReturnType());
+		this.sb.append("\\l");
+	}
+	
 	@Override
 	public void visit(IClass c){
 		// Open the class
@@ -30,37 +54,17 @@ public class ClassOutputVisitor extends OutputVisitor {
 		// Write the name
 		this.sb.append(c.getName());
 		this.sb.append("|");
-		
-		// Get the fields
-		List<IField> fields = c.getFields();
-		for (IField f : fields){
-			// Decide prefix
-			String pre = f.isPrivate()?"- ":f.isPublic()?"+ ":f.isProtected()?"# ":"";
-			
-			// The rest of the field
-			this.sb.append(pre);
-			this.sb.append(f.getName());
-			this.sb.append(" : ");
-			this.sb.append(f.getType());
-			this.sb.append("\\l");
-		}
-		
-		// Get the Methods
-		List<IMethod> methods = c.getMethods();
-		for (IMethod m : methods){
-			// Decide prefix
-			String pre = m.isPrivate()?"- ":m.isPublic()?"+ ":"";
-			
-			// The rest of the method
-			this.sb.append(pre);
-			this.sb.append(m.getName());
-			this.sb.append("() : ");
-			this.sb.append(m.getReturnType());
-			this.sb.append("\\l");
-		}
-		
+	}
+	
+	public void midVisit(IClass c) {
+		this.sb.append("|");
+	}
+	
+	public void postVisit(IClass c) {
 		// Close the label
 		this.sb.append("}\"\n        ]\n");
-	};
+	}
+	
+	
 	
 }

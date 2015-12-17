@@ -54,9 +54,11 @@ public class Class extends Element implements IClass {
 		for (IField f : this.fieldList){
 			f.accept(v);
 		}
+		v.midVisit(this);
 		for (IMethod m : this.methodList){
 			m.accept(v);
 		}
+		v.postVisit(this);
 	}
 
 	public String getExtendsClass() {
