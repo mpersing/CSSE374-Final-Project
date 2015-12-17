@@ -49,7 +49,7 @@ public class DataManager implements IDataManager, ITraverser {
 	public void output(StringBuffer sb) {
 		for(OutputVisitor v : this.visitors){
 			v.setStringBuffer(sb);
-			v.visit(this);
+			this.accept(v);
 		}
 		
 		for(OutputVisitor v : this.visitors){
