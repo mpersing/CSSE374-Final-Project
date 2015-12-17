@@ -29,6 +29,8 @@ public class ClassMethodVisitor extends ClassInformationVisitor {
 		method.setName(name);
 		method.setAccess(access);
 		
+		this.newClass.addMethod(method);
+		
 		return toDecorateLaterThisQuarter;
 	}
 
