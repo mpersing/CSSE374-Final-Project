@@ -12,6 +12,23 @@ import data.api.IDataManager;
 import data.impl.DataManager;
 
 public class CommandLineRunner {
+	
+	public static Process runApplication(String command, String arg) {
+		ProcessBuilder processBuilder;
+
+		// Run the application if support is available
+		try {
+			System.out.format("Launching %s ...%n", command);
+			processBuilder = new ProcessBuilder(command, arg);
+			
+			// Start and add the process to the processes list
+			Process process = processBuilder.start();
+			return process;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	public static void main(String[] args) throws IOException {
 		IDataManager data = new DataManager();
@@ -38,6 +55,8 @@ public class CommandLineRunner {
        
         //close the stream
         bwr.close();
+        
+        CommandLineRunner.runApplication("dot", "test.dot");
        
 	}
 }
