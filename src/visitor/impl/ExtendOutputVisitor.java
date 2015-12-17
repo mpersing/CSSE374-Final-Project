@@ -12,7 +12,7 @@ public class ExtendOutputVisitor extends OutputVisitor {
 	 */
 	@Override
 	public void visit(IDataManager d){
-		this.sb.append("        edge [\n                arrowhead = \"empty\"\n        ]\n");
+		this.sb.append("\n        edge [\n                arrowhead = \"empty\"\n        ]\n");
 	}
 	
 	/* Format:
@@ -21,14 +21,15 @@ public class ExtendOutputVisitor extends OutputVisitor {
 	 */
 	@Override
 	public void visit(IClass c) {
-		String ext = c.getExtends();
+		String[] exts = {c.getExtends()};
+		if (c.isInterface()) exts = c.getImplements();
 		
 		// If the class extends anything
-		if(null != ext){
+		for (String e : exts){
 			this.sb.append("        ");
 			this.sb.append(c.getName());
 			this.sb.append(" -> ");
-			this.sb.append(ext);
+			this.sb.append(e);
 			this.sb.append("\n");
 		}
 	}

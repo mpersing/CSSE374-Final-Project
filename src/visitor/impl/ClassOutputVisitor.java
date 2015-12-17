@@ -61,7 +61,7 @@ public class ClassOutputVisitor extends OutputVisitor {
 	
 	public void postVisit(IClass c) {
 		// Close the label
-		this.sb.append("}\"\n        ]\n");
+		this.sb.append("}\"\n        ]\n\n");
 	}
 	
 	public void visit(IDataManager d){
