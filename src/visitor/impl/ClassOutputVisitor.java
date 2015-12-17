@@ -15,7 +15,7 @@ public class ClassOutputVisitor extends OutputVisitor {
 	
 	public void visit(IField f) {
 		// Decide prefix
-		String pre = f.isPrivate()?"- ":f.isPublic()?"+ ":f.isProtected()?"# ":"";
+		String pre = f.isPrivate()?"- ":f.isPublic()?"+ ":f.isProtected()?"\\# ":"";
 		
 		// The rest of the field
 		this.sb.append(pre);
@@ -31,7 +31,7 @@ public class ClassOutputVisitor extends OutputVisitor {
 		
 		// The rest of the method
 		this.sb.append(pre);
-		this.sb.append(m.getName());
+		this.sb.append(m.getName().replaceAll("[<>]",""));
 		this.sb.append("() : ");
 		this.sb.append(m.getReturnType());
 		this.sb.append("\\l");
