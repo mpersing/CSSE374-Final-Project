@@ -37,6 +37,7 @@ public class ASMTest {
 		assertFalse(uut.isProtected());
 		assertFalse(uut.isStatic());
 		assertFalse(uut.isInterface());
+		assertTrue(uut.isAbstract());
 		assertTrue(uut.getImplements().length == 0);
 		assertTrue(uut.getExtends().equals("java/lang/Object"));
 		assertTrue(uut.getName().equals("asm/TestClass"));
@@ -70,6 +71,45 @@ public class ASMTest {
 		assertTrue(uut.getName().equals("testField"));
 		assertTrue(uut.getType().equals("int"));
 	}
+	
+	@Test
+	public void testInterfaceDeclaration() throws IOException {
+		loadClass("asm.TestInterface");
+		assertNotNull(this.dm);
+		ArrayList<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.get(0);
+		assertTrue(uut.isPublic());
+		assertFalse(uut.isPrivate());
+		assertFalse(uut.isProtected());
+		assertFalse(uut.isStatic());
+		assertTrue(uut.isInterface());
+		assertTrue(uut.getImplements().length == 1);
+		assertTrue(uut.getImplements()[0].equals("java/util/List"));
+		assertTrue(uut.getExtends().equals("java/lang/Object"));
+		assertTrue(uut.getName().equals("asm/TestInterface"));
+		assertTrue(uut.getMethods().size() == 1);
+		assertTrue(uut.getFields().size() == 0); // empty - don't need an explicit test for fields
+	}
+	
+	@Test
+	public void testInterfaceMethods() throws IOException {
+		loadClass("asm.TestInterface");
+		assertNotNull(this.dm);
+		ArrayList<IClass> classList = this.dm.getClasses();
+		IClass testClass = classList.get(0);
+		IMethod uut = testClass.getMethods().get(0);
+		assertTrue(uut.isPublic());
+		assertFalse(uut.isPrivate());
+		assertFalse(uut.isProtected());
+		assertFalse(uut.isStatic());
+		assertTrue(uut.getName().equals("kindaSecretFunction")); // default constructor
+		assertTrue(uut.getArguments().length == 3);
+		assertTrue(uut.getArguments()[0].equals("int"));
+		assertTrue(uut.getArguments()[1].equals("int"));
+		assertTrue(uut.getArguments()[2].equals("int"));
+		assertTrue(uut.getReturnType().equals("java.lang.String"));
+	}
+	
 	@Test
 	public void testExtendsNull() throws IOException {
 		loadClass("java.lang.Object");

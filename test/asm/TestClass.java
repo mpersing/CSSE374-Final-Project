@@ -1,5 +1,5 @@
 package asm;
 
-public class TestClass {
+public abstract class TestClass {
 	protected static int testField;
 }
