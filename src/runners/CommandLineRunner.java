@@ -54,7 +54,5 @@ public class CommandLineRunner {
         
         // runs the dot
         CommandLineRunner.runApplication("dot", "-Tpng test.gv -o graph1.png");
-        
-        System.out.println("done, I gues?");
 	}
 }
