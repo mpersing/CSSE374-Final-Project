@@ -1,5 +1,7 @@
 package visitor.impl;
 
+import java.util.Arrays;
+
 import data.api.IClass;
 import data.api.IDataManager;
 import data.api.IField;
@@ -32,7 +34,17 @@ public class ClassOutputVisitor extends OutputVisitor {
 		// The rest of the method
 		this.sb.append(pre);
 		this.sb.append(m.getName().replaceAll("[<>]",""));
-		this.sb.append("() : ");
+		
+		// get arguments
+		this.sb.append("(");
+		String args  = Arrays.asList(m.getArguments()).toString();
+		// if there are any
+		if (args.length() > 0){
+			this.sb.append(args.toString().substring(1, args.length()-1));
+		}
+		this.sb.append(") : ");
+		
+		// get return type
 		this.sb.append(m.getReturnType());
 		this.sb.append("\\l");
 	}
