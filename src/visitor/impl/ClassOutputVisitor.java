@@ -52,6 +52,9 @@ public class ClassOutputVisitor extends OutputVisitor {
 		// If it is an interface
 		if (c.isInterface()) this.sb.append("\\<\\<Interface\\>\\>\\n");
 		
+		// If it is abstract
+		if (c.isAbstract() && !c.isInterface()) this.sb.append("\\<\\<Abstract\\>\\>\\n");
+		
 		// Write the name
 		this.sb.append(c.getName());
 		this.sb.append("|");

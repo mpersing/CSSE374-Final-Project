@@ -30,6 +30,11 @@ public class Class extends Element implements IClass {
 	}
 	
 	@Override
+	public boolean isAbstract() {
+		return (this.access & Opcodes.ACC_ABSTRACT) != 0;
+	}
+	
+	@Override
 	public void addMethod(IMethod m) {
 		this.methodList.add(m);
 	}

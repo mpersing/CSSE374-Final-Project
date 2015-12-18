@@ -15,5 +15,6 @@ public interface IClass extends IElement, ITraverser {
 	public void setImplements(String[] i);
 	public String[] getImplements();
 	public boolean isInterface();
+	public boolean isAbstract();
 	
 }
