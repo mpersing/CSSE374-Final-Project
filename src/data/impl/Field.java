@@ -1,10 +1,9 @@
 package data.impl;
 
-import visitor.api.ITraverser;
 import visitor.impl.OutputVisitor;
 import data.api.IField;
 
-public class Field extends Element implements IField, ITraverser {
+public class Field extends Element implements IField {
 
 	private String type;
 

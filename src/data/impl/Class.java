@@ -24,6 +24,7 @@ public class Class extends Element implements IClass {
 		this.setExtendsClass(null);
 	}
 	
+	@Override
 	public boolean isInterface() {
 		return (this.access & Opcodes.ACC_INTERFACE) != 0;
 	}

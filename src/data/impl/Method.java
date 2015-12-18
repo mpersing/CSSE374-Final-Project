@@ -1,10 +1,9 @@
 package data.impl;
 
-import visitor.api.ITraverser;
 import visitor.impl.OutputVisitor;
 import data.api.IMethod;
 
-public class Method extends Element implements IMethod, ITraverser {
+public class Method extends Element implements IMethod {
 
 	private String[] arguments;
 	private String returnType;

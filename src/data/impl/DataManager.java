@@ -3,18 +3,17 @@ package data.impl;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import jdk.internal.org.objectweb.asm.ClassReader;
+import jdk.internal.org.objectweb.asm.ClassVisitor;
+import jdk.internal.org.objectweb.asm.Opcodes;
+import visitor.impl.OutputVisitor;
 import asm.ClassDeclarationVisitor;
 import asm.ClassFieldVisitor;
 import asm.ClassMethodVisitor;
 import data.api.IClass;
 import data.api.IDataManager;
-import jdk.internal.org.objectweb.asm.ClassReader;
-import jdk.internal.org.objectweb.asm.ClassVisitor;
-import jdk.internal.org.objectweb.asm.Opcodes;
-import visitor.api.ITraverser;
-import visitor.impl.OutputVisitor;
 
-public class DataManager implements IDataManager, ITraverser {
+public class DataManager implements IDataManager {
 
 	private ArrayList<IClass> classes;
 	private ArrayList<OutputVisitor> visitors;

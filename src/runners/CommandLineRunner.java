@@ -4,8 +4,6 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 import visitor.impl.ClassOutputVisitor;
 import visitor.impl.ExtendOutputVisitor;
