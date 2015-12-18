@@ -1,7 +1,11 @@
 # CSSE374-Final-Project
 
 ## Design
+This tool has three main components in it:
 
+1. Data API and storage - There are classes that store the information about the attributes of the classes, interfaces, methods, and fields.
+2. ASM parser - The combination of a decorator pattern and a visitor pattern were used to retrieve the information from the compiled bytecode.
+3. Output - A visitor pattern was used to output the class information in a format that the GraphViz tool is able to read. There are different output visitors responsible for each portion of the output. The classes in that store the data are responsible for controlling the proper traversal of the information. One visitor outputs the class information, another outputs all the extends relationships, and another outputs all the implements relationships. These visitors are set at runtime and new ones that do different things should be able to be added very easily.
 
 ## Usage Instructions
 This tool is designed for use on Windows and to be run from Eclipse. It is possible to be run outside of Eclipse, but instructions to do so will not be provided here.
