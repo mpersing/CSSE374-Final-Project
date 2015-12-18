@@ -1,5 +1,5 @@
 package asm;
 
 public class TestClass {
-	private static int testField;
+	protected static int testField;
 }
