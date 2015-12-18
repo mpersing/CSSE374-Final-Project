@@ -63,5 +63,9 @@ public class DataManager implements IDataManager {
 			c.accept(v);
 		}
 	}
+	
+	public ArrayList<IClass> getClasses() {
+		return this.classes;
+	}
 
 }
