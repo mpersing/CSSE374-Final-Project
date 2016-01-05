@@ -53,7 +53,9 @@ public class ClassOutputVisitor extends OutputVisitor {
 	public void visit(IClass c){
 		// Open the class
 		this.sb.append("        ");
+		this.sb.append("\"");
 		this.sb.append(c.getName());
+		this.sb.append("\"");
 		this.sb.append(" [ \n");
 		
 		this.sb.append("                shape=\"record\",\n");

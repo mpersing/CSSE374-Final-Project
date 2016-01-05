@@ -9,9 +9,12 @@ public class ClassDeclarationVisitor extends ClassInformationVisitor {
 	@Override
 	public void visit(int version, int access, String name, String signature, String superName, 
 			String[] interfaces) {
-		this.newClass.setName(name);
+		this.newClass.setName(name.replace('/', '.'));
 		this.newClass.setAccess(access);
-		this.newClass.setExtends(superName);
+		this.newClass.setExtends(superName.replace('/', '.'));
+		for(int i = 0 ; i < interfaces.length ; ++i) {
+			interfaces[i] = interfaces[i].replace('/', '.');
+		}
 		this.newClass.setImplements(interfaces);
 		super.visit(version, access, name, signature, superName, interfaces);
 	}

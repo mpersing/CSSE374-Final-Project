@@ -27,9 +27,13 @@ public class ExtendOutputVisitor extends OutputVisitor {
 		// If the class extends anything
 		for (String e : exts){
 			this.sb.append("        ");
+			this.sb.append("\"");
 			this.sb.append(c.getName());
+			this.sb.append("\"");
 			this.sb.append(" -> ");
+			this.sb.append("\"");
 			this.sb.append(e);
+			this.sb.append("\"");
 			this.sb.append("\n");
 		}
 	}

@@ -44,7 +44,7 @@ public class CommandLineRunner {
 		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone1Automatic.gv")));
         
         //write contents of StringBuffer to a file
-        bwr.write(sb.toString().replace('/', '_'));
+        bwr.write(sb.toString());
        
         //flush the stream
         bwr.flush();

@@ -28,9 +28,13 @@ public class ImplementOutputVisitor extends OutputVisitor {
 		if (impls.length > 0){
 			for (String i : impls){
 				this.sb.append("        ");
+				this.sb.append("\"");
 				this.sb.append(c.getName());
+				this.sb.append("\"");
 				this.sb.append(" -> ");
+				this.sb.append("\"");
 				this.sb.append(i);
+				this.sb.append("\"");
 				this.sb.append("\n");
 			}
 		}
