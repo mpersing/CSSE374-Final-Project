@@ -26,7 +26,8 @@ public class ClassFieldVisitor extends ClassInformationVisitor {
 		} else {
 			String sigResult;
 			int index = signature.lastIndexOf("<L");
-			sigResult = signature.substring(index + 2, signature.length() - 3);
+			int lastIndex = signature.indexOf(';', index);
+			sigResult = signature.substring(index + 2, lastIndex);
 			sigResult = sigResult.replace('/', '.');
 			newClass.addAssoc(sigResult);
 			field.setType(Type.getType(desc).getClassName() + "\\<" + sigResult + "\\>");
