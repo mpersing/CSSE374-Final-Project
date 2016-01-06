@@ -22,7 +22,10 @@ public class ClassMethodVisitor extends ClassInformationVisitor {
 		Type[] argTypes = Type.getArgumentTypes(desc);
 		String[] classNames = new String[argTypes.length];
 		for(int i = 0 ; i < argTypes.length ; ++i) {
-			classNames[i] = argTypes[i].getClassName();
+			String cName = argTypes[i].getClassName();
+			classNames[i] = cName;
+			this.newClass.addUses(cName);
+			
 		}
 		method.setArguments(classNames);
 		method.setReturnType(Type.getReturnType(desc).getClassName());
