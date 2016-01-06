@@ -20,12 +20,16 @@ public class ClassFieldVisitor extends ClassInformationVisitor {
 		field.setAccess(access);
 		if(signature == null)
 		{
-			field.setType(Type.getType(desc).getClassName());
+			String type = Type.getType(desc).getClassName();
+			field.setType(type);
+			newClass.addAssoc(type);
 		} else {
 			String sigResult;
 			int index = signature.lastIndexOf("<L");
 			sigResult = signature.substring(index + 2, signature.length() - 3);
-			field.setType(sigResult.replace('/', '.'));
+			sigResult = sigResult.replace('/', '.');
+			newClass.addAssoc(sigResult);
+			field.setType(Type.getType(desc).getClassName() + "\\<" + sigResult + "\\>");
 			// signature magic
 		}
 		field.setName(name);
