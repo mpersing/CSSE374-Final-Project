@@ -20,6 +20,7 @@ public class Class extends Element implements IClass {
 	private Set<String> assocSet;
 	private String extendsClass;
 	private String[] implementArray;
+	private static Set<String> primativeSet;
 	
 	public Class() {
 		this.methodList = new ArrayList<IMethod>();
@@ -28,6 +29,11 @@ public class Class extends Element implements IClass {
 		this.assocSet = new HashSet<String>();
 		this.implementArray = null;
 		this.setExtendsClass(null);
+		if(primativeSet == null) {
+			primativeSet = new HashSet<String>();
+			primativeSet.add("int");
+			primativeSet.add("java.lang.String");
+		}
 	}
 	
 	@Override
@@ -100,27 +106,34 @@ public class Class extends Element implements IClass {
 	public String[] getImplements() {
 		return this.implementArray;
 	}
+	
+	private String removeBrackets(String s) {
+		return s.replaceAll("[\\[\\]]", "");
+	}
 
 	@Override
 	public void addUses(String u) {
-		usesSet.add(u);
+		usesSet.add(removeBrackets(u));
 	}
 
 	@Override
 	public void addAssoc(String a) {
-		assocSet.add(a);
+		assocSet.add(removeBrackets(a));
 	}
 
 	@Override
 	public Set<String> getUses() {
 		Set<String> toReturn = new HashSet<String>(usesSet);
 		toReturn.removeAll(assocSet);
+		toReturn.removeAll(primativeSet);
 		return toReturn;
 	}
 
 	@Override
 	public Set<String> getAssoc() {
-		return assocSet;
+		Set<String> toReturn = new HashSet<String>(assocSet);
+		toReturn.removeAll(primativeSet);
+		return toReturn;
 	}
 
 }
