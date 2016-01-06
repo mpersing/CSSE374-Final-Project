@@ -1,25 +1,31 @@
 package data.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import com.sun.xml.internal.ws.org.objectweb.asm.Opcodes;
 
-import visitor.impl.OutputVisitor;
 import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
+import visitor.impl.OutputVisitor;
 
 public class Class extends Element implements IClass {
 	
 	private List<IMethod> methodList;
 	private List<IField> fieldList;
+	private Set<String> usesSet;
+	private Set<String> assocSet;
 	private String extendsClass;
 	private String[] implementArray;
 	
 	public Class() {
 		this.methodList = new ArrayList<IMethod>();
 		this.fieldList = new ArrayList<IField>();
+		this.usesSet = new HashSet<String>();
+		this.assocSet = new HashSet<String>();
 		this.implementArray = null;
 		this.setExtendsClass(null);
 	}
@@ -93,6 +99,30 @@ public class Class extends Element implements IClass {
 	@Override
 	public String[] getImplements() {
 		return this.implementArray;
+	}
+
+	@Override
+	public void addUses(String u) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addAssoc(String a) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Set<String> getUses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<String> getAssoc() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

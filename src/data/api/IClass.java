@@ -1,6 +1,7 @@
 package data.api;
 
 import java.util.List;
+import java.util.Set;
 
 import visitor.api.ITraverser;
 
@@ -16,5 +17,9 @@ public interface IClass extends IElement, ITraverser {
 	public String[] getImplements();
 	public boolean isInterface();
 	public boolean isAbstract();
+	public void addUses(String u);
+	public void addAssoc(String a);
+	public Set<String> getUses();
+	public Set<String> getAssoc();
 	
 }
