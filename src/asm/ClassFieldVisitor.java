@@ -18,7 +18,16 @@ public class ClassFieldVisitor extends ClassInformationVisitor {
 		FieldVisitor toDecorate = super.visitField(access, name, desc, signature, value);
 		IField field = new Field();
 		field.setAccess(access);
-		field.setType(Type.getType(desc).getClassName());
+		if(signature == null)
+		{
+			field.setType(Type.getType(desc).getClassName());
+		} else {
+			String sigResult;
+			int index = signature.lastIndexOf("<L");
+			sigResult = signature.substring(index + 2, signature.length() - 3);
+			field.setType(sigResult.replace('/', '.'));
+			// signature magic
+		}
 		field.setName(name);
 		newClass.addField(field);
 		return toDecorate;
