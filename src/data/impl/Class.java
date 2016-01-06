@@ -103,26 +103,24 @@ public class Class extends Element implements IClass {
 
 	@Override
 	public void addUses(String u) {
-		// TODO Auto-generated method stub
-		
+		usesSet.add(u);
 	}
 
 	@Override
 	public void addAssoc(String a) {
-		// TODO Auto-generated method stub
-		
+		assocSet.add(a);
 	}
 
 	@Override
 	public Set<String> getUses() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<String> toReturn = new HashSet<String>(usesSet);
+		toReturn.removeAll(assocSet);
+		return toReturn;
 	}
 
 	@Override
 	public Set<String> getAssoc() {
-		// TODO Auto-generated method stub
-		return null;
+		return assocSet;
 	}
 
 }
