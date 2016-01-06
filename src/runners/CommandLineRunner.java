@@ -5,11 +5,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import data.api.IDataManager;
+import data.impl.DataManager;
+import visitor.impl.AssocOutputVisitor;
 import visitor.impl.ClassOutputVisitor;
 import visitor.impl.ExtendOutputVisitor;
 import visitor.impl.ImplementOutputVisitor;
-import data.api.IDataManager;
-import data.impl.DataManager;
+import visitor.impl.UsesOutputVisitor;
 
 public class CommandLineRunner {
 	
@@ -31,6 +33,8 @@ public class CommandLineRunner {
 		data.addOutputVisitor(new ClassOutputVisitor());
 		data.addOutputVisitor(new ExtendOutputVisitor());
 		data.addOutputVisitor(new ImplementOutputVisitor());
+		data.addOutputVisitor(new AssocOutputVisitor());
+		data.addOutputVisitor(new UsesOutputVisitor());
 		
 		for(String s : args) {
 			data.add(s);
