@@ -3,6 +3,7 @@ package data.api;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import visitor.api.IOutputStrategy;
 import visitor.api.ITraverser;
 import visitor.impl.OutputVisitor;
 
@@ -13,5 +14,6 @@ public interface IDataManager extends ITraverser{
 	public void output(StringBuffer sb);
 	
 	public ArrayList<IClass> getClasses();
+	public void setOutputStrategy(IOutputStrategy outputStrategy);
 	
 }

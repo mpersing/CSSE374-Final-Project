@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import jdk.internal.org.objectweb.asm.ClassReader;
 import jdk.internal.org.objectweb.asm.ClassVisitor;
 import jdk.internal.org.objectweb.asm.Opcodes;
+import visitor.api.IOutputStrategy;
 import visitor.impl.OutputVisitor;
 import asm.ClassDeclarationVisitor;
 import asm.ClassFieldVisitor;
@@ -17,6 +18,7 @@ public class DataManager implements IDataManager {
 
 	private ArrayList<IClass> classes;
 	private ArrayList<OutputVisitor> visitors;
+	private IOutputStrategy outStrat;
 	
 	public DataManager(){
 		this.classes = new ArrayList<IClass>();
@@ -46,6 +48,8 @@ public class DataManager implements IDataManager {
 	
 	@Override
 	public void output(StringBuffer sb) {
+		this.outStrat.preVisit(sb);
+		
 		for(OutputVisitor v : this.visitors){
 			v.setStringBuffer(sb);
 			this.accept(v);
@@ -54,6 +58,8 @@ public class DataManager implements IDataManager {
 		for(OutputVisitor v : this.visitors){
 			v.postVisit(this);
 		}
+		
+		this.outStrat.postVisit(sb);
 	}
 
 	@Override
@@ -66,6 +72,10 @@ public class DataManager implements IDataManager {
 	
 	public ArrayList<IClass> getClasses() {
 		return this.classes;
+	}
+	
+	public void setOutputStrategy(IOutputStrategy outStrat){
+		this.outStrat = outStrat;
 	}
 
 }

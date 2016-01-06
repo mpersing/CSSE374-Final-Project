@@ -83,12 +83,4 @@ public class ClassOutputVisitor extends OutputVisitor {
 		this.sb.append("}\"\n        ];\n\n");
 	}
 	
-	public void visit(IDataManager d){
-		this.sb.append("digraph g {\n");
-	}
-	
-	public void postVisit(IDataManager d){
-		this.sb.append("}\n");
-	}
-	
 }
