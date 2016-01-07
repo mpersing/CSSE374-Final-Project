@@ -4,6 +4,7 @@ import data.api.IMethod;
 import data.impl.Method;
 import jdk.internal.org.objectweb.asm.ClassVisitor;
 import jdk.internal.org.objectweb.asm.MethodVisitor;
+import jdk.internal.org.objectweb.asm.Opcodes;
 import jdk.internal.org.objectweb.asm.Type;
 
 public class ClassMethodVisitor extends ClassInformationVisitor {
@@ -15,8 +16,10 @@ public class ClassMethodVisitor extends ClassInformationVisitor {
 	@Override
 	public MethodVisitor visitMethod(int access, String name, String desc, String signature,
 			String[] exceptions) {
-		MethodVisitor toDecorateLaterThisQuarter = super.visitMethod(access, name, desc, signature
+		MethodVisitor toDecorate = super.visitMethod(access, name, desc, signature
 				, exceptions);
+		InternalMethodVisitor imv = new InternalMethodVisitor(Opcodes.ASM5, toDecorate);
+		imv.setClass(this.newClass);
 		IMethod method = new Method();
 		
 		Type[] argTypes = Type.getArgumentTypes(desc);
@@ -34,7 +37,7 @@ public class ClassMethodVisitor extends ClassInformationVisitor {
 		
 		this.newClass.addMethod(method);
 		
-		return toDecorateLaterThisQuarter;
+		return imv;
 	}
 
 
