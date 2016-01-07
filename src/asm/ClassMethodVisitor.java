@@ -31,7 +31,10 @@ public class ClassMethodVisitor extends ClassInformationVisitor {
 			
 		}
 		method.setArguments(classNames);
-		method.setReturnType(Type.getReturnType(desc).getClassName());
+		String returnType = Type.getReturnType(desc).getClassName();
+		method.setReturnType(returnType);
+		this.newClass.addUses(returnType);
+		
 		method.setName(name);
 		method.setAccess(access);
 		

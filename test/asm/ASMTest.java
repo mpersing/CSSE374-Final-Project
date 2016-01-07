@@ -131,6 +131,7 @@ public class ASMTest {
 		assertTrue(usesSet.contains(new String("data.impl.Class")));
 		assertTrue(usesSet.contains(new String("data.impl.Field")));
 		assertTrue(usesSet.contains(new String("data.impl.Method")));
+		assertTrue(usesSet.contains(new String("data.api.IElement")));
 	}
 
 }
