@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
 
 import org.junit.Test;
 
@@ -39,8 +40,8 @@ public class ASMTest {
 		assertFalse(uut.isInterface());
 		assertTrue(uut.isAbstract());
 		assertTrue(uut.getImplements().length == 0);
-		assertTrue(uut.getExtends().equals("java/lang/Object"));
-		assertTrue(uut.getName().equals("asm/TestClass"));
+		assertTrue(uut.getExtends().equals("java.lang.Object"));
+		assertTrue(uut.getName().equals("asm.TestClass"));
 		assertTrue(uut.getMethods().size() == 1);
 		assertTrue(uut.getFields().size() == 1);
 	}
@@ -84,9 +85,9 @@ public class ASMTest {
 		assertFalse(uut.isStatic());
 		assertTrue(uut.isInterface());
 		assertTrue(uut.getImplements().length == 1);
-		assertTrue(uut.getImplements()[0].equals("java/util/List"));
-		assertTrue(uut.getExtends().equals("java/lang/Object"));
-		assertTrue(uut.getName().equals("asm/TestInterface"));
+		assertTrue(uut.getImplements()[0].equals("java.util.List"));
+		assertTrue(uut.getExtends().equals("java.lang.Object"));
+		assertTrue(uut.getName().equals("asm.TestInterface"));
 		assertTrue(uut.getMethods().size() == 1);
 		assertTrue(uut.getFields().size() == 0); // empty - don't need an explicit test for fields
 	}
@@ -117,6 +118,19 @@ public class ASMTest {
 		ArrayList<IClass> classList = this.dm.getClasses();
 		IClass uut = classList.get(0);
 		assertTrue(uut.getExtends() == null);
+	}
+	
+	@Test
+	public void testFactory() throws IOException {
+		loadClass("asm.TestElementFactory");
+		assertNotNull(this.dm);
+		ArrayList<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.get(0);
+		Set<String> usesSet = uut.getUses();
+		assertNotNull(usesSet);
+		assertTrue(usesSet.contains(new String("data.impl.Class")));
+		assertTrue(usesSet.contains(new String("data.impl.Field")));
+		assertTrue(usesSet.contains(new String("data.impl.Method")));
 	}
 
 }

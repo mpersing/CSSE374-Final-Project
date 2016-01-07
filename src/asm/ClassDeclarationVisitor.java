@@ -11,7 +11,11 @@ public class ClassDeclarationVisitor extends ClassInformationVisitor {
 			String[] interfaces) {
 		this.newClass.setName(name.replace('/', '.'));
 		this.newClass.setAccess(access);
-		this.newClass.setExtends(superName.replace('/', '.'));
+		if(superName != null) {
+			this.newClass.setExtends(superName.replace('/', '.'));
+		} else {
+			this.newClass.setExtends(superName);
+		}
 		for(int i = 0 ; i < interfaces.length ; ++i) {
 			interfaces[i] = interfaces[i].replace('/', '.');
 		}
