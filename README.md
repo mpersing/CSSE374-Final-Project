@@ -35,6 +35,7 @@ Milestone 1:
 * Code: Both
 * UML comparison testing: Tyler Whitehouse
 * Automated tests: Matthew Persing
+
 Milestone 2:
 * README: Matthew Persing
 * Updated UML Diagram: Tyler Whitehouse
