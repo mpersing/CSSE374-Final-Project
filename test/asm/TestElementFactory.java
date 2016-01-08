@@ -7,7 +7,7 @@ import data.impl.Method;
 
 public class TestElementFactory {
 	
-	public IElement makeElement(int chooser) {
+	public IElement makeElement(TestClassWithGenericField t, int chooser) {
 		IElement e;
 		if(chooser == 0) {
 			e = new Class();

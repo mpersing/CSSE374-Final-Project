@@ -155,8 +155,8 @@ public class ASMTest {
 	
 	/**
 	 * The testFactory test tests that the proper classes are added to the
-	 * usesSet that will be displayed at the output. This test tests both
-	 * types in the return of a method and the body of a method.
+	 * usesSet that will be displayed at the output. This test tests
+	 * types in the return, the arguments, and the body of a method.
 	 * 
 	 * @throws IOException
 	 */
@@ -168,10 +168,14 @@ public class ASMTest {
 		IClass uut = classList.get(0);
 		Set<String> usesSet = uut.getUses();
 		assertNotNull(usesSet);
+		// created by new call
 		assertTrue(usesSet.contains(new String("data.impl.Class")));
 		assertTrue(usesSet.contains(new String("data.impl.Field")));
 		assertTrue(usesSet.contains(new String("data.impl.Method")));
+		// return type
 		assertTrue(usesSet.contains(new String("data.api.IElement")));
+		// argument type
+		assertTrue(usesSet.contains(new String("asm.TestClassWithGenericField")));
 		assertTrue(usesSet.size() == 4);
 		Set<String> assocSet = uut.getAssoc();
 		assertTrue(assocSet.isEmpty());
