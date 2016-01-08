@@ -132,6 +132,9 @@ public class ASMTest {
 		assertTrue(usesSet.contains(new String("data.impl.Field")));
 		assertTrue(usesSet.contains(new String("data.impl.Method")));
 		assertTrue(usesSet.contains(new String("data.api.IElement")));
+		assertTrue(usesSet.size() == 4);
+		Set<String> assocSet = uut.getAssoc();
+		assertTrue(assocSet.isEmpty());
 	}
 
 }

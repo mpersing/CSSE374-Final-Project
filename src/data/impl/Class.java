@@ -33,6 +33,7 @@ public class Class extends Element implements IClass {
 			primativeSet = new HashSet<String>();
 			primativeSet.add("int");
 			primativeSet.add("java.lang.String");
+			primativeSet.add("void");
 		}
 	}
 	
