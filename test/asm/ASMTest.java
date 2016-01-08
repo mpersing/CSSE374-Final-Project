@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
@@ -135,6 +136,25 @@ public class ASMTest {
 		assertTrue(usesSet.size() == 4);
 		Set<String> assocSet = uut.getAssoc();
 		assertTrue(assocSet.isEmpty());
+	}
+	
+	@Test
+	public void testGenericField() throws IOException {
+		loadClass("asm.TestClassWithGenericField");
+		assertNotNull(this.dm);
+		ArrayList<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.get(0);
+		Set<String> assocSet = uut.getAssoc();
+		assertNotNull(assocSet);
+		assertTrue(assocSet.size() == 1);
+		assertTrue(assocSet.contains(new String("asm.TestClass")));
+		List<IField> fieldList = uut.getFields();
+		assertTrue(fieldList.size() == 1);
+		IField genericField = fieldList.get(0);
+		String fieldType = genericField.getType();
+		// need escape characters for dot language
+		assertTrue(fieldType.equals("java.util.List\\<asm.TestClass\\>")); 
+		
 	}
 
 }
