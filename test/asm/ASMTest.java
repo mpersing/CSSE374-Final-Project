@@ -28,6 +28,11 @@ public class ASMTest {
 		this.dm.add(toLoad);
 	}
 	
+	/**
+	 * Test that the general information about a Class is parsed properly.
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testClassDeclaration() throws IOException {
 		loadClass("asm.TestClass");
@@ -47,6 +52,11 @@ public class ASMTest {
 		assertTrue(uut.getFields().size() == 1);
 	}
 	
+	/**
+	 * Test that methods in classes are properly parsed.
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testClassMethods() throws IOException {
 		loadClass("asm.TestClass");
@@ -59,6 +69,11 @@ public class ASMTest {
 		assertTrue(uut.getReturnType().equals("void"));
 	}
 	
+	/**
+	 * Test that fields in classes are properly parsed.
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testClassFields() throws IOException {
 		loadClass("asm.TestClass");
@@ -74,6 +89,12 @@ public class ASMTest {
 		assertTrue(uut.getType().equals("int"));
 	}
 	
+	/**
+	 * Test that the information stored for Interfaces matches what's
+	 * expected.
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testInterfaceDeclaration() throws IOException {
 		loadClass("asm.TestInterface");
@@ -93,6 +114,11 @@ public class ASMTest {
 		assertTrue(uut.getFields().size() == 0); // empty - don't need an explicit test for fields
 	}
 	
+	/**
+	 * Test that methods in an interface are properly parsed.
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testInterfaceMethods() throws IOException {
 		loadClass("asm.TestInterface");
@@ -112,6 +138,12 @@ public class ASMTest {
 		assertTrue(uut.getReturnType().equals("java.lang.String"));
 	}
 	
+	/**
+	 * Make sure nothing breaks if the class extends null. The java.lang.Object
+	 * class is the only class that extends null so it is used for this test.
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testExtendsNull() throws IOException {
 		loadClass("java.lang.Object");
@@ -121,6 +153,13 @@ public class ASMTest {
 		assertTrue(uut.getExtends() == null);
 	}
 	
+	/**
+	 * The testFactory test tests that the proper classes are added to the
+	 * usesSet that will be displayed at the output. This test tests both
+	 * types in the return of a method and the body of a method.
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testFactory() throws IOException {
 		loadClass("asm.TestElementFactory");
@@ -138,6 +177,13 @@ public class ASMTest {
 		assertTrue(assocSet.isEmpty());
 	}
 	
+	/**
+	 * This test makes sure that the full field type shows in the UML,
+	 * but the assoc arrow is only drawn to the class inside of the
+	 * container.
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testGenericField() throws IOException {
 		loadClass("asm.TestClassWithGenericField");
@@ -154,7 +200,6 @@ public class ASMTest {
 		String fieldType = genericField.getType();
 		// need escape characters for dot language
 		assertTrue(fieldType.equals("java.util.List\\<asm.TestClass\\>")); 
-		
 	}
 
 }
