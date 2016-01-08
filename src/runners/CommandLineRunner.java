@@ -47,7 +47,7 @@ public class CommandLineRunner {
 		
 		System.out.println(sb.toString());
 		
-		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone1Automatic.gv")));
+		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone2Automatic.gv")));
         
         //write contents of StringBuffer to a file
         bwr.write(sb.toString());
@@ -59,6 +59,6 @@ public class CommandLineRunner {
         bwr.close();
         
         // runs the dot
-        CommandLineRunner.runApplication("dot", "-Tpng milestone1Automatic.gv -o milestone1Automatic.png");
+        CommandLineRunner.runApplication("dot", "-Tpng milestone2Automatic.gv -o milestone2Automatic.png");
 	}
 }

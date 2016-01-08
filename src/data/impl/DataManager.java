@@ -26,6 +26,7 @@ public class DataManager implements IDataManager {
 	}
 	
 	public void add(String toAdd) throws IOException{
+		System.out.println("adding " + toAdd);
 		IClass newClass = new Class();
 		classes.add(newClass);
 		ClassReader reader = new ClassReader(toAdd);
