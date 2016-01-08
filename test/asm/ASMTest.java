@@ -205,5 +205,25 @@ public class ASMTest {
 		// need escape characters for dot language
 		assertTrue(fieldType.equals("java.util.List\\<asm.TestClass\\>")); 
 	}
+	
+	/**
+	 * This tests to make sure that if a class appears in the assoc set to be
+	 * drawn, it will not also appear in the uses set. Association should take
+	 * priority over uses.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testUsesAssocPriority() throws IOException {
+		loadClass("asm.TestClassWithGenericField");
+		assertNotNull(this.dm);
+		ArrayList<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.get(0);
+		Set<String> assocSet = uut.getAssoc();
+		Set<String> usesSet = uut.getUses();
+		assertTrue(assocSet.contains(new String("asm.TestClass")));
+		assertFalse(usesSet.contains(new String("asm.TestClass")));
+		
+	}
 
 }
