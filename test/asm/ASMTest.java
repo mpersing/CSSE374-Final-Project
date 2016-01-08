@@ -176,7 +176,7 @@ public class ASMTest {
 		assertTrue(usesSet.contains(new String("data.api.IElement")));
 		// argument type
 		assertTrue(usesSet.contains(new String("asm.TestClassWithGenericField")));
-		assertTrue(usesSet.size() == 4);
+		assertTrue(usesSet.size() == 5);
 		Set<String> assocSet = uut.getAssoc();
 		assertTrue(assocSet.isEmpty());
 	}
