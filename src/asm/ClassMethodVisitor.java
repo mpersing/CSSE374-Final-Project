@@ -19,8 +19,9 @@ public class ClassMethodVisitor extends ClassInformationVisitor {
 		MethodVisitor toDecorate = super.visitMethod(access, name, desc, signature
 				, exceptions);
 		InternalMethodVisitor imv = new InternalMethodVisitor(Opcodes.ASM5, toDecorate);
-		imv.setClass(this.newClass);
 		IMethod method = new Method();
+		imv.setClass(this.newClass);
+		imv.setMethod(method);
 		
 		Type[] argTypes = Type.getArgumentTypes(desc);
 		String[] classNames = new String[argTypes.length];
