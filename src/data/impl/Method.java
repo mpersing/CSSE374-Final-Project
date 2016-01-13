@@ -1,12 +1,20 @@
 package data.impl;
 
-import visitor.impl.OutputVisitor;
+import java.util.ArrayList;
+import java.util.List;
+
 import data.api.IMethod;
+import visitor.impl.OutputVisitor;
 
 public class Method extends Element implements IMethod {
 
 	private String[] arguments;
+	private List<MethodCall> functionCallSeq;
 	private String returnType;
+	
+	public Method() {
+		functionCallSeq = new ArrayList<MethodCall>();
+	}
 	
 	@Override
 	public void setArguments(String[] args) {
@@ -17,10 +25,20 @@ public class Method extends Element implements IMethod {
 	public void setReturnType(String r) {
 		this.returnType = r;
 	}
+	
+	@Override
+	public void addMethodCall(MethodCall mc) {
+		this.functionCallSeq.add(mc);
+	}
 
 	@Override
 	public void accept(OutputVisitor v) {
 		v.visit(this);
+	}
+
+	@Override
+	public List<MethodCall> getMethodCalls() {
+		return this.functionCallSeq;
 	}
 
 	@Override
