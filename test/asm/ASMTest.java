@@ -11,10 +11,12 @@ import java.util.Set;
 
 import org.junit.Test;
 
+import visitor.impl.UMLOutputStrategy;
 import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
 import data.impl.DataManager;
+import data.impl.UMLAddStrategy;
 
 public class ASMTest {
 	private DataManager dm;
@@ -25,7 +27,9 @@ public class ASMTest {
 	
 	private void loadClass(String toLoad) throws IOException {
 		this.dm = new DataManager();
-		this.dm.add(toLoad);
+		this.dm.setAddStrategy(new UMLAddStrategy());
+		this.dm.setOutputStrategy(new UMLOutputStrategy());
+		this.dm.add(new String[]{toLoad});
 	}
 	
 	/**

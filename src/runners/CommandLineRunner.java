@@ -9,12 +9,14 @@ import visitor.impl.AssocOutputVisitor;
 import visitor.impl.ClassOutputVisitor;
 import visitor.impl.ExtendOutputVisitor;
 import visitor.impl.ImplementOutputVisitor;
-import visitor.impl.OutputStrategy;
+import visitor.impl.UMLOutputStrategy;
 import visitor.impl.UsesOutputVisitor;
 import data.api.IDataManager;
 import data.impl.DataManager;
+import data.impl.SDAddStrategy;
+import data.impl.UMLAddStrategy;
 
-public class CommandLineRunner {
+public abstract class CommandLineRunner {
 	
 	public static void runApplication(String command, String arg) {
 
@@ -31,15 +33,19 @@ public class CommandLineRunner {
 	
 	public static void main(String[] args) throws IOException {
 		IDataManager data = new DataManager();
+		
+		data.setAddStrategy(new UMLAddStrategy());
+		
 		data.addOutputVisitor(new ClassOutputVisitor());
 		data.addOutputVisitor(new ExtendOutputVisitor());
 		data.addOutputVisitor(new ImplementOutputVisitor());
 		data.addOutputVisitor(new AssocOutputVisitor());
 		data.addOutputVisitor(new UsesOutputVisitor());
-		data.setOutputStrategy(new OutputStrategy());
+		
+		data.setOutputStrategy(new UMLOutputStrategy());
 		
 		for(String s : args) {
-			data.add(s);
+			data.add(new String[]{s});
 		}
 		
 		StringBuffer sb = new StringBuffer();

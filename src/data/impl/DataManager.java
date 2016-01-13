@@ -11,6 +11,7 @@ import visitor.impl.OutputVisitor;
 import asm.ClassDeclarationVisitor;
 import asm.ClassFieldVisitor;
 import asm.ClassMethodVisitor;
+import data.api.AddStrategy;
 import data.api.IClass;
 import data.api.IDataManager;
 
@@ -19,14 +20,14 @@ public class DataManager implements IDataManager {
 	private ArrayList<IClass> classes;
 	private ArrayList<OutputVisitor> visitors;
 	private IOutputStrategy outStrat;
+	private AddStrategy addStrat;
 	
 	public DataManager(){
 		this.classes = new ArrayList<IClass>();
 		this.visitors = new ArrayList<OutputVisitor>();
 	}
 	
-	public void add(String toAdd) throws IOException{
-		System.out.println("adding " + toAdd);
+	public void addClass(String toAdd) throws IOException{
 		IClass newClass = new Class();
 		classes.add(newClass);
 		ClassReader reader = new ClassReader(toAdd);
@@ -77,6 +78,16 @@ public class DataManager implements IDataManager {
 	
 	public void setOutputStrategy(IOutputStrategy outStrat){
 		this.outStrat = outStrat;
+	}
+	
+	public void setAddStrategy(AddStrategy addStrat){
+		this.addStrat = addStrat;
+		addStrat.setDataManager(this);
+	}
+
+	@Override
+	public void add(String[] toAdd) throws IOException {
+		this.addStrat.add(toAdd);
 	}
 
 }

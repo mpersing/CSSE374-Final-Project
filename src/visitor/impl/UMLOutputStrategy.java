@@ -2,7 +2,7 @@ package visitor.impl;
 
 import visitor.api.IOutputStrategy;
 
-public class OutputStrategy implements IOutputStrategy{
+public class UMLOutputStrategy implements IOutputStrategy{
 	
 	public void preVisit(StringBuffer sb){
 		sb.append("digraph g {\n");
