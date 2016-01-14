@@ -9,7 +9,7 @@ import data.api.IMethod;
 import data.impl.MethodCall;
 import visitor.api.IOutputStrategy;
 
-public class SDOutputStrategy implements IOutputStrategy{
+public class SDOutputStrategy implements IOutputStrategy {
 	
 	private IDataManager dm;
 	

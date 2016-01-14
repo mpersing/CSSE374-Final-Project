@@ -28,7 +28,7 @@ public class SDCommandLineRunner extends CommandLineRunner {
 		
 		System.out.println(sb.toString());
 		
-		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone3AutomaticSD.temp")));
+		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone3AutomaticSD.sd")));
         
         //write contents of StringBuffer to a file
         bwr.write(sb.toString());
@@ -40,6 +40,6 @@ public class SDCommandLineRunner extends CommandLineRunner {
         bwr.close();
         
         // runs the generator
-        //CommandLineRunner.runApplication("dot", "-Tpng milestone2Automatic.gv -o milestone2Automatic.png");
+        CommandLineRunner.runApplication("java", "-jar sdedit-4.01.jar -o milestone3AutomaticSD.png -t png milestone3AutomaticSD.sd");
 	}
 }
