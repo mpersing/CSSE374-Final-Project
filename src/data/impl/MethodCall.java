@@ -7,12 +7,13 @@ public class MethodCall {
 	private String classToCall;
 	private String methodToCall;
 	private Type[] argTypes;
+	private Type returnType;
 	
-	public MethodCall(String c, String m, Type[] types) {
+	public MethodCall(String c, String m, Type[] types, Type r) {
 		this.classToCall = c;
 		this.methodToCall = m;
 		this.argTypes = types;
-		System.out.println("Calling class: " + this.classToCall + " method: " + this.getKey());
+		this.returnType = r;
 	}
 	
 	public String getClassToCall() {
@@ -25,6 +26,10 @@ public class MethodCall {
 	
 	public Type[] getArgTypes() {
 		return this.argTypes;
+	}
+	
+	public String getReturnType() {
+		return this.returnType.toString();
 	}
 	
 	public String getKey() {

@@ -25,7 +25,7 @@ public class InternalMethodVisitor extends MethodVisitor {
 	}
 	
 	public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
-		this.newMethod.addMethodCall(new MethodCall(owner.replace("/",  "."), name, Type.getArgumentTypes(desc)));
+		this.newMethod.addMethodCall(new MethodCall(owner.replace("/",  "."), name, Type.getArgumentTypes(desc), Type.getReturnType(desc)));
 	}
 	
 	public void visitTypeInsn(int opcode, String type) {
