@@ -12,6 +12,7 @@ public class MethodCall {
 		this.classToCall = c;
 		this.methodToCall = m;
 		this.argTypes = types;
+		System.out.println("Calling class: " + this.classToCall + " method: " + this.getKey());
 	}
 	
 	public String getClassToCall() {
@@ -26,12 +27,16 @@ public class MethodCall {
 		return this.argTypes;
 	}
 	
-	// TODO: Figure out if this thing works
 	public String getKey() {
 		String toReturn = this.methodToCall;
 		toReturn += "(";
-		for(Type t : argTypes) {
-			toReturn += t.toString();
+		for(int i = 0 ; i < argTypes.length ; ++i) {
+			toReturn += argTypes[i].toString();
+			if(i != argTypes.length - 1) {
+				toReturn += ",";
+			} else {
+				toReturn += ")";
+			}
 		}
 		return toReturn;
 	}
