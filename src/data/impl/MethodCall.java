@@ -34,10 +34,9 @@ public class MethodCall {
 			toReturn += argTypes[i].toString();
 			if(i != argTypes.length - 1) {
 				toReturn += ",";
-			} else {
-				toReturn += ")";
 			}
 		}
+		toReturn += ")";
 		return toReturn;
 	}
 }
