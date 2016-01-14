@@ -30,10 +30,10 @@ public class DataManager implements IDataManager {
 	
 	public void addClass(String toAdd) throws IOException{
 		IClass newClass = new Class();
-		if(this.classes.containsKey(newClass.getName())) {
+		if(this.classes.containsKey(toAdd)) {
 			return;
 		}	
-		classes.put(newClass.getName(), newClass);
+		classes.put(toAdd, newClass);
 		ClassReader reader = new ClassReader(toAdd);
 		
 		ClassDeclarationVisitor declVisitor = new ClassDeclarationVisitor(Opcodes.ASM5);

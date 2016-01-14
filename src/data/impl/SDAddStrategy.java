@@ -20,7 +20,15 @@ public class SDAddStrategy extends AddStrategy {
 		}
 		dataManager.addClass(classToCall);
 		IClass newClass = dataManager.getClass(classToCall);
+		if(newClass == null) {
+			System.out.println("New class not found");
+			return;
+		}
 		IMethod calledMethod = newClass.getMethod(methodToCall);
+		if(calledMethod == null) {
+			System.out.println("New method not found");
+			return;
+		}
 		List<MethodCall> mcList = calledMethod.getMethodCalls();
 		for(MethodCall m : mcList) {
 			this.addRecursively(m.getClassToCall(), m.getKey(), callDepth - 1);

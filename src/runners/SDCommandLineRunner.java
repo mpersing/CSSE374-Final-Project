@@ -1,5 +1,45 @@
 package runners;
 
-public class SDCommandLineRunner extends CommandLineRunner {
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
+import data.api.IDataManager;
+import data.impl.DataManager;
+import data.impl.SDAddStrategy;
+import visitor.impl.SDOutputStrategy;
+
+public class SDCommandLineRunner extends CommandLineRunner {
+	public static void main(String[] args) throws IOException {
+		IDataManager data = new DataManager();
+		
+		data.setAddStrategy(new SDAddStrategy());
+		
+		SDOutputStrategy outStrat = new SDOutputStrategy();
+		outStrat.setDataManager(data);
+		outStrat.setRoot(args[0], args[1], Integer.parseInt(args[2]));
+		data.setOutputStrategy(outStrat);
+		
+		data.add(args);
+		
+		StringBuffer sb = new StringBuffer();
+		data.output(sb);
+		
+		System.out.println(sb.toString());
+		
+		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone3AutomaticSD.temp")));
+        
+        //write contents of StringBuffer to a file
+        bwr.write(sb.toString());
+       
+        //flush the stream
+        bwr.flush();
+       
+        //close the stream
+        bwr.close();
+        
+        // runs the generator
+        //CommandLineRunner.runApplication("dot", "-Tpng milestone2Automatic.gv -o milestone2Automatic.png");
+	}
 }
