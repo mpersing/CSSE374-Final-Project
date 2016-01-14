@@ -28,6 +28,7 @@ public class SDOutputStrategy implements IOutputStrategy{
 	}
 	
 	public void output(StringBuffer sb){
+		this.existingClasses.add(this.rootClass);
 		this.genListsRecurse(this.rootClass, this.rootMethod, rootDepth);
 		
 		this.outputLists(sb);
@@ -51,15 +52,20 @@ public class SDOutputStrategy implements IOutputStrategy{
 		String toAdd;
 		for(MethodCall m : mcList) {
 			String key = m.getKey();
+			boolean needNew = false;
 			if(!classAlreadyAdded(m.getClassToCall())) {
 				if(key.contains("<init>")) {
 					this.newClasses.add(m.getClassToCall());
+					needNew = true;
 				} else {
 					this.existingClasses.add(m.getClassToCall());
 				}
 			}
 			toAdd = new String();
 			toAdd = this.classNameToInstanceName(c) + ":" + m.getReturnType() + "=" + this.classNameToInstanceName(m.getClassToCall()) + "." + m.getKey();
+			if(!needNew) {
+				toAdd = toAdd.replace("<init>", "newCalledAgain");
+			}
 			callSeq.add(toAdd + "\n");
 			this.genListsRecurse(m.getClassToCall(), m.getKey(), depth - 1);
 		}
