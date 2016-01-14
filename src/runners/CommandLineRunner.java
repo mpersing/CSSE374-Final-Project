@@ -36,13 +36,16 @@ public abstract class CommandLineRunner {
 		
 		data.setAddStrategy(new UMLAddStrategy());
 		
-		data.addOutputVisitor(new ClassOutputVisitor());
-		data.addOutputVisitor(new ExtendOutputVisitor());
-		data.addOutputVisitor(new ImplementOutputVisitor());
-		data.addOutputVisitor(new AssocOutputVisitor());
-		data.addOutputVisitor(new UsesOutputVisitor());
+		UMLOutputStrategy outStrat = new UMLOutputStrategy();
+		outStrat.setDataManager(data);
 		
-		data.setOutputStrategy(new UMLOutputStrategy());
+		outStrat.addOutputVisitor(new ClassOutputVisitor());
+		outStrat.addOutputVisitor(new ExtendOutputVisitor());
+		outStrat.addOutputVisitor(new ImplementOutputVisitor());
+		outStrat.addOutputVisitor(new AssocOutputVisitor());
+		outStrat.addOutputVisitor(new UsesOutputVisitor());
+		
+		data.setOutputStrategy(outStrat);
 		
 		for(String s : args) {
 			data.add(new String[]{s});

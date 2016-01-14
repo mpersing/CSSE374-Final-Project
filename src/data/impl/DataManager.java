@@ -18,13 +18,11 @@ import data.api.IDataManager;
 public class DataManager implements IDataManager {
 
 	private ArrayList<IClass> classes;
-	private ArrayList<OutputVisitor> visitors;
 	private IOutputStrategy outStrat;
 	private AddStrategy addStrat;
 	
 	public DataManager(){
 		this.classes = new ArrayList<IClass>();
-		this.visitors = new ArrayList<OutputVisitor>();
 	}
 	
 	public void addClass(String toAdd) throws IOException{
@@ -44,24 +42,9 @@ public class DataManager implements IDataManager {
 		reader.accept((ClassVisitor)methodVisitor, ClassReader.EXPAND_FRAMES);
 	}
 	
-	public void addOutputVisitor(OutputVisitor v){
-		this.visitors.add(v);
-	}
-	
 	@Override
 	public void output(StringBuffer sb) {
-		this.outStrat.preVisit(sb);
-		
-		for(OutputVisitor v : this.visitors){
-			v.setStringBuffer(sb);
-			this.accept(v);
-		}
-		
-		for(OutputVisitor v : this.visitors){
-			v.postVisit(this);
-		}
-		
-		this.outStrat.postVisit(sb);
+		this.outStrat.output(sb);
 	}
 
 	@Override
