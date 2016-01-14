@@ -1,5 +1,6 @@
 package data.api;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -8,7 +9,7 @@ import visitor.api.ITraverser;
 public interface IClass extends IElement, ITraverser {
 	
 	public void addMethod(IMethod m);
-	public List<IMethod> getMethods();
+	public Collection<IMethod> getMethods();
 	public void addField(IField f);
 	public List<IField> getFields();
 	public void setExtends(String e);
@@ -21,5 +22,6 @@ public interface IClass extends IElement, ITraverser {
 	public void addAssoc(String a);
 	public Set<String> getUses();
 	public Set<String> getAssoc();
+	public IMethod getMethod(String m);
 	
 }

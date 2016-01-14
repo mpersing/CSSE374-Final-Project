@@ -13,5 +13,6 @@ public interface IMethod extends IElement, ITraverser {
 	public String getReturnType();
 	public void addMethodCall(MethodCall mc);
 	public List<MethodCall> getMethodCalls();
+	public String getKey();
 	
 }

@@ -1,8 +1,11 @@
 package data.impl;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import com.sun.xml.internal.ws.org.objectweb.asm.Opcodes;
@@ -14,7 +17,7 @@ import visitor.impl.OutputVisitor;
 
 public class Class extends Element implements IClass {
 	
-	private List<IMethod> methodList;
+	private Map<String,IMethod> methodMap;
 	private List<IField> fieldList;
 	private Set<String> usesSet;
 	private Set<String> assocSet;
@@ -23,7 +26,7 @@ public class Class extends Element implements IClass {
 	private static Set<String> primativeSet;
 	
 	public Class() {
-		this.methodList = new ArrayList<IMethod>();
+		this.methodMap = new HashMap<String,IMethod>();
 		this.fieldList = new ArrayList<IField>();
 		this.usesSet = new HashSet<String>();
 		this.assocSet = new HashSet<String>();
@@ -49,7 +52,8 @@ public class Class extends Element implements IClass {
 	
 	@Override
 	public void addMethod(IMethod m) {
-		this.methodList.add(m);
+		String key = m.getKey();
+		this.methodMap.put(key, m);
 	}
 
 	@Override
@@ -74,7 +78,7 @@ public class Class extends Element implements IClass {
 			f.accept(v);
 		}
 		v.midVisit(this);
-		for (IMethod m : this.methodList){
+		for (IMethod m : this.methodMap.values()){
 			m.accept(v);
 		}
 		v.postVisit(this);
@@ -89,8 +93,8 @@ public class Class extends Element implements IClass {
 	}
 
 	@Override
-	public List<IMethod> getMethods() {
-		return this.methodList;
+	public Collection<IMethod> getMethods() {
+		return this.methodMap.values();
 	}
 
 	@Override
@@ -135,6 +139,11 @@ public class Class extends Element implements IClass {
 		Set<String> toReturn = new HashSet<String>(assocSet);
 		toReturn.removeAll(primativeSet);
 		return toReturn;
+	}
+
+	@Override
+	public IMethod getMethod(String m) {
+		return this.methodMap.get(m);
 	}
 
 }

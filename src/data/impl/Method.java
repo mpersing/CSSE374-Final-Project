@@ -50,5 +50,18 @@ public class Method extends Element implements IMethod {
 	public String getReturnType() {
 		return this.returnType;
 	}
+	
+	public String getKey() {
+		String toReturn = this.getName();
+		toReturn += "(";
+		for(int i = 0 ; i < arguments.length ; ++i) {
+			toReturn += arguments[i];
+			if(i != arguments.length - 1) {
+				toReturn += ",";
+			}
+		}
+		toReturn += ")";
+		return toReturn;
+	}
 
 }
