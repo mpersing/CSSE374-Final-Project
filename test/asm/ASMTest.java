@@ -2,10 +2,10 @@ package asm;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
@@ -16,7 +16,10 @@ import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
 import data.impl.DataManager;
+import data.impl.MethodCall;
+import data.impl.SDAddStrategy;
 import data.impl.UMLAddStrategy;
+import visitor.impl.SDOutputStrategy;
 import visitor.impl.UMLOutputStrategy;
 
 public class ASMTest {
@@ -31,6 +34,13 @@ public class ASMTest {
 		this.dm.setAddStrategy(new UMLAddStrategy());
 		this.dm.setOutputStrategy(new UMLOutputStrategy());
 		this.dm.add(new String[]{toLoad});
+	}
+	
+	private void loadClassMethodRecurse(String classN, String methodSig, int depth) throws IOException {
+		this.dm = new DataManager();
+		this.dm.setAddStrategy(new SDAddStrategy());
+		this.dm.setOutputStrategy(new SDOutputStrategy());
+		this.dm.add(new String[]{classN,methodSig,Integer.toString(depth)});
 	}
 	
 	/**
@@ -228,7 +238,117 @@ public class ASMTest {
 		Set<String> usesSet = uut.getUses();
 		assertTrue(assocSet.contains(new String("asm.TestClass")));
 		assertFalse(usesSet.contains(new String("asm.TestClass")));
-		
+	}
+	
+	/**
+	 * This test makes sure the proper overloaded method is chosen in the add
+	 * strategy.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testMethodOverload() throws IOException {
+		loadClassMethodRecurse("asm.TestClassOverload", "overloaded(java.lang.String)", 5);
+		assertNotNull(this.dm);
+		IClass uut = this.dm.getClass("asm.TestClassWithGenericField");
+		assertNotNull(uut);
+		uut = this.dm.getClass("asm.TestElementFactory");
+		assertNull(uut);
+	}
+	
+	/**
+	 * This test makes sure empty methods are read correctly.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testEmptyMethod() throws IOException {
+		loadClassMethodRecurse("asm.TestClassOverload", "emptyMethod()", 5);
+		assertNotNull(this.dm);
+		IClass uut = this.dm.getClass("asm.TestClassOverload");
+		assertNotNull(uut);
+		IMethod uutm = uut.getMethod("emptyMethod()");
+		assertNotNull(uutm);
+		List<MethodCall> calls = uutm.getMethodCalls();
+		assertTrue(calls.isEmpty());
+	}
+	
+	/**
+	 * This test makes sure recursion doesn't go forever.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testRecursive() throws IOException {
+		loadClassMethodRecurse("asm.TestClassOverload", "recursive()", 5);
+		assertNotNull(this.dm);
+		IClass uut = this.dm.getClass("asm.TestClassOverload");
+		assertNotNull(uut);
+		IMethod uutm = uut.getMethod("recursive()");
+		assertNotNull(uutm);
+		List<MethodCall> calls = uutm.getMethodCalls();
+		assertFalse(calls.isEmpty());
+		MethodCall m = calls.get(0);
+		assertTrue(m.getKey().equals("recursive()"));
+		assertTrue(m.getClassToCall().equals("asm.TestClassOverload"));
+		assertTrue(m.getReturnType().equals("void"));
+		assertTrue(m.getArgTypes().length == 0);
+	}
+	
+	/**
+	 * Tests a general sequence of method calls to various classes.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testGeneralSequence() throws IOException {
+		loadClassMethodRecurse("asm.TestClassOverload", "sequenceTest()", 5);
+		assertNotNull(this.dm);
+		IClass uut = this.dm.getClass("asm.TestClassOverload");
+		assertNotNull(uut);
+		IMethod uutm = uut.getMethod("sequenceTest()");
+		assertNotNull(uutm);
+		List<MethodCall> calls = uutm.getMethodCalls();
+		assertFalse(calls.isEmpty());
+		/*
+		 * Call sequence to test:
+		 * String s = new String("test");
+		 * StringBuffer sb = new StringBuffer();
+		 * sb.append(s);
+		 * sb.append(s);
+		 * sb.reverse();
+		 * sb.append(s);
+		*/
+		MethodCall m = calls.get(0);
+		assertTrue(m.getKey().equals("<init>(java.lang.String)"));
+		assertTrue(m.getClassToCall().equals("java.lang.String"));
+		assertTrue(m.getReturnType().equals("void"));
+		assertTrue(m.getArgTypes().length == 1);
+		m = calls.get(1);
+		assertTrue(m.getKey().equals("<init>()"));
+		assertTrue(m.getClassToCall().equals("java.lang.StringBuffer"));
+		assertTrue(m.getReturnType().equals("void"));
+		assertTrue(m.getArgTypes().length == 0);
+		m = calls.get(2);
+		assertTrue(m.getKey().equals("append(java.lang.String)"));
+		assertTrue(m.getClassToCall().equals("java.lang.StringBuffer"));
+		assertTrue(m.getReturnType().equals("java.lang.StringBuffer"));
+		assertTrue(m.getArgTypes().length == 1);
+		m = calls.get(3);
+		assertTrue(m.getKey().equals("append(java.lang.String)"));
+		assertTrue(m.getClassToCall().equals("java.lang.StringBuffer"));
+		assertTrue(m.getReturnType().equals("java.lang.StringBuffer"));
+		assertTrue(m.getArgTypes().length == 1);
+		m = calls.get(4);
+		assertTrue(m.getKey().equals("reverse()"));
+		assertTrue(m.getClassToCall().equals("java.lang.StringBuffer"));
+		assertTrue(m.getReturnType().equals("java.lang.StringBuffer"));
+		assertTrue(m.getArgTypes().length == 0);
+		m = calls.get(5);
+		assertTrue(m.getKey().equals("append(java.lang.String)"));
+		assertTrue(m.getClassToCall().equals("java.lang.StringBuffer"));
+		assertTrue(m.getReturnType().equals("java.lang.StringBuffer"));
+		assertTrue(m.getArgTypes().length == 1);
 	}
 
 }
