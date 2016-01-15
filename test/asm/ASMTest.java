@@ -6,17 +6,18 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
 
-import visitor.impl.UMLOutputStrategy;
 import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
 import data.impl.DataManager;
 import data.impl.UMLAddStrategy;
+import visitor.impl.UMLOutputStrategy;
 
 public class ASMTest {
 	private DataManager dm;
@@ -41,8 +42,8 @@ public class ASMTest {
 	public void testClassDeclaration() throws IOException {
 		loadClass("asm.TestClass");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass uut = classList.get(0);
+		Collection<IClass> classCol = this.dm.getClasses();
+		IClass uut = classCol.iterator().next();
 		assertTrue(uut.isPublic());
 		assertFalse(uut.isPrivate());
 		assertFalse(uut.isProtected());
@@ -65,9 +66,9 @@ public class ASMTest {
 	public void testClassMethods() throws IOException {
 		loadClass("asm.TestClass");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass testClass = classList.get(0);
-		IMethod uut = testClass.getMethods().get(0);
+		Collection<IClass> classList = this.dm.getClasses();
+		IClass testClass = classList.iterator().next();
+		IMethod uut = testClass.getMethods().iterator().next();
 		assertTrue(uut.getName().equals("<init>")); // default constructor
 		assertTrue(uut.getArguments().length == 0);
 		assertTrue(uut.getReturnType().equals("void"));
@@ -82,8 +83,8 @@ public class ASMTest {
 	public void testClassFields() throws IOException {
 		loadClass("asm.TestClass");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass classTest = classList.get(0);
+		Collection<IClass> classList = this.dm.getClasses();
+		IClass classTest = classList.iterator().next();
 		IField uut = classTest.getFields().get(0);
 		assertFalse(uut.isPrivate());
 		assertFalse(uut.isPublic());
@@ -103,8 +104,8 @@ public class ASMTest {
 	public void testInterfaceDeclaration() throws IOException {
 		loadClass("asm.TestInterface");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass uut = classList.get(0);
+		Collection<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.iterator().next();
 		assertTrue(uut.isPublic());
 		assertFalse(uut.isPrivate());
 		assertFalse(uut.isProtected());
@@ -127,9 +128,9 @@ public class ASMTest {
 	public void testInterfaceMethods() throws IOException {
 		loadClass("asm.TestInterface");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass testClass = classList.get(0);
-		IMethod uut = testClass.getMethods().get(0);
+		Collection<IClass> classList = this.dm.getClasses();
+		IClass testClass = classList.iterator().next();
+		IMethod uut = testClass.getMethods().iterator().next();
 		assertTrue(uut.isPublic());
 		assertFalse(uut.isPrivate());
 		assertFalse(uut.isProtected());
@@ -152,8 +153,8 @@ public class ASMTest {
 	public void testExtendsNull() throws IOException {
 		loadClass("java.lang.Object");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass uut = classList.get(0);
+		Collection<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.iterator().next();
 		assertTrue(uut.getExtends() == null);
 	}
 	
@@ -168,8 +169,8 @@ public class ASMTest {
 	public void testFactory() throws IOException {
 		loadClass("asm.TestElementFactory");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass uut = classList.get(0);
+		Collection<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.iterator().next();
 		Set<String> usesSet = uut.getUses();
 		assertNotNull(usesSet);
 		// created by new call
@@ -196,8 +197,8 @@ public class ASMTest {
 	public void testGenericField() throws IOException {
 		loadClass("asm.TestClassWithGenericField");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass uut = classList.get(0);
+		Collection<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.iterator().next();
 		Set<String> assocSet = uut.getAssoc();
 		assertNotNull(assocSet);
 		assertTrue(assocSet.size() == 1);
@@ -221,8 +222,8 @@ public class ASMTest {
 	public void testUsesAssocPriority() throws IOException {
 		loadClass("asm.TestClassWithGenericField");
 		assertNotNull(this.dm);
-		ArrayList<IClass> classList = this.dm.getClasses();
-		IClass uut = classList.get(0);
+		Collection<IClass> classList = this.dm.getClasses();
+		IClass uut = classList.iterator().next();
 		Set<String> assocSet = uut.getAssoc();
 		Set<String> usesSet = uut.getUses();
 		assertTrue(assocSet.contains(new String("asm.TestClass")));
