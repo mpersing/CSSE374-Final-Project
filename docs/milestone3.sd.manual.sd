@@ -1,0 +1,263 @@
+actor:Actor
+runnerssdcommandlinerunner:runners.SDCommandLineRunner
+integer:Integer
+printstream:PrintStream
+string:String
+locale:Locale
+math:Math
+arrays:Arrays
+system:System
+writer:Writer
+bufferedwriter:bufferedWriter
+outputstreamwriter:OutputStreamWriter
+streamencoder:StreamEncoder
+outputstream:OutputStream
+thread:Thread
+securitymanager:SecurityManager
+interruptible:Interruptible
+commandlinerunner:CommandLineRunner
+runtime:Runtime
+/dataimpldatamanager:data.impl.DataManager
+/hashmap:HashMap
+/dataimplsdaddstrategy:data.impl.SDAddStrategy
+/visitorimplsdoutputstrategy:visitor.impl.SDAOutputStrategy
+/arraylist:ArrayList
+/dataimplclass:data.impl.Class
+dataimplmethod:data.impl.Method
+dataimplmethodcall:data.impl.MethodCall
+type:Type
+/hashset:HashSet
+/classreader:ClassReader
+/asmclassdeclarationvisitor:asm.ClassDeclarationVisitor
+/asmclassinformationvisitor:asm.ClassInformationVisitor
+/asmclassfieldvisitor:asm.ClassFieldVisitor
+/asmclassmethodvisitor:asm.ClassMethodVisitor
+/stringbuffer:StringBuffer
+/abstractstringbuffer:AbstractStringBuffer
+/char:char[]
+/attribute:Attribute[]
+/illegalargumentexception:IllegalArgumentException
+/runtimeexception:RuntimeException
+/ioexception:IOException
+/exception:Exception
+/throwable:Throwable
+
+actor:runnerssdcommandlinerunner.main(String[])
+  runnerssdcommandlinerunner:data.impl.DataManager=dataimpldatamanager.new()
+    dataimpldatamanager:HashMap=hashmap.new()
+  runnerssdcommandlinerunner:data.impl.SDAddStrategy=dataimplsdaddstrategy.new()
+  runnerssdcommandlinerunner:void=dataimpldatamanager.setAddStrategy(data.impl.SDAddStrategy)
+  runnerssdcommandlinerunner:visitor.impl.SDAOutputStrategy=visitorimplsdoutputstrategy.new()
+    visitorimplsdoutputstrategy:arraylist.new()
+    visitorimplsdoutputstrategy:arraylist.New()
+    visitorimplsdoutputstrategy:arraylist.New()
+  runnerssdcommandlinerunner:void=visitorimplsdoutputstrategy.setDataManager(data.impl.DataManager)
+  runnerssdcommandlinerunner:int=integer.parseInt(String)
+  runnerssdcommandlinerunner:void=visitorimplsdoutputstrategy.setRoot(String, String, String)
+  runnerssdcommandlinerunner:void=dataimpldatamanager.setOutputStrategy(data.impl.SDAOutputStrategy)
+  runnerssdcommandlinerunner:void=dataimpldatamanager.add(String[])
+    dataimpldatamanager:void=dataimplsdaddstrategy.add(String[])
+      dataimplsdaddstrategy:void=dataimplsdaddstrategy.addRecursively(String, String, int)
+        dataimplsdaddstrategy:void=dataimpldatamanager.addClass(String)
+          dataimpldatamanager:data.impl.Class=dataimplclass.new()
+            dataimplclass:HashMap=hashmap.New()
+            dataimplclass:ArrayList=arraylist.New()
+            dataimplclass:HashSet=hashset.new()
+            dataimplclass:HashSet=hashset.New()
+            dataimplclass:void=dataimplclass.setExtendsClass()
+            dataimplclass:HashSet=hashset.New()
+            dataimplclass:void=hashset.add()
+            dataimplclass:void=hashset.add()
+            dataimplclass:void=hashset.add()
+          dataimpldatamanager:boolean=hashmap.containsKey(String)
+            hashmap:int=hashmap.hash(String)
+            hashmap:Node=hashmap.getNode(int, Object)
+          dataimpldatamanager:hashmap.put(String, data.api.Class)
+            hashmap:int=hashmap.hash(Object)
+            hashmap:V=hashmap.putVal(int, K, V, boolean, boolean)
+          dataimpldatamanager:ClassReader=classreader.new(String)
+            classreader:classreader.New(byte[], int, int)
+          dataimpldatamanager:asm.ClassDeclarationVisitor=asmclassdeclarationvisitor.new(int)
+            asmclassdeclarationvisitor:asm.ClassDeclarationVisitor=asmclassinformationvisitor.new(int)
+          dataimpldatamanager:asmclassdeclarationvisitor.setClass(IClass)
+          dataimpldatamanager:asm.ClassFieldVisitor=asmclassfieldvisitor.new(int)
+            asmclassfieldvisitor:asm.ClassFieldVisitor=asmclassinformationvisitor.New(int)
+          dataimpldatamanager:asmclassfieldvisitor.setClass(IClass)
+          dataimpldatamanager:asm.ClassMethodVisitor=asmclassmethodvisitor.new(int)
+            asmclassmethodvisitor:asm.ClassMethodVisitor=asmclassinformationvisitor.New(int)
+          dataimpldatamanager:void=asmclassmethodvisitor.setClass(IClass)
+          dataimpldatamanager:void=classreader.accept(ClassVisitor, int)
+  runnerssdcommandlinerunner:StringBuffer=stringbuffer.new()
+    stringbuffer:AbstractStringBuffer=abstractstringbuffer.new(int)
+      abstractstringbuffer:char[]=char.new(int)
+  runnerssdcommandlinerunner:void=dataimpldatamanager.output(StringBuffer)
+    dataimpldatamanager:void=visitorimplsdoutputstrategy.output(StringBuffer)
+      visitorimplsdoutputstrategy:void=arraylist.add(String)
+        arraylist:void=arraylist.ensureCapacityInternal(int);
+          arraylist:int=math.max(int, int)
+          arraylist:void=arraylist.ensureExplicitCapacity(int)
+            arraylist:void=arraylist.grow(int)
+      visitorimplsdoutputstrategy:void=visitorimplsdoutputstrategy.genListRecurse(String, String, int)
+        visitorimplsdoutputstrategy:data.impl.Class=dataimpldatamanager.getClass(String)
+          visitorimplsdoutputstrategy:data.api.IClass=hashmap.get(String)
+        visitorimplsdoutputstrategy:void=printstream.println(String)
+          printstream:void=printstream.print(String)
+          printstream:void=printstream.newLine()
+        visitorimplsdoutputstrategy:data.impl.Method=dataimplclass.getMethod(String)
+          visitorimplsdoutputstrategy:data.api.IClass=hashmap.get(String)
+        visitorimplsdoutputstrategy:void=printstream.println(String)
+          printstream:void=printstream.print(String)
+            printstream:void=printstream.write(String)
+          printstream:void=printstream.newLine()
+            printstream:void=printstream.ensureOpen()
+            printstream:void=bufferedwriter.newLine()
+            printstream:void=bufferedwriter.flushBuffer()
+            printstream:void=outputstreamwriter.flushBuffer()
+            printstream:int=string.indexOf(int)
+            printstream:void=outputstream.flush()
+            printstream:void=thread.interrupt()
+        visitorimplsdoutputstrategy:List=dataimplmethod.getMethodCalls();
+        visitorimplsdoutputstrategy:String=dataimplmethodcall.getKey()
+          dataimplmethodcall:String=type.toString()
+        visitorimplsdoutputstrategy:String=dataimplmethodcall.getClassToCall()
+        visitorimplsdoutputstrategy:boolean=visitorimplsdoutputstrategy.classAlreadyAdded(String)
+          visitorimplsdoutputstrategy:boolean=visitorimplsdoutputstrategy.inExistingClasses(String)
+            visitorimplsdoutputstrategy:boolean=string.equals(String)
+          visitorimplsdoutputstrategy:boolean=visitorimplsdoutputstrategy.inNewClasses(String)
+            visitorimplsdoutputstrategy:boolean=string.equals(String)
+        visitorimplsdoutputstrategy:boolean=string.contains(String)
+        visitorimplsdoutputstrategy:String=dataimplmethodcall.getClassToCall()
+        visitorimplsdoutputstrategy:void=arraylist.add(String)
+          arraylist:void=arraylist.ensureCapacityInternal(int);
+            arraylist:int=math.max(int, int)
+            arraylist:void=arraylist.ensureExplicitCapacity(int)
+        visitorimplsdoutputstrategy:String=dataimplmethodcall.getClassToCall()
+        visitorimplsdoutputstrategy:void=arraylist.add(String)
+          arraylist:void=arraylist.ensureCapacityInternal(int);
+            arraylist:int=math.max(int, int)
+            arraylist:void=arraylist.ensureExplicitCapacity(int)
+        visitorimplsdoutputstrategy:String=string.New()
+        visitorimplsdoutputstrategy:String=visitorimplsdoutputstrategy.classNameToInstanceName(String)
+          visitorimplsdoutputstrategy:String=string.replace(String,String)
+            string:char[]=char.New()
+            string:String=string.New()
+          visitorimplsdoutputstrategy:String=string.toLowerCase()
+            string:locale.getDefault()
+        visitorimplsdoutputstrategy:String=dataimplmethodcall.getReturnType()
+          dataimplmethodcall:String=type.toString()
+            type:String=type.getDescriptor()
+        visitorimplsdoutputstrategy:String=dataimplmethodcall.getClassToCall()
+        visitorimplsdoutputstrategy:String=dataimplmethodcall.getKey()
+          dataimplmethodcall:String=type.toString()
+            type:String=type.getDescriptor()
+      visitorimplsdoutputstrategy:String=visitorimplsdoutputstrategy.classNameToInstanceName(String)
+        visitorimplsdoutputstrategy:String=string.replace(String,String)
+          string:char[]=char.New()
+          string:String=string.New()
+        visitorimplsdoutputstrategy:String=string.toLowerCase()
+          string:locale.getDefault()
+      visitorimplsdoutputstrategy:String=string.replace(String,String)
+        string:char[]=char.New()
+        string:String=string.New()
+      visitorimplsdoutputstrategy:void=arraylist.add(String)
+        arraylist:void=arraylist.ensureCapacityInternal(int);
+          arraylist:int=math.max(int, int)
+          arraylist:void=arraylist.ensureExplicitCapacity(int)
+            arraylist:void=arraylist.grow(int)
+      visitorimplsdoutputstrategy:String=dataimplmethodcall.getClassToCall()
+      visitorimplsdoutputstrategy:String=dataimplmethodcall.getKey()
+        dataimplmethodcall:String=type.toString()
+          type:String=type.getDescriptor()
+            type:StringBuffer=stringbuffer.New()
+            type:void=getDescriptor(StringBuffer)
+            type:String=stringbuffer.toString()
+      visitorimplsdoutputstrategy:void=visitorimplsdoutputstrategy.genListRecurse(String, String, int)
+  runnerssdcommandlinerunner:String=stringbuffer.toString()
+    stringbuffer:String=arrays.copyOfRange(char[], int, int)
+      arrays:IllegalArgumentException=illegalargumentexception.new()
+        illegalargumentexception:RuntimeException=runtimeexception.new()
+          runtimeexception:Exception=exception.new()
+            exception:Throwable=throwable.new()
+      arrays:char[]=char.New()
+      arrays:int=math.min(int, int)
+      arrays:void=system.arraycopy(char[], int, char[], int, int)
+  runnerssdcommandlinerunner:void=printstream.println(String)
+    printstream:void=printstream.print(String)
+      printstream:void=printstream.write(String)
+        printstream:void=printstream.ensureOpen()
+          printstream:IOException=ioexception.new(String)
+            ioexception:Exception=exception.New(String)
+        printstream:void=writer.write(String)
+          writer:int=string.length()
+          writer:void=writer.write(String, int, int)
+            writer:char[]=char.New()
+            writer:char[]=char.New()
+            writer:char[]=string.getChars(int, int, int, int)
+            writer:void=writer.write(char[], int, int)
+        printstream:void=bufferedwriter.flushBuffer()
+          bufferedwriter:void=ensureOpen()
+            bufferedwriter:IOException=ioexception.New(String)
+          bufferedwriter:void=writer.write(char[], int, int)
+        printstream:void=outputstreamwriter.flushBuffer()
+          outputstreamwriter:void=streamencoder.flushBuffer()
+            streamencoder:boolean=streamencoder.isOpen()
+            streamencoder:void=streamencoder.implFlushBuffer()
+            streamencoder:IOException=ioexception.New(String)
+        printstream:int=string.indexOf(int)
+          string:int=string.indexOf(int, int)
+            string:int=string.indexOfSupplementary(int, int)
+        printstream:void=outputstream.flush()
+        printstream:Thread=thread.currentThread()
+        printstream:void=thread.interrupt()
+          thread:Thread=thread.currentThread()
+          thread:void=thread.checkAccess()
+            thread:SecurityManager=system.getSecurityManager()
+            thread:void=securitymanager.checkAccess(Thread)
+          thread:void=interrupt0()
+          thread:void=interruptible.interrupt(Thread)
+          thread:void=interrupt0()
+    printstream:void=printstream.newLine()
+      printstream:void=printstream.ensureOpen()
+        printstream:IOException=ioexception.New(String)
+          ioexception:Exception=exception.New(String)
+      printstream:void=bufferedwriter.newLine()
+        printstream:void=writer.write(String)
+          writer:int=string.length()
+          writer:void=writer.write(String, int, int)
+          writer:char[]=char.New()
+            writer:char[]=char.New()
+            writer:char[]=string.getChars(int, int, int, int)
+            writer:void=writer.write(char[], int, int)
+      printstream:void=bufferedwriter.flushBuffer()
+        bufferedwriter:void=ensureOpen()
+          bufferedwriter:IOException=ioexception.New(String)
+        bufferedwriter:void=writer.write(char[], int, int)
+      printstream:void=outputstreamwriter.flushBuffer()
+        outputstreamwriter:void=streamencoder.flushBuffer()
+          streamencoder:boolean=streamencoder.isOpen()
+          streamencoder:void=streamencoder.implFlushBuffer()
+          streamencoder:IOException=ioexception.New(String)
+      printstream:int=string.indexOf(int)
+        string:int=string.indexOf(int, int)
+          string:int=string.indexOfSupplementary(int, int)
+      printstream:void=outputstream.flush()
+      printstream:Thread=thread.currentThread()
+      printstream:void=thread.interrupt()
+        thread:Thread=thread.currentThread()
+        thread:void=thread.checkAccess()
+          thread:SecurityManager=system.getSecurityManager()
+          thread:void=securitymanager.checkAccess(Thread)
+        thread:void=interrupt0()
+        thread:void=interruptible.interrupt(Thread)
+        thread:void=interrupt0()
+  runnerssdcommandlinerunner:BufferedWriter=bufferedwriter.New()
+  runnerssdcommandlinerunner:String=stringbuffer.toString()
+  runnerssdcommandlinerunner:bufferedwriter.write(String)
+  runnerssdcommandlinerunner:bufferedwriter.flush(String)
+  runnerssdcommandlinerunner:bufferedwriter.close(String)
+  runnerssdcommandlinerunner:void=bufferedwriter
+  runnerssdcommandlinerunner:void=commandlinerunner.runApplication(String, String);
+    commandlinerunner:void=printstream.format(String, String)
+    commandlinerunner:Runtime=runtime.getRuntime()
+    commandlinerunner:void=runtime.exec(String)
+    commandlinerunner:void=exception.printStackTrace()

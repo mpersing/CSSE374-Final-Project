@@ -1,0 +1,36 @@
+process:Process
+collections:Collections
+list:List<?>
+/random:Random
+/listIterator:ListIterator
+/atomiclong:AtomicLong
+/illegalArgumentException:IllegalArgumentException
+long:Long
+system:System
+
+process:collections.shuffle
+ collections:random.new()
+  random:Long=system.nanoTime()
+  random:random.New(Long)
+  random:atomiclong.new(Long)
+  random:random.setSeed(Long)
+  random:long.set(Long)
+ 
+ collections:collections.shuffle(List<?>, Random)
+ collections:int=list.size()
+ collections:int=random.nextInt(int)
+  random:illegalArgumentException.new(String)
+  illegalArgumentException:illegalArgumentException.super()
+ 
+ collections:collections.swap(List<?>, int, int)
+  collections:int=list.get(Int)
+  collections:list.set(int, int)
+  collections:list.set(int, int)
+ collections:Object[]=list.toArray()
+ collections:int=random.nextInt(int)
+  random:illegalArgumentException.New()
+  illegalArgumentException:illegalArgumentException.super()
+ collections:listIterator.new()
+ collections:ListIterator=list.listIterator()
+ collections:listIterator.next()
+ collections:listIterator.set(E)

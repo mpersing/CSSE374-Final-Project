@@ -1,0 +1,333 @@
+digraph g {
+        "data.impl.Class" [ 
+                shape="record",
+                label = "{data.impl.Class|- methodMap : java.util.Map\<java.lang.String\>\l- fieldList : java.util.List\<data.api.IField\>\l- usesSet : java.util.Set\<java.lang.String\>\l- assocSet : java.util.Set\<java.lang.String\>\l- extendsClass : java.lang.String\l- implementArray : java.lang.String[]\l- primativeSet : java.util.Set\<java.lang.String\>\l|+ addMethod(data.api.IMethod) : void\l+ getMethods() : java.util.Collection\l+ setExtendsClass(java.lang.String) : void\l+ getUses() : java.util.Set\l+ getMethod(java.lang.String) : data.api.IMethod\l+ addField(data.api.IField) : void\l+ getExtends() : java.lang.String\l+ addAssoc(java.lang.String) : void\l+ setImplements(java.lang.String[]) : void\l+ getFields() : java.util.List\l+ getImplements() : java.lang.String[]\l+ accept(visitor.impl.OutputVisitor) : void\l+ getAssoc() : java.util.Set\l+ getExtendsClass() : java.lang.String\l+ isInterface() : boolean\l+ init() : void\l+ isAbstract() : boolean\l+ addUses(java.lang.String) : void\l+ setExtends(java.lang.String) : void\l- removeBrackets(java.lang.String) : java.lang.String\l}"
+        ];
+
+        "asm.InternalMethodVisitor" [ 
+                shape="record",
+                label = "{asm.InternalMethodVisitor|- newClass : data.api.IClass\l- newMethod : data.api.IMethod\l|+ setMethod(data.api.IMethod) : void\l+ visitTypeInsn(int, java.lang.String) : void\l+ init(int, jdk.internal.org.objectweb.asm.MethodVisitor) : void\l+ visitMethodInsn(int, java.lang.String, java.lang.String, java.lang.String, boolean) : void\l+ setClass(data.api.IClass) : void\l}"
+        ];
+
+        "visitor.impl.ImplementOutputVisitor" [ 
+                shape="record",
+                label = "{visitor.impl.ImplementOutputVisitor||+ init() : void\l+ visit(data.api.IDataManager) : void\l+ visit(data.api.IClass) : void\l}"
+        ];
+
+        "data.api.AddStrategy" [ 
+                shape="record",
+                label = "{\<\<Abstract\>\>\ndata.api.AddStrategy|\# dataManager : data.api.IDataManager\l|+ init() : void\l+ setDataManager(data.api.IDataManager) : void\l+ add(java.lang.String[]) : void\l}"
+        ];
+
+        "data.impl.DataManager" [ 
+                shape="record",
+                label = "{data.impl.DataManager|- classes : java.util.Map\<java.lang.String\>\l- outStrat : visitor.api.IOutputStrategy\l- addStrat : data.api.AddStrategy\l|+ getClasses() : java.util.Collection\l+ getClass(java.lang.String) : data.api.IClass\l+ setOutputStrategy(visitor.api.IOutputStrategy) : void\l+ init() : void\l+ add(java.lang.String[]) : void\l+ output(java.lang.StringBuffer) : void\l+ addClass(java.lang.String) : void\l+ setAddStrategy(data.api.AddStrategy) : void\l+ accept(visitor.impl.OutputVisitor) : void\l}"
+        ];
+
+        "visitor.impl.UsesOutputVisitor" [ 
+                shape="record",
+                label = "{visitor.impl.UsesOutputVisitor||+ init() : void\l+ visit(data.api.IDataManager) : void\l+ visit(data.api.IClass) : void\l}"
+        ];
+
+        "asm.ClassInformationVisitor" [ 
+                shape="record",
+                label = "{\<\<Abstract\>\>\nasm.ClassInformationVisitor|\# newClass : data.api.IClass\l|+ init(int) : void\l+ init(int, jdk.internal.org.objectweb.asm.ClassVisitor) : void\l+ setClass(data.api.IClass) : void\l}"
+        ];
+
+        "runners.SDCommandLineRunner" [ 
+                shape="record",
+                label = "{runners.SDCommandLineRunner||+ init() : void\l+ main(java.lang.String[]) : void\l}"
+        ];
+
+        "data.api.IDataManager" [ 
+                shape="record",
+                label = "{\<\<Interface\>\>\ndata.api.IDataManager||+ getClasses() : java.util.Collection\l+ getClass(java.lang.String) : data.api.IClass\l+ setOutputStrategy(visitor.api.IOutputStrategy) : void\l+ add(java.lang.String[]) : void\l+ output(java.lang.StringBuffer) : void\l+ addClass(java.lang.String) : void\l+ setAddStrategy(data.api.AddStrategy) : void\l}"
+        ];
+
+        "visitor.api.IOutputStrategy" [ 
+                shape="record",
+                label = "{\<\<Interface\>\>\nvisitor.api.IOutputStrategy||+ output(java.lang.StringBuffer) : void\l}"
+        ];
+
+        "asm.ClassFieldVisitor" [ 
+                shape="record",
+                label = "{asm.ClassFieldVisitor||+ visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object) : jdk.internal.org.objectweb.asm.FieldVisitor\l+ init(int, jdk.internal.org.objectweb.asm.ClassVisitor) : void\l}"
+        ];
+
+        "data.impl.SDAddStrategy" [ 
+                shape="record",
+                label = "{data.impl.SDAddStrategy||+ init() : void\l+ add(java.lang.String[]) : void\l- addRecursively(java.lang.String, java.lang.String, int) : void\l}"
+        ];
+
+        "visitor.impl.AssocOutputVisitor" [ 
+                shape="record",
+                label = "{visitor.impl.AssocOutputVisitor||+ init() : void\l+ visit(data.api.IDataManager) : void\l+ visit(data.api.IClass) : void\l}"
+        ];
+
+        "runners.UMLCommandLineRunner" [ 
+                shape="record",
+                label = "{runners.UMLCommandLineRunner||+ init() : void\l+ main(java.lang.String[]) : void\l}"
+        ];
+
+        "data.api.IMethod" [ 
+                shape="record",
+                label = "{\<\<Interface\>\>\ndata.api.IMethod||+ setReturnType(java.lang.String) : void\l+ getArguments() : java.lang.String[]\l+ setArguments(java.lang.String[]) : void\l+ getMethodCalls() : java.util.List\l+ getKey() : java.lang.String\l+ addMethodCall(data.impl.MethodCall) : void\l+ getReturnType() : java.lang.String\l}"
+        ];
+
+        "visitor.impl.ClassOutputVisitor" [ 
+                shape="record",
+                label = "{visitor.impl.ClassOutputVisitor||+ visit(data.api.IMethod) : void\l+ init() : void\l+ midVisit(data.api.IClass) : void\l+ visit(data.api.IField) : void\l+ visit(data.api.IClass) : void\l+ postVisit(data.api.IClass) : void\l}"
+        ];
+
+        "data.impl.Field" [ 
+                shape="record",
+                label = "{data.impl.Field|- type : java.lang.String\l|+ init() : void\l+ getType() : java.lang.String\l+ setType(java.lang.String) : void\l+ accept(visitor.impl.OutputVisitor) : void\l}"
+        ];
+
+        "asm.ClassDeclarationVisitor" [ 
+                shape="record",
+                label = "{asm.ClassDeclarationVisitor||+ init(int) : void\l+ visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) : void\l}"
+        ];
+
+        "data.api.IField" [ 
+                shape="record",
+                label = "{\<\<Interface\>\>\ndata.api.IField||+ getType() : java.lang.String\l+ setType(java.lang.String) : void\l}"
+        ];
+
+        "data.impl.UMLAddStrategy" [ 
+                shape="record",
+                label = "{data.impl.UMLAddStrategy||+ init() : void\l+ add(java.lang.String[]) : void\l}"
+        ];
+
+        "visitor.impl.SDOutputStrategy" [ 
+                shape="record",
+                label = "{visitor.impl.SDOutputStrategy|- dm : data.api.IDataManager\l- rootClass : java.lang.String\l- rootMethod : java.lang.String\l- rootDepth : int\l- existingClasses : java.util.List\<java.lang.String\>\l- newClasses : java.util.List\<java.lang.String\>\l- callSeq : java.util.List\<java.lang.String\>\l|+ setRoot(java.lang.String, java.lang.String, int) : void\l+ init() : void\l+ setDataManager(data.api.IDataManager) : void\l- genListsRecurse(java.lang.String, java.lang.String, int) : void\l- outputLists(java.lang.StringBuffer) : void\l- classNameToInstanceName(java.lang.String) : java.lang.String\l- inNewClasses(java.lang.String) : boolean\l+ output(java.lang.StringBuffer) : void\l- inExistingClasses(java.lang.String) : boolean\l- classAlreadyAdded(java.lang.String) : boolean\l}"
+        ];
+
+        "data.api.IElement" [ 
+                shape="record",
+                label = "{\<\<Interface\>\>\ndata.api.IElement||+ isPrivate() : boolean\l+ isStatic() : boolean\l+ getName() : java.lang.String\l+ isPublic() : boolean\l+ isProtected() : boolean\l+ setAccess(int) : void\l+ setName(java.lang.String) : void\l}"
+        ];
+
+        "asm.ClassMethodVisitor" [ 
+                shape="record",
+                label = "{asm.ClassMethodVisitor||+ init(int, jdk.internal.org.objectweb.asm.ClassVisitor) : void\l+ visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) : jdk.internal.org.objectweb.asm.MethodVisitor\l}"
+        ];
+
+        "data.impl.Method" [ 
+                shape="record",
+                label = "{data.impl.Method|- arguments : java.lang.String[]\l- functionCallSeq : java.util.List\<data.impl.MethodCall\>\l- returnType : java.lang.String\l|+ setReturnType(java.lang.String) : void\l+ init() : void\l+ getArguments() : java.lang.String[]\l+ setArguments(java.lang.String[]) : void\l+ getMethodCalls() : java.util.List\l+ getKey() : java.lang.String\l+ addMethodCall(data.impl.MethodCall) : void\l+ accept(visitor.impl.OutputVisitor) : void\l+ getReturnType() : java.lang.String\l}"
+        ];
+
+        "runners.CommandLineRunner" [ 
+                shape="record",
+                label = "{\<\<Abstract\>\>\nrunners.CommandLineRunner||+ runApplication(java.lang.String, java.lang.String) : void\l+ init() : void\l}"
+        ];
+
+        "visitor.impl.UMLOutputStrategy" [ 
+                shape="record",
+                label = "{visitor.impl.UMLOutputStrategy|- visitors : java.util.ArrayList\<visitor.impl.OutputVisitor\>\l- dm : data.api.IDataManager\l|+ addOutputVisitor(visitor.impl.OutputVisitor) : void\l+ preVisit(java.lang.StringBuffer) : void\l+ init() : void\l+ setDataManager(data.api.IDataManager) : void\l+ output(java.lang.StringBuffer) : void\l+ postVisit(java.lang.StringBuffer) : void\l}"
+        ];
+
+        "visitor.api.ITraverser" [ 
+                shape="record",
+                label = "{\<\<Interface\>\>\nvisitor.api.ITraverser||+ accept(visitor.impl.OutputVisitor) : void\l}"
+        ];
+
+        "data.impl.MethodCall" [ 
+                shape="record",
+                label = "{data.impl.MethodCall|- classToCall : java.lang.String\l- methodToCall : java.lang.String\l- argTypes : com.sun.org.apache.bcel.internal.generic.Type[]\l- returnType : com.sun.org.apache.bcel.internal.generic.Type\l|+ init(java.lang.String, java.lang.String, com.sun.org.apache.bcel.internal.generic.Type[], com.sun.org.apache.bcel.internal.generic.Type) : void\l+ getMethodToCall() : java.lang.String\l+ getClassToCall() : java.lang.String\l+ getKey() : java.lang.String\l+ getArgTypes() : com.sun.org.apache.bcel.internal.generic.Type[]\l+ getReturnType() : java.lang.String\l}"
+        ];
+
+        "visitor.impl.ExtendOutputVisitor" [ 
+                shape="record",
+                label = "{visitor.impl.ExtendOutputVisitor||+ init() : void\l+ visit(data.api.IDataManager) : void\l+ visit(data.api.IClass) : void\l}"
+        ];
+
+        "data.impl.Element" [ 
+                shape="record",
+                label = "{\<\<Abstract\>\>\ndata.impl.Element|\# access : int\l\# name : java.lang.String\l|+ isPrivate() : boolean\l+ isStatic() : boolean\l+ init() : void\l+ getName() : java.lang.String\l+ isPublic() : boolean\l+ isProtected() : boolean\l+ setAccess(int) : void\l+ setName(java.lang.String) : void\l}"
+        ];
+
+        "visitor.impl.OutputVisitor" [ 
+                shape="record",
+                label = "{\<\<Abstract\>\>\nvisitor.impl.OutputVisitor|\# sb : java.lang.StringBuffer\l|+ visit(data.api.IMethod) : void\l+ init() : void\l+ midVisit(data.api.IClass) : void\l+ setStringBuffer(java.lang.StringBuffer) : void\l+ visit(data.api.IField) : void\l+ postVisit(data.api.IDataManager) : void\l+ visit(data.api.IClass) : void\l+ visit(data.api.IDataManager) : void\l+ postVisit(data.api.IClass) : void\l}"
+        ];
+
+        "data.api.IClass" [ 
+                shape="record",
+                label = "{\<\<Interface\>\>\ndata.api.IClass||+ addMethod(data.api.IMethod) : void\l+ getMethods() : java.util.Collection\l+ getUses() : java.util.Set\l+ getMethod(java.lang.String) : data.api.IMethod\l+ addField(data.api.IField) : void\l+ getExtends() : java.lang.String\l+ addAssoc(java.lang.String) : void\l+ getFields() : java.util.List\l+ setImplements(java.lang.String[]) : void\l+ getImplements() : java.lang.String[]\l+ getAssoc() : java.util.Set\l+ isInterface() : boolean\l+ isAbstract() : boolean\l+ addUses(java.lang.String) : void\l+ setExtends(java.lang.String) : void\l}"
+        ];
+
+
+        edge [
+                arrowhead = "empty"
+        ]
+        "data.impl.Class" -> "data.impl.Element"
+        "asm.InternalMethodVisitor" -> "jdk.internal.org.objectweb.asm.MethodVisitor"
+        "visitor.impl.ImplementOutputVisitor" -> "visitor.impl.OutputVisitor"
+        "data.api.AddStrategy" -> "java.lang.Object"
+        "data.impl.DataManager" -> "java.lang.Object"
+        "visitor.impl.UsesOutputVisitor" -> "visitor.impl.OutputVisitor"
+        "asm.ClassInformationVisitor" -> "jdk.internal.org.objectweb.asm.ClassVisitor"
+        "runners.SDCommandLineRunner" -> "runners.CommandLineRunner"
+        "data.api.IDataManager" -> "visitor.api.ITraverser"
+        "asm.ClassFieldVisitor" -> "asm.ClassInformationVisitor"
+        "data.impl.SDAddStrategy" -> "data.api.AddStrategy"
+        "visitor.impl.AssocOutputVisitor" -> "visitor.impl.OutputVisitor"
+        "runners.UMLCommandLineRunner" -> "runners.CommandLineRunner"
+        "data.api.IMethod" -> "data.api.IElement"
+        "data.api.IMethod" -> "visitor.api.ITraverser"
+        "visitor.impl.ClassOutputVisitor" -> "visitor.impl.OutputVisitor"
+        "data.impl.Field" -> "data.impl.Element"
+        "asm.ClassDeclarationVisitor" -> "asm.ClassInformationVisitor"
+        "data.api.IField" -> "data.api.IElement"
+        "data.api.IField" -> "visitor.api.ITraverser"
+        "data.impl.UMLAddStrategy" -> "data.api.AddStrategy"
+        "visitor.impl.SDOutputStrategy" -> "java.lang.Object"
+        "data.api.IElement" -> "visitor.api.ITraverser"
+        "asm.ClassMethodVisitor" -> "asm.ClassInformationVisitor"
+        "data.impl.Method" -> "data.impl.Element"
+        "runners.CommandLineRunner" -> "java.lang.Object"
+        "visitor.impl.UMLOutputStrategy" -> "java.lang.Object"
+        "data.impl.MethodCall" -> "java.lang.Object"
+        "visitor.impl.ExtendOutputVisitor" -> "visitor.impl.OutputVisitor"
+        "data.impl.Element" -> "java.lang.Object"
+        "visitor.impl.OutputVisitor" -> "java.lang.Object"
+        "data.api.IClass" -> "data.api.IElement"
+        "data.api.IClass" -> "visitor.api.ITraverser"
+
+        edge [
+                style = "dashed";
+                arrowhead = "empty"
+        ]
+        "data.impl.Class" -> "data.api.IClass"
+        "data.impl.DataManager" -> "data.api.IDataManager"
+        "data.impl.Field" -> "data.api.IField"
+        "visitor.impl.SDOutputStrategy" -> "visitor.api.IOutputStrategy"
+        "data.impl.Method" -> "data.api.IMethod"
+        "visitor.impl.UMLOutputStrategy" -> "visitor.api.IOutputStrategy"
+        "data.impl.Element" -> "data.api.IElement"
+
+        edge [
+                style = "solid";
+                arrowhead = "vee"
+        ]
+        "data.impl.Class" -> "data.api.IField"
+        "asm.InternalMethodVisitor" -> "data.api.IMethod"
+        "asm.InternalMethodVisitor" -> "data.api.IClass"
+        "data.api.AddStrategy" -> "data.api.IDataManager"
+        "data.impl.DataManager" -> "visitor.api.IOutputStrategy"
+        "data.impl.DataManager" -> "data.api.AddStrategy"
+        "asm.ClassInformationVisitor" -> "data.api.IClass"
+        "visitor.impl.SDOutputStrategy" -> "data.api.IDataManager"
+        "data.impl.Method" -> "data.impl.MethodCall"
+        "visitor.impl.UMLOutputStrategy" -> "data.api.IDataManager"
+        "visitor.impl.UMLOutputStrategy" -> "visitor.impl.OutputVisitor"
+        "data.impl.MethodCall" -> "com.sun.org.apache.bcel.internal.generic.Type"
+        "visitor.impl.OutputVisitor" -> "java.lang.StringBuffer"
+
+        edge [
+                style = "dashed";
+                arrowhead = "vee"
+        ]
+        "data.impl.Class" -> "data.api.IMethod"
+        "data.impl.Class" -> "java.util.Collection"
+        "data.impl.Class" -> "java.util.Set"
+        "data.impl.Class" -> "java.util.HashMap"
+        "data.impl.Class" -> "java.util.ArrayList"
+        "data.impl.Class" -> "java.util.HashSet"
+        "data.impl.Class" -> "java.util.List"
+        "data.impl.Class" -> "boolean"
+        "data.impl.Class" -> "visitor.impl.OutputVisitor"
+        "asm.InternalMethodVisitor" -> "boolean"
+        "asm.InternalMethodVisitor" -> "jdk.internal.org.objectweb.asm.MethodVisitor"
+        "asm.InternalMethodVisitor" -> "data.impl.MethodCall"
+        "visitor.impl.ImplementOutputVisitor" -> "data.api.IDataManager"
+        "visitor.impl.ImplementOutputVisitor" -> "data.api.IClass"
+        "data.impl.DataManager" -> "data.impl.Class"
+        "data.impl.DataManager" -> "java.util.Collection"
+        "data.impl.DataManager" -> "asm.ClassDeclarationVisitor"
+        "data.impl.DataManager" -> "java.util.HashMap"
+        "data.impl.DataManager" -> "jdk.internal.org.objectweb.asm.ClassReader"
+        "data.impl.DataManager" -> "asm.ClassMethodVisitor"
+        "data.impl.DataManager" -> "java.lang.StringBuffer"
+        "data.impl.DataManager" -> "asm.ClassFieldVisitor"
+        "data.impl.DataManager" -> "visitor.impl.OutputVisitor"
+        "data.impl.DataManager" -> "data.api.IClass"
+        "visitor.impl.UsesOutputVisitor" -> "data.api.IDataManager"
+        "visitor.impl.UsesOutputVisitor" -> "data.api.IClass"
+        "asm.ClassInformationVisitor" -> "jdk.internal.org.objectweb.asm.ClassVisitor"
+        "runners.SDCommandLineRunner" -> "java.lang.StringBuffer"
+        "runners.SDCommandLineRunner" -> "java.io.BufferedWriter"
+        "runners.SDCommandLineRunner" -> "java.io.FileWriter"
+        "runners.SDCommandLineRunner" -> "data.impl.SDAddStrategy"
+        "runners.SDCommandLineRunner" -> "data.impl.DataManager"
+        "runners.SDCommandLineRunner" -> "java.io.File"
+        "runners.SDCommandLineRunner" -> "visitor.impl.SDOutputStrategy"
+        "data.api.IDataManager" -> "java.lang.StringBuffer"
+        "data.api.IDataManager" -> "java.util.Collection"
+        "data.api.IDataManager" -> "visitor.api.IOutputStrategy"
+        "data.api.IDataManager" -> "data.api.AddStrategy"
+        "data.api.IDataManager" -> "data.api.IClass"
+        "visitor.api.IOutputStrategy" -> "java.lang.StringBuffer"
+        "asm.ClassFieldVisitor" -> "jdk.internal.org.objectweb.asm.ClassVisitor"
+        "asm.ClassFieldVisitor" -> "jdk.internal.org.objectweb.asm.FieldVisitor"
+        "asm.ClassFieldVisitor" -> "data.impl.Field"
+        "asm.ClassFieldVisitor" -> "java.lang.Object"
+        "asm.ClassFieldVisitor" -> "java.lang.StringBuilder"
+        "data.impl.SDAddStrategy" -> "data.impl.MethodCall"
+        "visitor.impl.AssocOutputVisitor" -> "data.api.IDataManager"
+        "visitor.impl.AssocOutputVisitor" -> "data.api.IClass"
+        "runners.UMLCommandLineRunner" -> "visitor.impl.ClassOutputVisitor"
+        "runners.UMLCommandLineRunner" -> "visitor.impl.ImplementOutputVisitor"
+        "runners.UMLCommandLineRunner" -> "java.io.BufferedWriter"
+        "runners.UMLCommandLineRunner" -> "java.io.FileWriter"
+        "runners.UMLCommandLineRunner" -> "data.impl.UMLAddStrategy"
+        "runners.UMLCommandLineRunner" -> "data.impl.DataManager"
+        "runners.UMLCommandLineRunner" -> "java.io.File"
+        "runners.UMLCommandLineRunner" -> "visitor.impl.UsesOutputVisitor"
+        "runners.UMLCommandLineRunner" -> "visitor.impl.UMLOutputStrategy"
+        "runners.UMLCommandLineRunner" -> "java.lang.StringBuffer"
+        "runners.UMLCommandLineRunner" -> "visitor.impl.ExtendOutputVisitor"
+        "runners.UMLCommandLineRunner" -> "visitor.impl.AssocOutputVisitor"
+        "data.api.IMethod" -> "java.util.List"
+        "data.api.IMethod" -> "data.impl.MethodCall"
+        "visitor.impl.ClassOutputVisitor" -> "data.api.IMethod"
+        "visitor.impl.ClassOutputVisitor" -> "data.api.IField"
+        "visitor.impl.ClassOutputVisitor" -> "data.api.IClass"
+        "data.impl.Field" -> "visitor.impl.OutputVisitor"
+        "visitor.impl.SDOutputStrategy" -> "boolean"
+        "visitor.impl.SDOutputStrategy" -> "java.lang.StringBuffer"
+        "visitor.impl.SDOutputStrategy" -> "data.impl.MethodCall"
+        "visitor.impl.SDOutputStrategy" -> "java.lang.StringBuilder"
+        "visitor.impl.SDOutputStrategy" -> "java.util.ArrayList"
+        "data.api.IElement" -> "boolean"
+        "asm.ClassMethodVisitor" -> "jdk.internal.org.objectweb.asm.ClassVisitor"
+        "asm.ClassMethodVisitor" -> "data.impl.Method"
+        "asm.ClassMethodVisitor" -> "asm.InternalMethodVisitor"
+        "asm.ClassMethodVisitor" -> "jdk.internal.org.objectweb.asm.MethodVisitor"
+        "data.impl.Method" -> "java.util.List"
+        "data.impl.Method" -> "java.lang.StringBuilder"
+        "data.impl.Method" -> "visitor.impl.OutputVisitor"
+        "data.impl.Method" -> "java.util.ArrayList"
+        "runners.CommandLineRunner" -> "java.lang.Object"
+        "runners.CommandLineRunner" -> "java.lang.StringBuilder"
+        "visitor.impl.UMLOutputStrategy" -> "java.lang.StringBuffer"
+        "visitor.impl.UMLOutputStrategy" -> "java.util.ArrayList"
+        "visitor.api.ITraverser" -> "visitor.impl.OutputVisitor"
+        "data.impl.MethodCall" -> "java.lang.StringBuilder"
+        "visitor.impl.ExtendOutputVisitor" -> "data.api.IDataManager"
+        "visitor.impl.ExtendOutputVisitor" -> "data.api.IClass"
+        "data.impl.Element" -> "boolean"
+        "visitor.impl.OutputVisitor" -> "data.api.IMethod"
+        "visitor.impl.OutputVisitor" -> "data.api.IDataManager"
+        "visitor.impl.OutputVisitor" -> "data.api.IField"
+        "visitor.impl.OutputVisitor" -> "data.api.IClass"
+        "data.api.IClass" -> "data.api.IMethod"
+        "data.api.IClass" -> "java.util.List"
+        "data.api.IClass" -> "boolean"
+        "data.api.IClass" -> "java.util.Collection"
+        "data.api.IClass" -> "data.api.IField"
+        "data.api.IClass" -> "java.util.Set"
+}

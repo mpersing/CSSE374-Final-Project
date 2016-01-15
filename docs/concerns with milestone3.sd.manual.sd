@@ -1,0 +1,2 @@
+At one point, I only went 4 layers deep and stopped at classreader.accept(ClassVisitor, int) because that function is over 1000 lines long
+I did not go through all of the recursive calls, I just went through visitor.impl.SDOutputStrategy.genListRecurse()  
