@@ -6,10 +6,12 @@ asm.InternalMethodVisitor
 
 data.api.AddStrategy
 data.api.IClass
+data.api.ICluster
 data.api.IDataManager
 data.api.IElement
 data.api.IField
 data.api.IMethod
+data.api.IUMLModifierManager
 
 data.impl.Class
 data.impl.DataManager
@@ -19,11 +21,16 @@ data.impl.Method
 data.impl.MethodCall
 data.impl.SDAddStrategy
 data.impl.UMLAddStrategy
+data.impl.UMLCluster
+data.impl.UMLModifierManager
+
+pattern.api.IPatternFinder
+
+pattern.impl.SingletonPatternFinder
 
 runners.CommandLineRunner
 runners.SDCommandLineRunner
 runners.UMLCommandLineRunner
-
 
 visitor.api.ITraverser
 visitor.api.IOutputStrategy
