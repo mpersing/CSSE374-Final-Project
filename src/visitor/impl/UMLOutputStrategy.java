@@ -32,6 +32,8 @@ public class UMLOutputStrategy implements IOutputStrategy{
 	}
 	
 	public void addOutputVisitor(OutputVisitor v, IUMLModifierManager umlModMan, Set<String> whitelist) {
+		v.setClassWhitelist(whitelist);
+		v.setIUMLModifierManager(umlModMan);
 		this.visitors.add(v);
 	}
 	
