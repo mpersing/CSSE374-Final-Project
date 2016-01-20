@@ -8,7 +8,7 @@ public class EagerSingletonTest {
 		
 	}
 	
-	public EagerSingletonTest getInstance(){
+	public static EagerSingletonTest getInstance(){
 		return instance;
 	}
 	
