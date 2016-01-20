@@ -51,6 +51,9 @@ public class ClassOutputVisitor extends OutputVisitor {
 	
 	@Override
 	public void visit(IClass c){
+		// Return if not in the whitelist
+		if (!classWhitelist.contains(c.getName())) return;
+		
 		// Open the class
 		this.sb.append("        ");
 		this.sb.append("\"");
@@ -59,6 +62,11 @@ public class ClassOutputVisitor extends OutputVisitor {
 		this.sb.append(" [ \n");
 		
 		this.sb.append("                shape=\"record\",\n");
+		
+		// Set styling
+		this.sb.append("                ");
+		this.sb.append(iumlmod.getStyle(c.getName()));
+		this.sb.append("\n");
 		
 		// Open the label
 		this.sb.append("                label = \"{");
@@ -71,6 +79,12 @@ public class ClassOutputVisitor extends OutputVisitor {
 		
 		// Write the name
 		this.sb.append(c.getName());
+		
+		// Set Subtext
+		this.sb.append("\\n");
+		this.sb.append(iumlmod.getSubtext(c.getName()));
+		
+		// Separate from fields
 		this.sb.append("|");
 	}
 	

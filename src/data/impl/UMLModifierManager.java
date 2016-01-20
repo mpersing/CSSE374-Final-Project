@@ -1,5 +1,7 @@
 package data.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,34 +13,58 @@ public class UMLModifierManager implements IUMLModifierManager {
 	private Map<String, String> stylings;
 	private Map<String, String> subtexts;
 
-	@Override
-	public void addStyle(String className, String style) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public String getSubtext(String className) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setSubtext(String className, String subtext) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public List<UMLCluster> getClusters() {
-		// TODO Auto-generated method stub
-		return null;
+	public UMLModifierManager(){
+		clusters = new ArrayList<UMLCluster>();
+		stylings = new HashMap<String, String>();
+		subtexts = new HashMap<String, String>();
 	}
 
 	@Override
 	public String getStyle(String className) {
-		// TODO Auto-generated method stub
-		return null;
+		String result = "";
+		
+		if (stylings.containsKey(className)){
+			result = stylings.get(className);
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public void addStyle(String className, String style) {
+		if (!stylings.containsKey(className)){
+			stylings.put(className, style);
+		} else {
+			String prevStyle = stylings.get(className);
+			String newStyle = prevStyle + " " + style;
+			stylings.put(className, newStyle);
+		}
 	}
 
+	@Override
+	public String getSubtext(String className) {
+		String result = "";
+		
+		if (subtexts.containsKey(className)){
+			result = subtexts.get(className);
+		}
+		
+		return result;
+	}
+
+	@Override
+	public void setSubtext(String className, String subtext) {
+		if (!subtexts.containsKey(className)){
+			subtexts.put(className, subtext);
+		} else {
+			String prevSub = subtexts.get(className);
+			String newSub = prevSub + " " + subtext;
+			stylings.put(className, newSub);
+		}
+	}
+
+	@Override
+	public List<UMLCluster> getClusters() {
+		return this.clusters;
+	}
 }
