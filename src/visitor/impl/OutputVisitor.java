@@ -1,13 +1,18 @@
 package visitor.impl;
 
+import java.util.Set;
+
 import data.api.IClass;
 import data.api.IDataManager;
 import data.api.IField;
 import data.api.IMethod;
+import data.api.IUMLModifierManager;
 
 public abstract class OutputVisitor {
 	
 	protected StringBuffer sb;
+	protected Set<String> classWhitelist;
+	protected IUMLModifierManager iumlmod;
 	
 	public void setStringBuffer(StringBuffer sb){
 		this.sb = sb;

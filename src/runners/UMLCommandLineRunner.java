@@ -4,31 +4,36 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Set;
 
+import data.api.IDataManager;
+import data.api.IUMLModifierManager;
+import data.impl.DataManager;
+import data.impl.UMLAddStrategy;
 import visitor.impl.AssocOutputVisitor;
 import visitor.impl.ClassOutputVisitor;
 import visitor.impl.ExtendOutputVisitor;
 import visitor.impl.ImplementOutputVisitor;
 import visitor.impl.UMLOutputStrategy;
 import visitor.impl.UsesOutputVisitor;
-import data.api.IDataManager;
-import data.impl.DataManager;
-import data.impl.UMLAddStrategy;
 
 public class UMLCommandLineRunner extends CommandLineRunner {
 	public static void main(String[] args) throws IOException {
 		IDataManager data = new DataManager();
+		IUMLModifierManager modMan = data.getUMLModifierManagers();
+		Set<String> whiteList = data.getWhitelist();
 		
 		data.setAddStrategy(new UMLAddStrategy());
 		
 		UMLOutputStrategy outStrat = new UMLOutputStrategy();
 		outStrat.setDataManager(data);
 		
-		outStrat.addOutputVisitor(new ClassOutputVisitor());
-		outStrat.addOutputVisitor(new ExtendOutputVisitor());
-		outStrat.addOutputVisitor(new ImplementOutputVisitor());
-		outStrat.addOutputVisitor(new AssocOutputVisitor());
-		outStrat.addOutputVisitor(new UsesOutputVisitor());
+		
+		outStrat.addOutputVisitor(new ClassOutputVisitor(), modMan, whiteList);
+		outStrat.addOutputVisitor(new ExtendOutputVisitor(), modMan, whiteList);
+		outStrat.addOutputVisitor(new ImplementOutputVisitor(), modMan, whiteList);
+		outStrat.addOutputVisitor(new AssocOutputVisitor(), modMan, whiteList);
+		outStrat.addOutputVisitor(new UsesOutputVisitor(), modMan, whiteList);
 		
 		data.setOutputStrategy(outStrat);
 		

@@ -1,8 +1,10 @@
 package visitor.impl;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 import data.api.IDataManager;
+import data.api.IUMLModifierManager;
 import visitor.api.IOutputStrategy;
 
 public class UMLOutputStrategy implements IOutputStrategy{
@@ -29,7 +31,7 @@ public class UMLOutputStrategy implements IOutputStrategy{
 		this.postVisit(sb);
 	}
 	
-	public void addOutputVisitor(OutputVisitor v) {
+	public void addOutputVisitor(OutputVisitor v, IUMLModifierManager umlModMan, Set<String> whitelist) {
 		this.visitors.add(v);
 	}
 	
