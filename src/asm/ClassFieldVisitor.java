@@ -1,10 +1,16 @@
 package asm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import data.api.IField;
 import data.impl.Field;
 import jdk.internal.org.objectweb.asm.ClassVisitor;
 import jdk.internal.org.objectweb.asm.FieldVisitor;
+import jdk.internal.org.objectweb.asm.Opcodes;
 import jdk.internal.org.objectweb.asm.Type;
+import jdk.internal.org.objectweb.asm.signature.SignatureReader;
+import jdk.internal.org.objectweb.asm.signature.SignatureVisitor;
 
 public class ClassFieldVisitor extends ClassInformationVisitor {
 
@@ -24,12 +30,19 @@ public class ClassFieldVisitor extends ClassInformationVisitor {
 			field.setType(type);
 			newClass.addAssoc(type);
 		} else {
-			String sigResult;
-			int index = signature.lastIndexOf("<L");
-			int lastIndex = signature.indexOf(';', index);
-			sigResult = signature.substring(index + 2, lastIndex);
-			sigResult = sigResult.replace('/', '.');
-			newClass.addAssoc(sigResult);
+			List<String> insideGeneric = new ArrayList<String>();
+			new SignatureReader(signature).accept(new SignatureVisitor(Opcodes.ASM5) {
+				@Override
+				public void visitClassType(String type) {
+					type = type.replace('/', '.');
+					insideGeneric.add(type);
+					newClass.addAssoc(type);
+				}
+			});
+			String sigResult = insideGeneric.get(1);
+			for(int i = 2 ; i < insideGeneric.size() ; ++i) {
+				sigResult += "," + insideGeneric.get(i);
+			}
 			field.setType(Type.getType(desc).getClassName() + "\\<" + sigResult + "\\>");
 			// signature magic
 		}
