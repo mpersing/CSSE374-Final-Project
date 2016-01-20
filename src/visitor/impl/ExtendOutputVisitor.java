@@ -21,11 +21,15 @@ public class ExtendOutputVisitor extends OutputVisitor {
 	 */
 	@Override
 	public void visit(IClass c) {
+		if (!classWhitelist.contains(c.getName())) return;
+		
 		String[] exts = {c.getExtends()};
 		if (c.isInterface()) exts = c.getImplements();
 		
 		// If the class extends anything
 		for (String e : exts){
+			if (!classWhitelist.contains(e)) continue;
+			
 			this.sb.append("        ");
 			this.sb.append("\"");
 			this.sb.append(c.getName());

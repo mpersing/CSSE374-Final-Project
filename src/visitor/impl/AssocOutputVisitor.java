@@ -21,9 +21,11 @@ public class AssocOutputVisitor extends OutputVisitor {
 	 */
 	@Override
 	public void visit(IClass c) {
-		
+		if (!classWhitelist.contains(c.getName())) return;
 		// If the class composes or aggregates anything
 		for (String e : c.getAssoc()){
+			if (!classWhitelist.contains(e)) continue;
+			
 			this.sb.append("        ");
 			this.sb.append("\"");
 			this.sb.append(c.getName());

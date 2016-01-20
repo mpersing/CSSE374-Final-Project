@@ -20,13 +20,16 @@ public class ImplementOutputVisitor extends OutputVisitor {
 	 */
 	@Override
 	public void visit(IClass c){
-		String[] impls = c.getImplements();
-		
+		if (!classWhitelist.contains(c.getName())) return;
 		if (c.isInterface()) return;
+		
+		String[] impls = c.getImplements();
 		
 		// If the class implements anything
 		if (impls.length > 0){
 			for (String i : impls){
+				if (!classWhitelist.contains(i)) continue;
+				
 				this.sb.append("        ");
 				this.sb.append("\"");
 				this.sb.append(c.getName());

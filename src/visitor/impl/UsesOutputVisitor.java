@@ -20,8 +20,11 @@ public void visit(IDataManager d){
  */
 @Override
 public void visit(IClass c) {
+	if (!classWhitelist.contains(c.getName())) return;
 	// If the class uses anything
 	for (String e : c.getUses()){
+		if(!classWhitelist.contains(e)) continue;
+		
 		this.sb.append("        ");
 		this.sb.append("\"");
 		this.sb.append(c.getName());
