@@ -10,7 +10,7 @@ public class LazySingletonTest {
 		instance = new LazySingletonTest();
 	}
 	
-	public LazySingletonTest getInstance(){
+	public static LazySingletonTest getInstance(){
 		return instance;
 	}
 	
