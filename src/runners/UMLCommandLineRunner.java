@@ -10,6 +10,7 @@ import data.api.IDataManager;
 import data.api.IUMLModifierManager;
 import data.impl.DataManager;
 import data.impl.UMLAddStrategy;
+import pattern.impl.SingletonPatternFinder;
 import visitor.impl.AssocOutputVisitor;
 import visitor.impl.ClassOutputVisitor;
 import visitor.impl.ExtendOutputVisitor;
@@ -25,10 +26,11 @@ public class UMLCommandLineRunner extends CommandLineRunner {
 		
 		data.setAddStrategy(new UMLAddStrategy());
 		
+		data.addPatternFinder(new SingletonPatternFinder());
+		
 		UMLOutputStrategy outStrat = new UMLOutputStrategy();
 		outStrat.setDataManager(data);
-		
-		
+
 		outStrat.addOutputVisitor(new ClassOutputVisitor(), modMan, whiteList);
 		outStrat.addOutputVisitor(new ExtendOutputVisitor(), modMan, whiteList);
 		outStrat.addOutputVisitor(new ImplementOutputVisitor(), modMan, whiteList);
@@ -40,6 +42,8 @@ public class UMLCommandLineRunner extends CommandLineRunner {
 		for(String s : args) {
 			data.add(new String[]{s});
 		}
+		
+		data.findAllPatterns();
 		
 		StringBuffer sb = new StringBuffer();
 		data.output(sb);
