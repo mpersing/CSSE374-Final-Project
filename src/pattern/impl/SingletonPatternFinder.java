@@ -15,9 +15,11 @@ public class SingletonPatternFinder implements IPatternFinder {
 		String cName;
 		boolean foundField;
 		boolean foundMethod;
+		boolean privateConstructors;
 		for(IClass c : classMap.values()) {
 			foundField = false;
 			foundMethod = false;
+			privateConstructors = true;
 			cName = c.getName();
 			for(IMethod m : c.getMethods()) {
 				if(m.getReturnType().equals(cName) && m.isStatic() && m.isPublic()) {
@@ -31,7 +33,12 @@ public class SingletonPatternFinder implements IPatternFinder {
 					break;
 				}
 			}
-			if(foundMethod && foundField) {
+			for(IMethod m : c.getMethods()) {
+				if(m.getName().contains("<init>")) {
+					privateConstructors |= m.isPrivate();
+				}
+			}
+			if(foundMethod && foundField && privateConstructors) {
 				mm.setSubtext(cName, "\\<\\<Singleton\\>\\>");
 				mm.addStyle(cName, "color=blue");
 			}
