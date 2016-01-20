@@ -42,6 +42,7 @@ public class UMLOutputStrategy implements IOutputStrategy{
 	}
 	
 	public void postVisit(StringBuffer sb){
+		sb.append(" subgraph cluster_0 { \"data.api.IClass\"; \"data.api.IField\";\"java.util.Set\"}");
 		sb.append("}\n");
 	}
 
