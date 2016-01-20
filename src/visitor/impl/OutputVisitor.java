@@ -18,6 +18,14 @@ public abstract class OutputVisitor {
 		this.sb = sb;
 	}
 	
+	public void setClassWhitelist(Set<String> wl) {
+		this.classWhitelist = wl;
+	}
+	
+	public void setIUMLModifierManager(IUMLModifierManager mm) {
+		this.iumlmod = mm;
+	}
+	
 	public void visit(IClass c){};
 	public void visit(IDataManager d){};
 	public void visit(IField f){};
