@@ -5,8 +5,8 @@ asm.ClassMethodVisitor
 asm.InternalMethodVisitor
 
 data.api.AddStrategy
+data.api.Cluster
 data.api.IClass
-data.api.ICluster
 data.api.IDataManager
 data.api.IElement
 data.api.IField

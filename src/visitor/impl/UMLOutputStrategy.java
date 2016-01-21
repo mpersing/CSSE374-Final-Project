@@ -3,9 +3,10 @@ package visitor.impl;
 import java.util.ArrayList;
 import java.util.Set;
 
+import visitor.api.IOutputStrategy;
+import data.api.Cluster;
 import data.api.IDataManager;
 import data.api.IUMLModifierManager;
-import visitor.api.IOutputStrategy;
 
 public class UMLOutputStrategy implements IOutputStrategy{
 	
@@ -17,16 +18,26 @@ public class UMLOutputStrategy implements IOutputStrategy{
 	}
 	
 	public void output(StringBuffer sb){
+		// Start the digraph
 		this.preVisit(sb);
 		
+		// Add all the classes
 		for(OutputVisitor v : this.visitors){
 			v.setStringBuffer(sb);
 			this.dm.accept(v);
 		}
 		
+		// Add all relations
 		for(OutputVisitor v : this.visitors){
 			v.postVisit(this.dm);
 		}
+		
+		// Add all of the clusters
+		IUMLModifierManager modMan = dm.getUMLModifierManager();
+		for (Cluster cluster : modMan.getClusters()){
+			sb.append(cluster.toString());
+		}
+		sb.append("\n");
 		
 		this.postVisit(sb);
 	}

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import data.api.Cluster;
 import data.api.IUMLModifierManager;
 
 public class UMLModifierManager implements IUMLModifierManager {
@@ -62,9 +63,14 @@ public class UMLModifierManager implements IUMLModifierManager {
 			stylings.put(className, newSub);
 		}
 	}
-
+	
 	@Override
 	public List<UMLCluster> getClusters() {
 		return this.clusters;
+	}
+
+	@Override
+	public void addCluster(Cluster cluster) {
+		this.clusters.add((UMLCluster) cluster);
 	}
 }

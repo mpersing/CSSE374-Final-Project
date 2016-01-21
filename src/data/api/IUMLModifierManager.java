@@ -11,6 +11,7 @@ public interface IUMLModifierManager {
 	public String getSubtext(String className);
 	public void setSubtext(String className, String subtext);
 	public List<UMLCluster> getClusters();
+	public void addCluster(Cluster cluster);
 	
 	
 }

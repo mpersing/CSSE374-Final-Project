@@ -3,7 +3,6 @@ package visitor.impl;
 import java.util.Arrays;
 
 import data.api.IClass;
-import data.api.IDataManager;
 import data.api.IField;
 import data.api.IMethod;
 

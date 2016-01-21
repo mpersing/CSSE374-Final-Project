@@ -100,7 +100,7 @@ public class DataManager implements IDataManager {
 		return this.whiteList;
 	}
 	
-	public IUMLModifierManager getUMLModifierManagers() {
+	public IUMLModifierManager getUMLModifierManager() {
 		return this.umlModMan;
 	}
 
