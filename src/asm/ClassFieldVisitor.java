@@ -36,12 +36,13 @@ public class ClassFieldVisitor extends ClassInformationVisitor {
 				public void visitClassType(String type) {
 					type = type.replace('/', '.');
 					insideGeneric.add(type);
-					newClass.addAssoc(type);
 				}
 			});
 			String sigResult = insideGeneric.get(1);
+			newClass.addAssoc(insideGeneric.get(1));
 			for(int i = 2 ; i < insideGeneric.size() ; ++i) {
 				sigResult += "," + insideGeneric.get(i);
+				newClass.addAssoc(insideGeneric.get(i));
 			}
 			field.setType(Type.getType(desc).getClassName() + "\\<" + sigResult + "\\>");
 			// signature magic
