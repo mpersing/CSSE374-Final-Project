@@ -76,6 +76,7 @@ Milestone 3:
 
 Milestone 4:
 * README: Matthew Persing
+* Updated UML Diagram: Tyler Whitehouse
 * Design Improvements: Both
 * Code: Both
 * Comparison testing: Tyler Whitehouse
