@@ -15,10 +15,12 @@ import org.junit.Test;
 import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
+import data.api.IUMLModifierManager;
 import data.impl.DataManager;
 import data.impl.MethodCall;
 import data.impl.SDAddStrategy;
 import data.impl.UMLAddStrategy;
+import pattern.impl.SingletonPatternFinder;
 import visitor.impl.SDOutputStrategy;
 import visitor.impl.UMLOutputStrategy;
 
@@ -349,6 +351,20 @@ public class ASMTest {
 		assertTrue(m.getClassToCall().equals("java.lang.StringBuffer"));
 		assertTrue(m.getReturnType().equals("java.lang.StringBuffer"));
 		assertTrue(m.getArgTypes().length == 1);
+	}
+	
+	/**
+	 * Tests a lazy singleton detection.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testLazySingleton() throws IOException {
+		loadClass("asm.LazySingletonTest");
+		this.dm.addPatternFinder(new SingletonPatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		assertTrue(mm.getStyle("asm.LazySingletonTest").equals("color=blue"));
 	}
 
 }
