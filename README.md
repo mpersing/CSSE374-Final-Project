@@ -21,6 +21,16 @@ The following are the modifications made to existing code. The data API was modi
 
 The following are new additions for the sequence diagram. The existing ASM parser simply had a new method added that added each method call in order into the data API. These method calls were stored in a MethodCall class that was added to the data API. AddStrategies were added to the DataManager that would take care of adding new entries properly as they were received as arguments. The UMLAddStrategy simply called addClass, but the SDAddStrategy recursively went through all method calls by each method starting at the root method until the depth was reached, adding whatever classes it needed along the way. A similar recursive pattern was used to output the result. To prevent code duplication, the existing CommandLineRunner was turned into a SDCommandLineRunner and a UMLCommandLinerunner. Each properly setup the add and output strategies along with properly calling the appropriate programs to process the result.
 
+### Milestone 4
+Milestone 4 fit very well into our existing design. For pattern detection, we added a PatternFinder Interface that functions as a strategy pattern. PatternFinders are added to the data manager and when findAllPatterns is called in the data manager, all the added PatternFinders are looped through to detect all design patterns that should be found.
+
+To output design pattern information, we created the UMlModifierManager class that can be passed around to the OutputVisitors and OutputStrategy for UML without passing around with entire data manager. This class stores subtext for classes, style information for classes, and cluster information. If subtext or style information is recorded, they'll be placed in the proper node location. If cluster information is stored, it will be handled in the UML output strategy.
+
+Beyond specific changes for Milestone 4, we added the features that would have been nice since Milestone 2: improved signature parsing for Fields and whitelisting classes for UML display
+
+As a proof of concept for clusters, we added a pattern finder that finds classes in the same package and groups them together, labeling the group.
+
+
 ## Usage Instructions
 This tool is designed for use on Windows and to be run from Eclipse. It is possible to be run outside of Eclipse, but instructions to do so will not be provided here.
 
@@ -62,5 +72,12 @@ Milestone 3:
 * Design Improvements: Both
 * Code: Both
 * SD comparison testing: Tyler Whitehouse
+* Automated tests: Matthew Persing
+
+Milestone 4:
+* README: Matthew Persing
+* Design Improvements: Both
+* Code: Both
+* Comparison testing: Tyler Whitehouse
 * Automated tests: Matthew Persing
 
