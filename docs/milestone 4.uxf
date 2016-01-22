@@ -4,7 +4,7 @@
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1576</x>
+      <x>1864</x>
       <y>248</y>
       <w>456</w>
       <h>48</h>
@@ -18,7 +18,7 @@
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1576</x>
+      <x>1864</x>
       <y>192</y>
       <w>488</w>
       <h>48</h>
@@ -32,7 +32,7 @@ ClassFieldVisitor(arg0: int, arg1: ClassVisitor)
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1248</x>
+      <x>1536</x>
       <y>136</y>
       <w>272</w>
       <h>80</h>
@@ -49,7 +49,7 @@ ClassFieldVisitor(arg0: int, arg1: ClassVisitor)
   <element>
     <type>com.baselet.element.old.element.Package</type>
     <coordinates>
-      <x>1216</x>
+      <x>1504</x>
       <y>0</y>
       <w>936</w>
       <h>312</h>
@@ -61,7 +61,7 @@ fg=red</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1576</x>
+      <x>1864</x>
       <y>136</y>
       <w>528</w>
       <h>48</h>
@@ -75,7 +75,7 @@ fg=red</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Package</type>
     <coordinates>
-      <x>1216</x>
+      <x>1504</x>
       <y>328</y>
       <w>1304</w>
       <h>480</h>
@@ -87,7 +87,7 @@ fg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1224</x>
+      <x>1512</x>
       <y>360</y>
       <w>168</w>
       <h>232</h>
@@ -115,7 +115,7 @@ IClass
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1544</x>
+      <x>1832</x>
       <y>584</y>
       <w>296</w>
       <h>184</h>
@@ -139,7 +139,7 @@ IDataManager
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1712</x>
+      <x>2000</x>
       <y>416</y>
       <w>144</w>
       <h>128</h>
@@ -159,7 +159,7 @@ IElement
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1472</x>
+      <x>1760</x>
       <y>512</y>
       <w>144</w>
       <h>64</h>
@@ -174,7 +174,7 @@ IField
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1856</x>
+      <x>2144</x>
       <y>664</y>
       <w>184</w>
       <h>128</h>
@@ -194,7 +194,7 @@ IMethod
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>992</x>
+      <x>1280</x>
       <y>584</y>
       <w>168</w>
       <h>56</h>
@@ -208,7 +208,7 @@ ITraverser
   <element>
     <type>com.baselet.element.old.element.Package</type>
     <coordinates>
-      <x>1232</x>
+      <x>1520</x>
       <y>824</y>
       <w>992</w>
       <h>688</h>
@@ -220,7 +220,7 @@ fg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1256</x>
+      <x>1544</x>
       <y>904</y>
       <w>240</w>
       <h>280</h>
@@ -253,7 +253,7 @@ _-primativeSet: Set&lt;String&gt;_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1552</x>
+      <x>1840</x>
       <y>1088</y>
       <w>264</w>
       <h>256</h>
@@ -285,7 +285,7 @@ _-primativeSet: Set&lt;String&gt;_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1768</x>
+      <x>2056</x>
       <y>896</y>
       <w>144</w>
       <h>152</h>
@@ -307,7 +307,7 @@ _-primativeSet: Set&lt;String&gt;_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1576</x>
+      <x>1864</x>
       <y>920</y>
       <w>168</w>
       <h>80</h>
@@ -324,7 +324,7 @@ _-primativeSet: Set&lt;String&gt;_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1936</x>
+      <x>2224</x>
       <y>928</y>
       <w>200</w>
       <h>168</h>
@@ -348,9 +348,9 @@ _-primativeSet: Set&lt;String&gt;_
   <element>
     <type>com.baselet.element.old.element.Package</type>
     <coordinates>
-      <x>240</x>
-      <y>808</y>
-      <w>928</w>
+      <x>248</x>
+      <y>816</y>
+      <w>1208</w>
       <h>464</h>
     </coordinates>
     <panel_attributes>visitor.impl
@@ -361,7 +361,7 @@ fg=red</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Package</type>
     <coordinates>
-      <x>976</x>
+      <x>1264</x>
       <y>536</y>
       <w>224</w>
       <h>216</h>
@@ -373,7 +373,7 @@ fg=red</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Package</type>
     <coordinates>
-      <x>760</x>
+      <x>1048</x>
       <y>256</y>
       <w>360</w>
       <h>208</h>
@@ -385,7 +385,7 @@ fg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>792</x>
+      <x>1080</x>
       <y>400</y>
       <w>272</w>
       <h>48</h>
@@ -399,7 +399,7 @@ _+runApplication(command: String, arg: String): void_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>664</x>
+      <x>952</x>
       <y>976</y>
       <w>288</w>
       <h>192</h>
@@ -425,7 +425,7 @@ OutputVisitor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>976</x>
+      <x>1264</x>
       <y>1152</y>
       <w>160</w>
       <h>104</h>
@@ -443,7 +443,7 @@ OutputVisitor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>992</x>
+      <x>1280</x>
       <y>1080</y>
       <w>160</w>
       <h>56</h>
@@ -457,7 +457,7 @@ OutputVisitor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>776</x>
+      <x>1064</x>
       <y>1192</y>
       <w>160</w>
       <h>56</h>
@@ -471,7 +471,7 @@ OutputVisitor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>992</x>
+      <x>1280</x>
       <y>664</y>
       <w>168</w>
       <h>64</h>
@@ -486,7 +486,7 @@ IOutputStrategy
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>928</x>
+      <x>1216</x>
       <y>1136</y>
       <w>64</w>
       <h>40</h>
@@ -497,7 +497,7 @@ IOutputStrategy
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>816</x>
+      <x>1104</x>
       <y>1144</y>
       <w>40</w>
       <h>64</h>
@@ -508,7 +508,7 @@ IOutputStrategy
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>928</x>
+      <x>1216</x>
       <y>1120</y>
       <w>640</w>
       <h>120</h>
@@ -519,7 +519,7 @@ IOutputStrategy
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>928</x>
+      <x>1216</x>
       <y>1064</y>
       <w>80</w>
       <h>40</h>
@@ -530,13 +530,20 @@ IOutputStrategy
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>992</x>
-      <y>872</y>
-      <w>168</w>
-      <h>56</h>
+      <x>280</x>
+      <y>1144</y>
+      <w>520</w>
+      <h>128</h>
     </coordinates>
     <panel_attributes>UMLOuputStrategy
 --
+-visitors: ArrayList&lt;OutputVisitor&gt;
+-dm: IDataManager
+--
++UMLOutputStrategy()
++output(sb: StringBuffer): void
++addOutputVisitor(v: OutputVisitor, umlModMan: IUMLModifierManager, whitelist: Set&lt;String&gt;): void
++setDataManager(dm: IDataManager): void
 +preVisit(sb: StringBuffer): void
 +postVisit(sb: StringBuffer): void</panel_attributes>
     <additional_attributes/>
@@ -544,18 +551,18 @@ IOutputStrategy
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1008</x>
-      <y>704</y>
-      <w>40</w>
-      <h>184</h>
+      <x>776</x>
+      <y>864</y>
+      <w>104</w>
+      <h>328</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>24;24;24;168</additional_attributes>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>88;24;88;312;24;312</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>608</x>
+      <x>896</x>
       <y>416</y>
       <w>960</w>
       <h>904</h>
@@ -567,7 +574,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>752</x>
+      <x>1040</x>
       <y>904</y>
       <w>160</w>
       <h>56</h>
@@ -581,7 +588,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>792</x>
+      <x>1080</x>
       <y>936</y>
       <w>40</w>
       <h>56</h>
@@ -592,7 +599,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>976</x>
+      <x>1264</x>
       <y>952</y>
       <w>160</w>
       <h>48</h>
@@ -606,7 +613,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>928</x>
+      <x>1216</x>
       <y>968</y>
       <w>64</w>
       <h>40</h>
@@ -617,7 +624,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>736</x>
+      <x>1024</x>
       <y>1144</y>
       <w>832</w>
       <h>160</h>
@@ -629,7 +636,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1424</x>
+      <x>1712</x>
       <y>8</y>
       <w>800</w>
       <h>1256</h>
@@ -641,7 +648,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1576</x>
+      <x>1864</x>
       <y>48</y>
       <w>528</w>
       <h>80</h>
@@ -658,7 +665,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1496</x>
+      <x>1784</x>
       <y>136</y>
       <w>96</w>
       <h>40</h>
@@ -669,7 +676,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1496</x>
+      <x>1784</x>
       <y>168</y>
       <w>96</w>
       <h>56</h>
@@ -680,7 +687,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1496</x>
+      <x>1784</x>
       <y>192</y>
       <w>96</w>
       <h>80</h>
@@ -691,7 +698,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1592</x>
+      <x>1880</x>
       <y>192</y>
       <w>592</w>
       <h>384</h>
@@ -703,7 +710,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1344</x>
+      <x>1632</x>
       <y>192</y>
       <w>40</w>
       <h>184</h>
@@ -715,7 +722,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1368</x>
+      <x>1656</x>
       <y>424</y>
       <w>360</w>
       <h>40</h>
@@ -726,7 +733,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1136</x>
+      <x>1424</x>
       <y>448</y>
       <w>592</w>
       <h>168</h>
@@ -737,7 +744,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1120</x>
+      <x>1408</x>
       <y>472</y>
       <w>120</w>
       <h>128</h>
@@ -749,7 +756,7 @@ fg=blu</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1136</x>
+      <x>1424</x>
       <y>512</y>
       <w>352</w>
       <h>112</h>
@@ -760,7 +767,7 @@ fg=blu</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1136</x>
+      <x>1424</x>
       <y>600</y>
       <w>424</w>
       <h>40</h>
@@ -771,7 +778,7 @@ fg=blu</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1136</x>
+      <x>1424</x>
       <y>616</y>
       <w>736</w>
       <h>176</h>
@@ -782,7 +789,7 @@ fg=blu</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1824</x>
+      <x>2112</x>
       <y>520</y>
       <w>40</w>
       <h>392</h>
@@ -794,7 +801,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1968</x>
+      <x>2256</x>
       <y>768</y>
       <w>40</w>
       <h>176</h>
@@ -806,7 +813,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1728</x>
+      <x>2016</x>
       <y>744</y>
       <w>40</w>
       <h>360</h>
@@ -818,7 +825,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1720</x>
+      <x>2008</x>
       <y>936</y>
       <w>64</w>
       <h>40</h>
@@ -829,7 +836,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1472</x>
+      <x>1760</x>
       <y>1016</y>
       <w>312</w>
       <h>40</h>
@@ -840,7 +847,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1472</x>
+      <x>1760</x>
       <y>1040</y>
       <w>480</w>
       <h>40</h>
@@ -851,7 +858,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1888</x>
+      <x>2176</x>
       <y>936</y>
       <w>64</w>
       <h>40</h>
@@ -862,7 +869,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1504</x>
+      <x>1792</x>
       <y>552</y>
       <w>104</w>
       <h>384</h>
@@ -874,7 +881,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1320</x>
+      <x>1608</x>
       <y>568</y>
       <w>40</w>
       <h>352</h>
@@ -886,7 +893,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1592</x>
+      <x>1880</x>
       <y>504</y>
       <w>136</w>
       <h>40</h>
@@ -897,7 +904,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1832</x>
+      <x>2120</x>
       <y>504</y>
       <w>64</w>
       <h>176</h>
@@ -908,7 +915,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2080</x>
+      <x>2368</x>
       <y>80</y>
       <w>56</w>
       <h>104</h>
@@ -919,7 +926,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1368</x>
+      <x>1656</x>
       <y>64</y>
       <w>832</w>
       <h>352</h>
@@ -931,7 +938,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1440</x>
+      <x>1728</x>
       <y>768</y>
       <w>448</w>
       <h>152</h>
@@ -944,7 +951,7 @@ fg=#00AA00
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1416</x>
+      <x>1704</x>
       <y>544</y>
       <w>72</w>
       <h>376</h>
@@ -956,7 +963,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>928</x>
+      <x>1216</x>
       <y>1024</y>
       <w>344</w>
       <h>40</h>
@@ -968,7 +975,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1472</x>
+      <x>1760</x>
       <y>1112</y>
       <w>96</w>
       <h>40</h>
@@ -980,7 +987,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>928</x>
+      <x>1216</x>
       <y>1040</y>
       <w>640</w>
       <h>184</h>
@@ -992,7 +999,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1136</x>
+      <x>1424</x>
       <y>680</y>
       <w>432</w>
       <h>528</h>
@@ -1004,7 +1011,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>928</x>
+      <x>1216</x>
       <y>872</y>
       <w>664</w>
       <h>176</h>
@@ -1016,7 +1023,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>928</x>
+      <x>1216</x>
       <y>856</y>
       <w>1048</w>
       <h>176</h>
@@ -1028,19 +1035,19 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>744</x>
-      <y>808</y>
+      <x>1032</x>
+      <y>848</y>
       <w>560</w>
-      <h>112</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=blue</panel_attributes>
-    <additional_attributes>544;96;544;48;368;48;368;24;24;24;24;96</additional_attributes>
+    <additional_attributes>544;56;544;24;24;24;24;56</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1112</x>
+      <x>1400</x>
       <y>552</y>
       <w>416</w>
       <h>704</h>
@@ -1052,7 +1059,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1112</x>
+      <x>1400</x>
       <y>768</y>
       <w>800</w>
       <h>496</h>
@@ -1064,7 +1071,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1112</x>
+      <x>1400</x>
       <y>568</y>
       <w>152</w>
       <h>608</h>
@@ -1076,7 +1083,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1112</x>
+      <x>1400</x>
       <y>568</y>
       <w>136</w>
       <h>408</h>
@@ -1088,7 +1095,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1864</x>
+      <x>2152</x>
       <y>424</y>
       <w>288</w>
       <h>96</h>
@@ -1105,7 +1112,7 @@ AddStrategy
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1824</x>
+      <x>2112</x>
       <y>1136</y>
       <w>376</w>
       <h>48</h>
@@ -1119,7 +1126,7 @@ AddStrategy
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>1872</x>
+      <x>2160</x>
       <y>1192</y>
       <w>136</w>
       <h>48</h>
@@ -1132,7 +1139,7 @@ add(toAdd: String[]): void</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2024</x>
+      <x>2312</x>
       <y>496</y>
       <w>160</w>
       <h>656</h>
@@ -1143,7 +1150,7 @@ add(toAdd: String[]): void</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>792</x>
+      <x>1080</x>
       <y>280</y>
       <w>272</w>
       <h>48</h>
@@ -1157,7 +1164,7 @@ _+main(args: String[]): void_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>792</x>
+      <x>1080</x>
       <y>336</y>
       <w>272</w>
       <h>48</h>
@@ -1171,7 +1178,7 @@ _+main(args: String[]): void_
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1040</x>
+      <x>1328</x>
       <y>272</y>
       <w>64</w>
       <h>96</h>
@@ -1182,7 +1189,7 @@ _+main(args: String[]): void_
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1040</x>
+      <x>1328</x>
       <y>328</y>
       <w>64</w>
       <h>104</h>
@@ -1193,7 +1200,7 @@ _+main(args: String[]): void_
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>584</x>
+      <x>872</x>
       <y>328</y>
       <w>1272</w>
       <h>1224</h>
@@ -1205,7 +1212,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>576</x>
+      <x>864</x>
       <y>272</y>
       <w>1328</w>
       <h>1304</h>
@@ -1217,10 +1224,10 @@ fg=blue</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>256</x>
+      <x>544</x>
       <y>848</y>
-      <w>296</w>
-      <h>232</h>
+      <w>304</w>
+      <h>248</h>
     </coordinates>
     <panel_attributes>SDOuputStrategy
 --
@@ -1239,24 +1246,26 @@ fg=blue</panel_attributes>
 -inNewClasses(s: String): boolean
 -inExistingClasses(s: String): boolean
 -classAlreadyAdded(s: String): boolean
--setRoot(className: String, methodSig: String, depth: int)</panel_attributes>
++setRoot(className: String, methodSig: String, depth: int)
++setDataManager(dm: IDataManager): void
+-classNameToInstanceName(c: String): String</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>528</x>
-      <y>832</y>
-      <w>520</w>
-      <h>72</h>
+      <x>824</x>
+      <y>688</y>
+      <w>472</w>
+      <h>216</h>
     </coordinates>
-    <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>504;24;416;24;416;56;24;56</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>456;24;160;24;160;200;24;200</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>2264</x>
+      <x>2552</x>
       <y>376</y>
       <w>232</w>
       <h>208</h>
@@ -1283,7 +1292,7 @@ Cluster
   <element>
     <type>com.baselet.element.old.element.Class</type>
     <coordinates>
-      <x>2264</x>
+      <x>2552</x>
       <y>632</y>
       <w>208</w>
       <h>144</h>
@@ -1302,7 +1311,7 @@ IUMLModifierManager
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1616</x>
+      <x>1904</x>
       <y>1360</y>
       <w>104</w>
       <h>48</h>
@@ -1315,7 +1324,7 @@ IUMLModifierManager
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1256</x>
+      <x>1544</x>
       <y>1320</y>
       <w>280</w>
       <h>160</h>
@@ -1338,7 +1347,7 @@ IUMLModifierManager
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1512</x>
+      <x>1800</x>
       <y>1360</y>
       <w>120</w>
       <h>40</h>
@@ -1351,7 +1360,7 @@ fg=blue
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1816</x>
+      <x>2104</x>
       <y>496</y>
       <w>128</w>
       <h>128</h>
@@ -1363,7 +1372,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1792</x>
+      <x>2080</x>
       <y>896</y>
       <w>544</w>
       <h>240</h>
@@ -1375,7 +1384,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Package</type>
     <coordinates>
-      <x>2312</x>
+      <x>2600</x>
       <y>872</y>
       <w>392</w>
       <h>80</h>
@@ -1387,7 +1396,7 @@ fg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2320</x>
+      <x>2608</x>
       <y>896</y>
       <w>368</w>
       <h>48</h>
@@ -1401,7 +1410,7 @@ IPatternFinder
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1792</x>
+      <x>2080</x>
       <y>752</y>
       <w>496</w>
       <h>376</h>
@@ -1414,7 +1423,7 @@ fg=blue
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1792</x>
+      <x>2080</x>
       <y>496</y>
       <w>368</w>
       <h>624</h>
@@ -1426,7 +1435,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1920</x>
+      <x>2208</x>
       <y>1296</y>
       <w>288</w>
       <h>160</h>
@@ -1449,7 +1458,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2112</x>
+      <x>2400</x>
       <y>1056</y>
       <w>160</w>
       <h>296</h>
@@ -1461,7 +1470,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1696</x>
+      <x>1984</x>
       <y>504</y>
       <w>584</w>
       <h>904</h>
@@ -1472,7 +1481,7 @@ fg=#00AA00</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1512</x>
+      <x>1800</x>
       <y>752</y>
       <w>792</w>
       <h>736</h>
@@ -1484,7 +1493,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Package</type>
     <coordinates>
-      <x>2312</x>
+      <x>2600</x>
       <y>960</y>
       <w>392</w>
       <h>128</h>
@@ -1496,7 +1505,7 @@ fg=red</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2320</x>
+      <x>2608</x>
       <y>984</y>
       <w>368</w>
       <h>40</h>
@@ -1509,7 +1518,7 @@ fg=red</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2664</x>
+      <x>2952</x>
       <y>912</y>
       <w>72</w>
       <h>104</h>
@@ -1521,7 +1530,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>2320</x>
+      <x>2608</x>
       <y>1032</y>
       <w>368</w>
       <h>40</h>
@@ -1534,7 +1543,7 @@ fg=#AA00FF</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2224</x>
+      <x>2512</x>
       <y>536</y>
       <w>112</w>
       <h>480</h>
@@ -1547,7 +1556,7 @@ fg=blue
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1368</x>
+      <x>1656</x>
       <y>344</y>
       <w>1392</w>
       <h>728</h>
@@ -1560,7 +1569,7 @@ fg=blue
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>2000</x>
+      <x>2288</x>
       <y>768</y>
       <w>744</w>
       <h>288</h>
@@ -1573,7 +1582,7 @@ fg=blue
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>1592</x>
+      <x>1880</x>
       <y>544</y>
       <w>1160</w>
       <h>520</h>
@@ -1586,7 +1595,7 @@ fg=blue
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>592</x>
+      <x>880</x>
       <y>336</y>
       <w>992</w>
       <h>1208</h>
@@ -1598,31 +1607,31 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>528</x>
+      <x>824</x>
       <y>344</y>
-      <w>280</w>
+      <w>272</w>
       <h>536</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=blue</panel_attributes>
-    <additional_attributes>24;520;96;520;96;24;264;24</additional_attributes>
+    <additional_attributes>24;520;88;520;88;24;256;24</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>816</x>
+      <x>776</x>
       <y>424</y>
-      <w>208</w>
-      <h>464</h>
+      <w>352</w>
+      <h>752</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 fg=blue</panel_attributes>
-    <additional_attributes>192;448;192;360;24;360;24;24</additional_attributes>
+    <additional_attributes>24;736;168;736;168;440;336;440;336;24</additional_attributes>
   </element>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>592</x>
+      <x>880</x>
       <y>384</y>
       <w>216</w>
       <h>40</h>
@@ -1634,7 +1643,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>584</x>
+      <x>872</x>
       <y>392</y>
       <w>224</w>
       <h>40</h>
@@ -1646,7 +1655,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>616</x>
+      <x>904</x>
       <y>424</y>
       <w>200</w>
       <h>800</h>
@@ -1658,7 +1667,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>624</x>
+      <x>912</x>
       <y>424</y>
       <w>384</w>
       <h>776</h>
@@ -1670,7 +1679,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>760</x>
+      <x>1048</x>
       <y>424</y>
       <w>72</w>
       <h>496</h>
@@ -1682,7 +1691,7 @@ fg=blue</panel_attributes>
   <element>
     <type>com.baselet.element.old.element.Relation</type>
     <coordinates>
-      <x>808</x>
+      <x>1096</x>
       <y>424</y>
       <w>192</w>
       <h>544</h>
