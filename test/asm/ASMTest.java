@@ -365,6 +365,82 @@ public class ASMTest {
 		this.dm.findAllPatterns();
 		IUMLModifierManager mm = this.dm.getUMLModifierManager();
 		assertTrue(mm.getStyle("asm.LazySingletonTest").equals("color=blue"));
+		assertTrue(mm.getSubtext("asm.LazySingletonTest").contains("\\<\\<Singleton\\>\\>"));
+	}
+	
+	/**
+	 * Tests a eager singleton detection.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testEagerSingleton() throws IOException {
+		loadClass("asm.EagerSingletonTest");
+		this.dm.addPatternFinder(new SingletonPatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		assertTrue(mm.getStyle("asm.EagerSingletonTest").equals("color=blue"));
+		assertTrue(mm.getSubtext("asm.EagerSingletonTest").contains("\\<\\<Singleton\\>\\>"));
+	}
+	
+	/**
+	 * Tests a Runtime singleton detection.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testRuntimeSingleton() throws IOException {
+		loadClass("java.lang.Runtime");
+		this.dm.addPatternFinder(new SingletonPatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		assertTrue(mm.getStyle("java.lang.Runtime").equals("color=blue"));
+		assertTrue(mm.getSubtext("java.lang.Runtime").contains("\\<\\<Singleton\\>\\>"));
+	}
+	
+	/**
+	 * Tests a Desktop singleton detection. It doesn't have itself in a field.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testDesktopSingleton() throws IOException {
+		loadClass("java.awt.Desktop");
+		this.dm.addPatternFinder(new SingletonPatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		assertFalse(mm.getStyle("java.awt.Desktop").equals("color=blue"));
+		assertFalse(mm.getSubtext("java.awt.Desktop").contains("\\<\\<Singleton\\>\\>"));
+	}
+	
+	/**
+	 * Tests a Calendar singleton detection. It can't be instantiated. (it's abstract)
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testCalendarSingleton() throws IOException {
+		loadClass("java.util.Calendar");
+		this.dm.addPatternFinder(new SingletonPatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		assertFalse(mm.getStyle("java.util.Calendar").equals("color=blue"));
+		assertFalse(mm.getSubtext("java.util.Calendar").contains("\\<\\<Singleton\\>\\>"));
+	}
+	
+	/**
+	 * Tests singleton detection on FilterInputStream. It's not a singleton.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testFilterInputStreamSingleton() throws IOException {
+		loadClass("java.io.FilterInputStream");
+		this.dm.addPatternFinder(new SingletonPatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		assertFalse(mm.getStyle("java.io.FilterInputStream").equals("color=blue"));
+		assertFalse(mm.getSubtext("java.io.FilterInputStream").contains("\\<\\<Singleton\\>\\>"));
 	}
 
 }
