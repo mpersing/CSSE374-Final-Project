@@ -1,0 +1,1220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="12.2">
+  <zoom_level>5</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>660</x>
+      <y>170</y>
+      <w>285</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ClassDeclarationVisitor
+--
++ClassDeclarationVisitor(arg0: int)
++visit(version: int, access: int, name: String, superName: String, interfaces: String[]): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>660</x>
+      <y>135</y>
+      <w>305</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ClassFieldVisitor
+--
+ClassFieldVisitor(arg0: int, arg1: ClassVisitor)
++visitField(access: int, name: String, desc: String, signature: String value: Object): FieldVisitor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>455</x>
+      <y>100</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>ClassInformationVisitor
+--
+#newClass: IClass
+--
++ClassInformationVisitor(arg0: int)
++ClassInformationVisitor(arg0: int, arg1: ClassVisitor
++setClass(c: IClass): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>435</x>
+      <y>25</y>
+      <w>585</w>
+      <h>185</h>
+    </coordinates>
+    <panel_attributes>asm
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>660</x>
+      <y>100</y>
+      <w>330</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ClassMethodVisitor
+--
++ClassMethodVisitor(arg0: int, arg1: ClassVisitor)
++MethodVisitor(arg0: int, name: String, desc: String, signature: String, String[] exceptions): MethodVisitor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>435</x>
+      <y>220</y>
+      <w>585</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>data.api
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>440</x>
+      <y>240</y>
+      <w>105</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IClass
+--
++addMethod(IMethod m): void
++getMethods(): List&lt;IMethod&gt; 
++addField(IField f): void 
++getFields(): List&lt;IField&gt;
++setExtends(String e): void 
++getExtends(): String 
++setImplements(String[] i): void 
++getImplements(): String[]
++isInterface(): boolean </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>390</y>
+      <w>135</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IDataManager
+--
++add(toAdd: String): void
++addOutputVisitor(v: OutputVisitor): void
++output(sb: StringBuffer): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>745</x>
+      <y>265</y>
+      <w>90</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IElement
+--
++setName(n: String): void
++getName(): String
++setAccess(a: int): void
++isPrivate(): boolean
++isProtected(): boolean
++isPublic(): boolean
++isStatic(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>595</x>
+      <y>335</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IField
+--
++setType(t: String): void
++getType(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>835</x>
+      <y>435</y>
+      <w>115</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;&gt;
+IMethod
+--
++setArguments(args: String[]): void
++getArguments(): String[]
++setReturnType(r: String): void
++getReturnType(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>295</x>
+      <y>365</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;
+ITraverser
+--
++accept(v: OutputVisitor): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>435</x>
+      <y>505</y>
+      <w>585</w>
+      <h>295</h>
+    </coordinates>
+    <panel_attributes>          data.impl
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>575</y>
+      <w>150</w>
+      <h>155</h>
+    </coordinates>
+    <panel_attributes>Class
+--
+-methodList: List&lt;IMethod&gt;
+-fieldList: List&lt;IField&gt;
+-extendsClass: String
+-implementArray: String[]
+--
++Class()
++addMethod(IMethod m): void
++getMethods(): List&lt;IMethod&gt; 
++addField(IField f): void 
++getFields(): List&lt;IField&gt;
++setExtends(String e): void 
++getExtends(): String 
++setImplements(String[] i): void 
++getImplements(): String[]
++isInterface(): boolean 
++accept(v: OuputVisitor): void
++getExtendsClas(): String
++setExtendsClass(extendsClass: String): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>695</y>
+      <w>135</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>DataManager
+--
+-classes: ArrayList&lt;IClass&gt;
+-visitors: ArrayList&lt;OutputVisitor&gt;
+--
++DataManager()
++add(toAdd: String): void
++addOutputVisitor(v: OutputVisitor): void
++output(sb: StringBuffer): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>785</x>
+      <y>560</y>
+      <w>90</w>
+      <h>95</h>
+    </coordinates>
+    <panel_attributes>Element
+--
+#access: int
+#name: String
+--
++setName(n: String): void
++getName(): String
++setAccess(a: int): void
++isPrivate(): boolean
++isProtected(): boolean
++isPublic(): boolean
++isStatic(): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>575</y>
+      <w>105</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Field
+--
+-type: String
+--
++accept(v: OutputVisitor): void
++setType(t: String): void
++getType(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>900</x>
+      <y>615</y>
+      <w>115</w>
+      <h>75</h>
+    </coordinates>
+    <panel_attributes>Method
+--
+-arguments: String[]
+-returnType: String
+--
++accept(v: OutputVisitor): void
++setArguments(args: String[]): void
++getArguments(): String[]
++setReturnType(r: String): void
++getReturnType(): String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>125</x>
+      <y>505</y>
+      <w>280</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>visitor.impl
+--
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>275</x>
+      <y>335</y>
+      <w>140</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>visitor.api
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Package</type>
+    <coordinates>
+      <x>150</x>
+      <y>160</y>
+      <w>225</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>runners
+fg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>250</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>CommandLineRunner
+--
+_+runApplication(command: String, arg: String): void_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>145</x>
+      <y>615</y>
+      <w>125</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Abstract&gt;&gt;
+OutputVisitor
+--
+#sb: StringBuffer
+--
++visit(c: IClass): void
++visit(d: IDataManager): void
++visit(f: IField): void
++visit(m: IMethod): void
++midVisit(c: IClass): void
++postVisit(c: IClass): void
++setStringBuffer(sb: StringBuffer): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>285</x>
+      <y>720</y>
+      <w>100</w>
+      <h>65</h>
+    </coordinates>
+    <panel_attributes>ClassOutputVisitor
+--
++visit(c: IClass): void
++visit(d: IDataManager): void
++visit(f: IField): void
++visit(m: IMethod): void
++midVisit(c: IClass): void
++postVisit(c: IClass): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>295</x>
+      <y>675</y>
+      <w>100</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>ExtendOutputVisitor
+--
++visit(c: IClass): void
++visit(d: IDataManager): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>745</y>
+      <w>100</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>ImplementOutputVisitor
+--
++visit(c: IClass): void
++visit(d: IDataManager): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>295</x>
+      <y>415</y>
+      <w>105</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interface&gt;
+IOutputStrategy
+--
++preVisit(sb: StringBuffer): void
++postVisit(sb: StringBuffer): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>255</x>
+      <y>685</y>
+      <w>39</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;30;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>185</x>
+      <y>685</y>
+      <w>24</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;15;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>255</x>
+      <y>675</y>
+      <w>424</w>
+      <h>89</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>415;80;140;80;140;40;35;40;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>255</x>
+      <y>665</y>
+      <w>49</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;40;15</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>295</x>
+      <y>545</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>UMLOuputStrategy
+--
++preVisit(sb: StringBuffer): void
++postVisit(sb: StringBuffer): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>305</x>
+      <y>440</y>
+      <w>24</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;15;105</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>95</x>
+      <y>245</y>
+      <w>634</w>
+      <h>594</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>625;520;625;585;15;585;15;15;75;15</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>145</x>
+      <y>565</y>
+      <w>100</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>AssocOutputVisitor
+--
++visit(c: IClass): void
++visit(d: IDataManager): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>170</x>
+      <y>585</y>
+      <w>24</w>
+      <h>39</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;30;15;15</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>595</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>UsesOutputVisitor
+--
++visit(c: IClass): void
++visit(d: IDataManager): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>255</x>
+      <y>605</y>
+      <w>44</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;35;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>140</x>
+      <y>685</y>
+      <w>554</w>
+      <h>139</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>15;15;15;130;545;130;545;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>565</x>
+      <y>0</y>
+      <w>489</w>
+      <h>839</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>15;100;15;15;480;15;480;830;190;830;190;765</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>660</x>
+      <y>45</y>
+      <w>330</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>InternalMethodVisitor
+--
+-newClass: IClass
+--
++InternalMethodVisitor(arg0: int, arg1: ClassVisitor)
++visitTypeInsn(arg0: int, name: String, desc: String, signature: String, String[] exceptions): MethodVisitor
++setClass(c: IClass): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>610</x>
+      <y>100</y>
+      <w>59</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;50;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>610</x>
+      <y>120</y>
+      <w>59</w>
+      <h>34</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;50;25</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>610</x>
+      <y>135</y>
+      <w>59</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;50;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>670</x>
+      <y>135</y>
+      <w>369</w>
+      <h>244</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>15;235;360;235;360;15;295;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>515</x>
+      <y>135</y>
+      <w>24</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>15;105;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>530</x>
+      <y>265</y>
+      <w>224</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>215;15;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>385</x>
+      <y>280</y>
+      <w>369</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;95;170;95;170;15;360;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>375</x>
+      <y>295</y>
+      <w>74</w>
+      <h>79</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+fg=blu</panel_attributes>
+    <additional_attributes>15;70;15;15;65;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>385</x>
+      <y>335</y>
+      <w>219</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;45;180;45;180;15;210;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>385</x>
+      <y>375</y>
+      <w>304</w>
+      <h>44</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;170;15;170;35;295;35</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>385</x>
+      <y>385</y>
+      <w>459</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;160;15;160;75;450;75</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>805</x>
+      <y>330</y>
+      <w>24</w>
+      <h>239</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+fg=#AA00FF</panel_attributes>
+    <additional_attributes>15;15;15;230</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>915</x>
+      <y>475</y>
+      <w>24</w>
+      <h>149</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+fg=#AA00FF</panel_attributes>
+    <additional_attributes>15;15;15;140</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>760</x>
+      <y>425</y>
+      <w>24</w>
+      <h>279</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+fg=#AA00FF</panel_attributes>
+    <additional_attributes>15;15;15;270</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>750</x>
+      <y>585</y>
+      <w>44</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>35;15;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>595</x>
+      <y>635</y>
+      <w>199</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>190;15;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>595</x>
+      <y>650</y>
+      <w>314</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;305;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>860</x>
+      <y>615</y>
+      <w>49</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;40;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>655</x>
+      <y>360</y>
+      <w>24</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>15;15;15;215</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>500</x>
+      <y>320</y>
+      <w>24</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+fg=#AA00FF</panel_attributes>
+    <additional_attributes>15;15;15;255</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>670</x>
+      <y>325</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>75;15;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>820</x>
+      <y>330</y>
+      <w>24</w>
+      <h>114</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;15;15;105</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>975</x>
+      <y>65</y>
+      <w>34</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>15;15;25;15;25;55;15;55</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>530</x>
+      <y>55</y>
+      <w>519</w>
+      <h>204</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>15;195;510;195;510;15;460;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>575</x>
+      <y>455</y>
+      <w>269</w>
+      <h>129</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>260;15;15;15;15;120</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>560</x>
+      <y>355</y>
+      <w>44</w>
+      <h>229</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>35;15;15;15;15;220</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>255</x>
+      <y>640</y>
+      <w>214</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>15;15;205;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>595</x>
+      <y>695</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>15;15;75;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>255</x>
+      <y>650</y>
+      <w>424</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>15;15;155;15;155;95;415;95</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>385</x>
+      <y>425</y>
+      <w>294</w>
+      <h>319</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+fg=#00AA00</panel_attributes>
+    <additional_attributes>15;15;40;15;40;310;285;310</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>255</x>
+      <y>545</y>
+      <w>414</w>
+      <h>109</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>15;100;175;100;175;15;405;15;405;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>255</x>
+      <y>535</y>
+      <w>664</w>
+      <h>109</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>15;100;165;100;165;15;655;15;655;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>140</x>
+      <y>505</y>
+      <w>349</w>
+      <h>79</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>340;70;340;15;15;15;15;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>370</x>
+      <y>360</y>
+      <w>259</w>
+      <h>414</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>250;15;250;405;15;405</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>370</x>
+      <y>465</y>
+      <w>474</w>
+      <h>319</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>465;15;265;15;265;310;15;310</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>370</x>
+      <y>320</y>
+      <w>94</w>
+      <h>414</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>85;15;85;405;15;405</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>375</x>
+      <y>320</y>
+      <w>79</w>
+      <h>289</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>70;15;70;165;35;165;35;280;15;280</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>840</x>
+      <y>265</y>
+      <w>170</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Abstract&gt;&gt;
+AddStrategy
+--
+dataManager: IDataManager
+--
+add(toAdd: String[]): void
+setDataManager(dataManager: IDataManager): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>800</x>
+      <y>310</y>
+      <w>59</w>
+      <h>109</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>15;100;50;100;50;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>845</x>
+      <y>705</y>
+      <w>85</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>SDAddStrategy
+--
+add(toAdd: String[]): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>845</x>
+      <y>740</y>
+      <w>85</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>UMLAddStrategy
+--
+add(toAdd: String[]): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>915</x>
+      <y>310</y>
+      <w>124</w>
+      <h>414</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>40;15;40;100;115;100;115;405;15;405</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>915</x>
+      <y>700</y>
+      <w>59</w>
+      <h>59</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>50;15;50;50;15;50</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>175</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>UMLCommandLineRunner
+--
+_+main(args: String[]): void_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>210</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>SDCommandLineRunner
+--
+_+main(args: String[]): void_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>325</x>
+      <y>170</y>
+      <w>39</w>
+      <h>59</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>30;50;30;15;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>325</x>
+      <y>205</y>
+      <w>39</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>15;55;30;55;30;15;15;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>80</x>
+      <y>205</y>
+      <w>774</w>
+      <h>649</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>765;510;735;510;735;640;15;640;15;15;90;15</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>65</x>
+      <y>170</y>
+      <w>799</w>
+      <h>694</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+fg=blue</panel_attributes>
+    <additional_attributes>790;595;790;685;15;685;15;15;105;15</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>185</x>
+      <y>525</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>SDOuputStrategy
+--
++preVisit(sb: StringBuffer): void
++postVisit(sb: StringBuffer): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>275</x>
+      <y>520</y>
+      <w>54</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>45;15;15;15</additional_attributes>
+  </element>
+</diagram>
