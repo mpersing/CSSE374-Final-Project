@@ -18,16 +18,16 @@ public class SDCommandLineRunner extends CommandLineRunner {
 		
 		SDOutputStrategy outStrat = new SDOutputStrategy();
 		outStrat.setDataManager(data);
+		data.setOutputStrategy(outStrat);
 		if(args.length == 2) {
 			outStrat.setRoot(args[0], args[1], 5);
+			data.add(new String[]{args[0], args[1], "5"});
 		} else if(args.length == 3) {
 			outStrat.setRoot(args[0], args[1], Integer.parseInt(args[2]));
+			data.add(args);
 		} else {
 			return;
 		}
-		data.setOutputStrategy(outStrat);
-		
-		data.add(args);
 		
 		StringBuffer sb = new StringBuffer();
 		data.output(sb);
