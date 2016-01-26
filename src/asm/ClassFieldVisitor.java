@@ -38,11 +38,14 @@ public class ClassFieldVisitor extends ClassInformationVisitor {
 					insideGeneric.add(type);
 				}
 			});
-			String sigResult = insideGeneric.get(1);
-			newClass.addAssoc(insideGeneric.get(1));
-			for(int i = 2 ; i < insideGeneric.size() ; ++i) {
-				sigResult += "," + insideGeneric.get(i);
-				newClass.addAssoc(insideGeneric.get(i));
+			String sigResult = "";
+			if(insideGeneric.size() >= 2) {
+				sigResult = insideGeneric.get(1);
+				newClass.addAssoc(insideGeneric.get(1));
+				for(int i = 2 ; i < insideGeneric.size() ; ++i) {
+					sigResult += "," + insideGeneric.get(i);
+					newClass.addAssoc(insideGeneric.get(i));
+				}
 			}
 			field.setType(Type.getType(desc).getClassName() + "\\<" + sigResult + "\\>");
 			// signature magic
