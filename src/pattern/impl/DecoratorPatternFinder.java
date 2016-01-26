@@ -22,6 +22,10 @@ public class DecoratorPatternFinder implements IPatternFinder {
 					compName = implement[i];
 					break;
 				}
+				if(c.getExtends().equals(implement[i])) {
+					compName = implement[i];
+					break;
+				}
 			}
 			if(!compName.equals("")) {
 				List<String> decors = new ArrayList<String>();
