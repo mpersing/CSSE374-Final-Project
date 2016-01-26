@@ -10,6 +10,7 @@ import data.api.IDataManager;
 import data.api.IUMLModifierManager;
 import data.impl.DataManager;
 import data.impl.UMLAddStrategy;
+import pattern.impl.DecoratorPatternFinder;
 import pattern.impl.PackageClusterPatternFinder;
 import pattern.impl.SingletonPatternFinder;
 import visitor.impl.AssocOutputVisitor;
@@ -31,6 +32,7 @@ public class UMLCommandLineRunner extends CommandLineRunner {
 		// Add all of the pattern finders
 		data.addPatternFinder(new SingletonPatternFinder());
 		data.addPatternFinder(new PackageClusterPatternFinder());
+		data.addPatternFinder(new DecoratorPatternFinder());
 		
 		// Create the output strategy
 		UMLOutputStrategy outStrat = new UMLOutputStrategy();
