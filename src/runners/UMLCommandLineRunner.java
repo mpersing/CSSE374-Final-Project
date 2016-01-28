@@ -60,7 +60,7 @@ public class UMLCommandLineRunner extends CommandLineRunner {
 		
 		System.out.println(sb.toString());
 		
-		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone4Automatic.gv")));
+		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone5Automatic.gv")));
         
         //write contents of StringBuffer to a file
         bwr.write(sb.toString());
@@ -72,6 +72,6 @@ public class UMLCommandLineRunner extends CommandLineRunner {
         bwr.close();
         
         // runs the dot
-        CommandLineRunner.runApplication("dot", "-Tpng milestone4Automatic.gv -o milestone4Automatic.png");
+        CommandLineRunner.runApplication("dot", "-Tpng milestone5Automatic.gv -o milestone5Automatic.png");
 	}
 }

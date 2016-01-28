@@ -35,10 +35,10 @@ public class DecoratorPatternFinder implements IPatternFinder {
 					}
 				}
 				mm.setSubtext(compName, "\\<\\<component\\>\\>");
-				mm.addStyle(compName, "fillcolor=green");
+				mm.addStyle(compName, "style=filled, fillcolor=green,");
 				for(String s : decors) {
 					mm.setSubtext(s, "\\<\\<decorator\\>\\>");
-					mm.addStyle(s, "fillcolor=green");
+					mm.addStyle(s, "style=filled, fillcolor=green,");
 				}
 			}
 		}
