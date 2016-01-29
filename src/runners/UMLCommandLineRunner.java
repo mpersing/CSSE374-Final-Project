@@ -6,10 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Set;
 
-import data.api.IDataManager;
-import data.api.IUMLModifierManager;
-import data.impl.DataManager;
-import data.impl.UMLAddStrategy;
+import pattern.impl.AdapterPatternFinder;
 import pattern.impl.DecoratorPatternFinder;
 import pattern.impl.PackageClusterPatternFinder;
 import pattern.impl.SingletonPatternFinder;
@@ -19,6 +16,10 @@ import visitor.impl.ExtendOutputVisitor;
 import visitor.impl.ImplementOutputVisitor;
 import visitor.impl.UMLOutputStrategy;
 import visitor.impl.UsesOutputVisitor;
+import data.api.IDataManager;
+import data.api.IUMLModifierManager;
+import data.impl.DataManager;
+import data.impl.UMLAddStrategy;
 
 public class UMLCommandLineRunner extends CommandLineRunner {
 	public static void main(String[] args) throws IOException {
@@ -33,6 +34,7 @@ public class UMLCommandLineRunner extends CommandLineRunner {
 		data.addPatternFinder(new SingletonPatternFinder());
 		data.addPatternFinder(new PackageClusterPatternFinder());
 		data.addPatternFinder(new DecoratorPatternFinder());
+		data.addPatternFinder(new AdapterPatternFinder(whiteList));
 		
 		// Create the output strategy
 		UMLOutputStrategy outStrat = new UMLOutputStrategy();
