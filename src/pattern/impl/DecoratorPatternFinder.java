@@ -10,6 +10,15 @@ import data.api.IUMLModifierManager;
 import pattern.api.IPatternFinder;
 
 public class DecoratorPatternFinder implements IPatternFinder {
+	
+	private void chainDetect(List<String> decors, Map<String, IClass> classMap, String toFind) {
+		for(IClass c2 : classMap.values()) {
+			if(c2.getExtends().equals(toFind)) {
+				decors.add(c2.getName());
+				this.chainDetect(decors, classMap, c2.getName());
+			}
+		}
+	}
 
 	@Override
 	public void find(Map<String, IClass> classMap, IUMLModifierManager mm) {
@@ -29,11 +38,7 @@ public class DecoratorPatternFinder implements IPatternFinder {
 			if(!compName.equals("")) {
 				List<String> decors = new ArrayList<String>();
 				decors.add(c.getName());
-				for(IClass c2 : classMap.values()) {
-					if(c2.getExtends().equals(c.getName())) {
-						decors.add(c2.getName());
-					}
-				}
+				this.chainDetect(decors, classMap, c.getName());
 				mm.setSubtext(compName, "\\<\\<component\\>\\>");
 				mm.addStyle(compName, "style=filled, fillcolor=green,");
 				for(String s : decors) {
