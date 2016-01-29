@@ -26,6 +26,8 @@ data.impl.UMLModifierManager
 
 pattern.api.IPatternFinder
 
+pattern.impl.DecoratorPatternFinder
+pattern.impl.PackageClusterPatternFinder
 pattern.impl.SingletonPatternFinder
 
 runners.CommandLineRunner
