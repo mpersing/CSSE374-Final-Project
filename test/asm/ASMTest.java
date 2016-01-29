@@ -20,6 +20,7 @@ import data.impl.DataManager;
 import data.impl.MethodCall;
 import data.impl.SDAddStrategy;
 import data.impl.UMLAddStrategy;
+import pattern.impl.AdapterPatternFinder;
 import pattern.impl.DecoratorPatternFinder;
 import pattern.impl.SingletonPatternFinder;
 import visitor.impl.SDOutputStrategy;
@@ -472,6 +473,26 @@ public class ASMTest {
 		assertTrue(mm.getSubtext("asm.IComponent").equals("\\<\\<component\\>\\>"));
 		assertTrue(mm.getSubtext("asm.ConcreteComponent").equals(""));
 		
+	}
+	
+	@Test
+	public void testAdapterDetection() throws IOException {
+		loadClass("asm.ITarget");
+		loadClass("asm.Adapter");
+		loadClass("asm.Adaptee");		
+		this.dm.addPatternFinder(new AdapterPatternFinder(this.dm.getWhitelist()));
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		
+		// Check style
+		assertTrue(mm.getStyle("asm.ITarget").equals("style=filled, fillcolor=red,"));
+		assertTrue(mm.getStyle("asm.Adapter").equals("style=filled, fillcolor=red,"));
+		assertTrue(mm.getStyle("asm.Adaptee").equals("style=filled, fillcolor=red,"));
+		
+		// Check subtext
+		assertTrue(mm.getSubtext("asm.ITarget").equals("\\<\\<Target\\>\\>"));
+		assertTrue(mm.getSubtext("asm.Adapter").equals("\\<\\<Adapter\\>\\>"));
+		assertTrue(mm.getSubtext("asm.Adaptee").equals("\\<\\<Adaptee\\>\\>"));
 	}
 
 }
