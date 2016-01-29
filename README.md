@@ -30,6 +30,8 @@ Beyond specific changes for Milestone 4, we added the features that would have b
 
 As a proof of concept for clusters, we added a pattern finder that finds classes in the same package and groups them together, labeling the group.
 
+### Milestone 5
+Milestone 5 fit perfectly into the existing design and no design modifications needed to be made. The modifications that were made were simply adding new pattern finders for Decorator and Adapter patterns and aggregating them in the data manager from the UMLCommandLineRunner.
 
 ## Usage Instructions
 This tool is designed for use on Windows and to be run from Eclipse. It is possible to be run outside of Eclipse, but instructions to do so will not be provided here.
@@ -81,4 +83,10 @@ Milestone 4:
 * Code: Both
 * Comparison testing: Tyler Whitehouse
 * Automated tests: Matthew Persing
+
+Milestone 5:
+* README: Matthew Persing
+* Updated UML Diagram: Tyler Whitehouse
+* Decorator Pattern Finder: Matthew Persing
+* Adapter Pattern Finder: Tyler Whitehouse
 
