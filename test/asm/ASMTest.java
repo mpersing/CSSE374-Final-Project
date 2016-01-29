@@ -20,6 +20,7 @@ import data.impl.DataManager;
 import data.impl.MethodCall;
 import data.impl.SDAddStrategy;
 import data.impl.UMLAddStrategy;
+import pattern.impl.DecoratorPatternFinder;
 import pattern.impl.SingletonPatternFinder;
 import visitor.impl.SDOutputStrategy;
 import visitor.impl.UMLOutputStrategy;
@@ -29,10 +30,10 @@ public class ASMTest {
 	
 	public ASMTest() {
 		this.dm = null;
+		this.dm = new DataManager();
 	}
 	
 	private void loadClass(String toLoad) throws IOException {
-		this.dm = new DataManager();
 		this.dm.setAddStrategy(new UMLAddStrategy());
 		this.dm.setOutputStrategy(new UMLOutputStrategy());
 		this.dm.add(new String[]{toLoad});
@@ -441,6 +442,36 @@ public class ASMTest {
 		IUMLModifierManager mm = this.dm.getUMLModifierManager();
 		assertFalse(mm.getStyle("java.io.FilterInputStream").equals("color=blue"));
 		assertFalse(mm.getSubtext("java.io.FilterInputStream").contains("\\<\\<Singleton\\>\\>"));
+	}
+	
+	/**
+	 * Tests decorator detection on test classes.
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testDecoratorDetection() throws IOException {
+		loadClass("asm.AbstractDecorator");
+		loadClass("asm.ConcreteComponent");
+		loadClass("asm.ConcreteDecorator1");
+		loadClass("asm.ConcreteDecorator2");
+		loadClass("asm.IComponent");
+		this.dm.addPatternFinder(new DecoratorPatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		// check style
+		assertTrue(mm.getStyle("asm.AbstractDecorator").equals("style=filled, fillcolor=green,"));
+		assertTrue(mm.getStyle("asm.ConcreteDecorator1").equals("style=filled, fillcolor=green,"));
+		assertTrue(mm.getStyle("asm.ConcreteDecorator2").equals("style=filled, fillcolor=green,"));
+		assertTrue(mm.getStyle("asm.IComponent").equals("style=filled, fillcolor=green,"));
+		assertTrue(mm.getStyle("asm.ConcreteComponent").equals(""));
+		// check subtext
+		assertTrue(mm.getSubtext("asm.AbstractDecorator").equals("\\<\\<decorator\\>\\>"));
+		assertTrue(mm.getSubtext("asm.ConcreteDecorator1").equals("\\<\\<decorator\\>\\>"));
+		assertTrue(mm.getSubtext("asm.ConcreteDecorator2").equals("\\<\\<decorator\\>\\>"));
+		assertTrue(mm.getSubtext("asm.IComponent").equals("\\<\\<component\\>\\>"));
+		assertTrue(mm.getSubtext("asm.ConcreteComponent").equals(""));
+		
 	}
 
 }
