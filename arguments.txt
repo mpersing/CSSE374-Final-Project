@@ -26,7 +26,7 @@ data.impl.UMLModifierManager
 
 pattern.api.IPatternFinder
 
-pattern.impl.AdapterPatterFinder
+pattern.impl.AdapterPatternFinder
 pattern.impl.DecoratorPatternFinder
 pattern.impl.PackageClusterPatternFinder
 pattern.impl.SingletonPatternFinder

@@ -14,7 +14,7 @@ import data.api.IUMLModifierManager;
 
 public class AdapterPatternFinder implements IPatternFinder {
 
-	Set<String> whiteList;
+	private final Set<String> whiteList;
 	
 	private static final String style = "style=filled, fillcolor=red,";
 	private static final String adapterSub = "\\<\\<Adapter\\>\\>";
@@ -70,15 +70,15 @@ public class AdapterPatternFinder implements IPatternFinder {
 		}
 	}
 
-	private void styleClasses(IUMLModifierManager mm, String adapterClass, String targetClass, String adapteeSub){
+	private void styleClasses(IUMLModifierManager mm, String adapterClass, String targetClass, String adapteeClass){
 		mm.addStyle(adapterClass, AdapterPatternFinder.style);
 		mm.setSubtext(adapterClass, AdapterPatternFinder.adapterSub);
 		
 		mm.addStyle(targetClass, AdapterPatternFinder.style);
 		mm.setSubtext(targetClass, AdapterPatternFinder.targetSub);
 		
-		mm.addStyle(adapteeSub, AdapterPatternFinder.style);
-		mm.setSubtext(adapteeSub, AdapterPatternFinder.adapteeSub);
+		mm.addStyle(adapteeClass, AdapterPatternFinder.style);
+		mm.setSubtext(adapteeClass, AdapterPatternFinder.adapteeSub);
 	}
 	
 }
