@@ -532,5 +532,52 @@ public class ASMTest {
 		assertTrue(mm.getSubtext("simplecomposite.MyComponent").equals(componentSub));
 		assertTrue(mm.getSubtext("simplecomposite.MyComposite").equals(compositeSub));
 	}
+	
+	/**
+	 * Tests a detailed composite pattern
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testDetailedComposite() throws IOException {
+		loadClass("detailedcomposite.CompositeA");
+		loadClass("detailedcomposite.CompositeB");
+		loadClass("detailedcomposite.IParentofComponent");
+		loadClass("detailedcomposite.LeafA");
+		loadClass("detailedcomposite.MidLeaf");
+		loadClass("detailedcomposite.MyComponent");
+		loadClass("detailedcomposite.MyComposite");
+		loadClass("detailedcomposite.SideLeaf");
+		loadClass("detailedcomposite.SideLeafChild");
+		this.dm.addPatternFinder(new CompositePatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		
+		final String styleTarget = "style=filled, fillcolor=yellow,";
+		// Check style
+		assertTrue(mm.getStyle("detailedcomposite.CompositeA").equals(styleTarget));
+		assertTrue(mm.getStyle("detailedcomposite.CompositeB").equals(styleTarget));
+		assertFalse(mm.getStyle("detailedcomposite.IParentofComponent").equals(styleTarget));
+		assertTrue(mm.getStyle("detailedcomposite.LeafA").equals(styleTarget));
+		assertTrue(mm.getStyle("detailedcomposite.MidLeaf").equals(styleTarget));
+		assertTrue(mm.getStyle("detailedcomposite.MyComponent").equals(styleTarget));
+		assertTrue(mm.getStyle("detailedcomposite.MyComposite").equals(styleTarget));
+		assertTrue(mm.getStyle("detailedcomposite.SideLeaf").equals(styleTarget));
+		assertTrue(mm.getStyle("detailedcomposite.SideLeafChild").equals(styleTarget));
+		
+		final String leafSub = "\\<\\<Leaf\\>\\>";
+		final String compositeSub = "\\<\\<Composite\\>\\>";
+		final String componentSub = "\\<\\<Component\\>\\>";
+		// Check subtext
+		assertTrue(mm.getSubtext("detailedcomposite.CompositeA").equals(compositeSub));
+		assertTrue(mm.getSubtext("detailedcomposite.CompositeB").equals(compositeSub));
+		assertFalse(mm.getSubtext("detailedcomposite.IParentofComponent").equals(" "));
+		assertTrue(mm.getSubtext("detailedcomposite.LeafA").equals(leafSub));
+		assertTrue(mm.getSubtext("detailedcomposite.MidLeaf").equals(leafSub));
+		assertTrue(mm.getSubtext("detailedcomposite.MyComponent").equals(componentSub));
+		assertTrue(mm.getSubtext("detailedcomposite.MyComposite").equals(compositeSub));
+		assertTrue(mm.getSubtext("detailedcomposite.SideLeaf").equals(leafSub));
+		assertTrue(mm.getSubtext("detailedcomposite.SideLeafChild").equals(leafSub));
+	}
 
 }
