@@ -6,7 +6,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Set;
 
+import data.api.IDataManager;
+import data.api.IUMLModifierManager;
+import data.impl.DataManager;
+import data.impl.UMLAddStrategy;
 import pattern.impl.AdapterPatternFinder;
+import pattern.impl.CompositePatternFinder;
 import pattern.impl.DecoratorPatternFinder;
 import pattern.impl.PackageClusterPatternFinder;
 import pattern.impl.SingletonPatternFinder;
@@ -16,10 +21,6 @@ import visitor.impl.ExtendOutputVisitor;
 import visitor.impl.ImplementOutputVisitor;
 import visitor.impl.UMLOutputStrategy;
 import visitor.impl.UsesOutputVisitor;
-import data.api.IDataManager;
-import data.api.IUMLModifierManager;
-import data.impl.DataManager;
-import data.impl.UMLAddStrategy;
 
 public class UMLCommandLineRunner extends CommandLineRunner {
 	public static void main(String[] args) throws IOException {
@@ -35,6 +36,7 @@ public class UMLCommandLineRunner extends CommandLineRunner {
 		data.addPatternFinder(new PackageClusterPatternFinder());
 		data.addPatternFinder(new DecoratorPatternFinder());
 		data.addPatternFinder(new AdapterPatternFinder(whiteList));
+		data.addPatternFinder(new CompositePatternFinder());
 		
 		// Create the output strategy
 		UMLOutputStrategy outStrat = new UMLOutputStrategy();
@@ -62,7 +64,7 @@ public class UMLCommandLineRunner extends CommandLineRunner {
 		
 		System.out.println(sb.toString());
 		
-		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone5Automatic.gv")));
+		BufferedWriter bwr = new BufferedWriter(new FileWriter(new File("milestone6Automatic.gv")));
         
         //write contents of StringBuffer to a file
         bwr.write(sb.toString());
@@ -74,6 +76,6 @@ public class UMLCommandLineRunner extends CommandLineRunner {
         bwr.close();
         
         // runs the dot
-        CommandLineRunner.runApplication("dot", "-Tpng milestone5Automatic.gv -o milestone5Automatic.png");
+        CommandLineRunner.runApplication("dot", "-Tpng milestone6Automatic.gv -o milestone6Automatic.png");
 	}
 }
