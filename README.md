@@ -33,6 +33,9 @@ As a proof of concept for clusters, we added a pattern finder that finds classes
 ### Milestone 5
 Milestone 5 fit perfectly into the existing design and no design modifications needed to be made. The modifications that were made were simply adding new pattern finders for Decorator and Adapter patterns and aggregating them in the data manager from the UMLCommandLineRunner.
 
+### Milestone 6
+Milestone 6 once again fit perfectly into the existing design. We only added a CompositePatternFinder class and a line in the UMLCommandLineRunner to add the new pattern finder to the data manager.
+
 ## Usage Instructions
 This tool is designed for use on Windows and to be run from Eclipse. It is possible to be run outside of Eclipse, but instructions to do so will not be provided here.
 
@@ -89,4 +92,10 @@ Milestone 5:
 * Updated UML Diagram: Tyler Whitehouse
 * Decorator Pattern Finder: Matthew Persing
 * Adapter Pattern Finder: Tyler Whitehouse
+
+Milestone 6:
+* README: Matthew Persing
+* Updated UML Diagram: Tyler Whitehouse
+* Composite Pattern Finder Algorithm: Both
+* Composite Pattern Implementation and Testing: Matthew Persing
 
