@@ -7,6 +7,7 @@ import java.util.Set;
 
 import data.api.IClass;
 import data.api.IField;
+import data.api.IMethod;
 import data.api.IUMLModifierManager;
 import pattern.api.IPatternFinder;
 
@@ -43,14 +44,27 @@ public class DecoratorPatternFinder implements IPatternFinder {
 				}
 			}
 			if(!compName.equals("")) {
-				List<String> decors = new ArrayList<String>();
-				decors.add(c.getName());
-				this.chainDetect(decors, classMap, c.getName());
-				mm.setSubtext(compName, "\\<\\<component\\>\\>");
-				mm.addStyle(compName, "style=filled, fillcolor=green,");
-				for(String s : decors) {
-					mm.setSubtext(s, "\\<\\<decorator\\>\\>");
-					mm.addStyle(s, "style=filled, fillcolor=green,");
+				boolean allConstructors = true;
+				for(IMethod m : c.getMethods()) {
+					boolean matchedArg = true;
+					if(m.getName().contains("init")) {
+						matchedArg = false;
+						for(String s : m.getArguments()) {
+							matchedArg |= s.equals(compName);
+						}
+					}
+					allConstructors &= matchedArg;
+				}
+				if(allConstructors) {
+					List<String> decors = new ArrayList<String>();
+					decors.add(c.getName());
+					this.chainDetect(decors, classMap, c.getName());
+					mm.setSubtext(compName, "\\<\\<component\\>\\>");
+					mm.addStyle(compName, "style=filled, fillcolor=green,");
+					for(String s : decors) {
+						mm.setSubtext(s, "\\<\\<decorator\\>\\>");
+						mm.addStyle(s, "style=filled, fillcolor=green,");
+					}
 				}
 			}
 		}
