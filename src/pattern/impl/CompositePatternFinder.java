@@ -94,7 +94,6 @@ public class CompositePatternFinder implements IPatternFinder {
 	}
 
 	private boolean searchForMatch(Map<String, IClass> classMap, Set<String> multiFields, String clas, IUMLModifierManager mm) {
-		System.out.println(multiFields.toString());
 		IClass c = classMap.get(clas);
 		if(c == null) {
 			return false;

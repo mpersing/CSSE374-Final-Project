@@ -21,6 +21,7 @@ import data.impl.MethodCall;
 import data.impl.SDAddStrategy;
 import data.impl.UMLAddStrategy;
 import pattern.impl.AdapterPatternFinder;
+import pattern.impl.CompositePatternFinder;
 import pattern.impl.DecoratorPatternFinder;
 import pattern.impl.SingletonPatternFinder;
 import visitor.impl.SDOutputStrategy;
@@ -475,6 +476,11 @@ public class ASMTest {
 		
 	}
 	
+	/**
+	 * Tests detection of the adapter pattern
+	 * 
+	 * @throws IOException
+	 */
 	@Test
 	public void testAdapterDetection() throws IOException {
 		loadClass("asm.ITarget");
@@ -493,6 +499,38 @@ public class ASMTest {
 		assertTrue(mm.getSubtext("asm.ITarget").equals("\\<\\<Target\\>\\>"));
 		assertTrue(mm.getSubtext("asm.Adapter").equals("\\<\\<Adapter\\>\\>"));
 		assertTrue(mm.getSubtext("asm.Adaptee").equals("\\<\\<Adaptee\\>\\>"));
+	}
+	
+	/**
+	 * Tests a very simple composite pattern
+	 * 
+	 * @throws IOException
+	 */
+	@Test
+	public void testSimpleComposite() throws IOException {
+		loadClass("simplecomposite.LeafA");
+		loadClass("simplecomposite.LeafB");
+		loadClass("simplecomposite.MyComponent");
+		loadClass("simplecomposite.MyComposite");
+		this.dm.addPatternFinder(new CompositePatternFinder());
+		this.dm.findAllPatterns();
+		IUMLModifierManager mm = this.dm.getUMLModifierManager();
+		
+		final String styleTarget = "style=filled, fillcolor=yellow,";
+		// Check style
+		assertTrue(mm.getStyle("simplecomposite.LeafA").equals(styleTarget));
+		assertTrue(mm.getStyle("simplecomposite.LeafB").equals(styleTarget));
+		assertTrue(mm.getStyle("simplecomposite.MyComponent").equals(styleTarget));
+		assertTrue(mm.getStyle("simplecomposite.MyComposite").equals(styleTarget));
+		
+		final String leafSub = "\\<\\<Leaf\\>\\>";
+		final String compositeSub = "\\<\\<Composite\\>\\>";
+		final String componentSub = "\\<\\<Component\\>\\>";
+		// Check subtext
+		assertTrue(mm.getSubtext("simplecomposite.LeafA").equals(leafSub));
+		assertTrue(mm.getSubtext("simplecomposite.LeafB").equals(leafSub));
+		assertTrue(mm.getSubtext("simplecomposite.MyComponent").equals(componentSub));
+		assertTrue(mm.getSubtext("simplecomposite.MyComposite").equals(compositeSub));
 	}
 
 }
