@@ -46,3 +46,5 @@ visitor.impl.OutputVisitor
 visitor.impl.SDOutputStrategy
 visitor.impl.UMLOutputStrategy
 visitor.impl.UsesOutputVisitor
+
+jdk.internal.org.objectweb.asm.ClassVisitor

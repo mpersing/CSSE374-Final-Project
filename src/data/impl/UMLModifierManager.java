@@ -60,7 +60,7 @@ public class UMLModifierManager implements IUMLModifierManager {
 		} else {
 			String prevSub = subtexts.get(className);
 			String newSub = prevSub + " " + subtext;
-			stylings.put(className, newSub);
+			subtexts.put(className, newSub);
 		}
 	}
 	

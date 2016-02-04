@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Set;
 
 import data.api.IClass;
+import data.api.IField;
 import data.api.IUMLModifierManager;
 import pattern.api.IPatternFinder;
 
@@ -34,6 +35,12 @@ public class DecoratorPatternFinder implements IPatternFinder {
 			}
 			if(assoc.contains(c.getExtends())) {
 				compName = c.getExtends();
+			}
+			for(IField f : c.getFields()) {
+				if(f.getType().equals(c.getName())) {
+					System.out.println(f.getType());
+					compName = c.getName();
+				}
 			}
 			if(!compName.equals("")) {
 				List<String> decors = new ArrayList<String>();
