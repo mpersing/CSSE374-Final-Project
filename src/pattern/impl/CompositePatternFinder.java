@@ -24,19 +24,15 @@ public class CompositePatternFinder implements IPatternFinder {
 	@Override
 	public void find(Map<String, IClass> classMap, IUMLModifierManager mm) {
 		for(IClass c : classMap.values()) {
-			Set<String> multiFields = findMultiFields(c, SET_TYPE.PUBLIC);
+			if(mm.getSubtext(c.getName()).contains("Comp")) { // avoid composite + component duplicates
+				continue;
+			}
+			Set<String> multiFields = findMultiFields(c);
 			boolean foundMatch = searchForMatch(classMap, multiFields, c.getName(), mm);
 			if(foundMatch) {
 				mm.setSubtext(c.getName(), compositeSub);
 				mm.addStyle(c.getName(), style);
 				findKids(classMap, c, mm);
-			} else {
-				multiFields = findMultiFields(c, SET_TYPE.PRIVATE);
-				foundMatch = searchForMatch(classMap, multiFields, c.getName(), mm);
-				if(foundMatch) {
-					mm.setSubtext(c.getName(), compositeSub);
-					mm.addStyle(c.getName(), style);
-				}
 			}
 		}
 		markLeaves(classMap, mm);
@@ -86,6 +82,9 @@ public class CompositePatternFinder implements IPatternFinder {
 				found |= impl[i].equals(name);
 			}
 			if(found) {
+				if(mm.getSubtext(c.getName()).contains("Comp")) { // avoid composite + component duplicates
+					continue;
+				}
 				mm.setSubtext(c.getName(), compositeSub);
 				mm.addStyle(c.getName(), style);
 				findKids(classMap, c, mm);
@@ -99,8 +98,10 @@ public class CompositePatternFinder implements IPatternFinder {
 			return false;
 		}
 		if(multiFields.contains(c.getName())) {
-			mm.setSubtext(clas, componentSub);
-			mm.addStyle(clas, style);
+			if(!mm.getSubtext(c.getName()).contains("Comp")) { // avoid composite + component duplicates
+				mm.setSubtext(clas, componentSub);
+				mm.addStyle(clas, style);
+			}
 			return true;
 		}
 		boolean found = false;
@@ -111,13 +112,10 @@ public class CompositePatternFinder implements IPatternFinder {
 		return found;
 	}
 
-	private Set<String> findMultiFields(IClass c, SET_TYPE access) {
+	private Set<String> findMultiFields(IClass c) {
 		Set<String> multiFields = new HashSet<String>();
 		Set<String> singleFields = new HashSet<String>();
 		for(IField f : c.getFields()) {
-			if((access == SET_TYPE.PRIVATE && !f.isPrivate()) || access == SET_TYPE.PUBLIC && f.isPrivate() ) {
-				continue;
-			}
 			String type = f.getType();
 			if(type.contains(">")) {
 				type = type.substring((type.contains(",") ? type.lastIndexOf(',') : type.lastIndexOf('<')) + 1, type.lastIndexOf('>') - 1);
