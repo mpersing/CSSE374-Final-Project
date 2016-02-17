@@ -1,6 +1,7 @@
 package data.impl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -10,6 +11,8 @@ import data.api.IUMLModifier;
 public class UMLModifierComposite implements IUMLModifier {
 
 	private List<IUMLModifier> list;
+	private String displayName;
+	private boolean enabled = false;
 	
 	public UMLModifierComposite() {
 		this.list = new ArrayList<IUMLModifier>();
@@ -17,74 +20,84 @@ public class UMLModifierComposite implements IUMLModifier {
 	
 	@Override
 	public String getStyle(String className) {
-		// TODO Auto-generated method stub
-		return null;
+		String result = "";
+		for(IUMLModifier m : list) {
+			result += m.getStyle(className);
+		}
+		return result;
 	}
 
 	@Override
 	public void addStyle(String className, String style) {
-		// TODO Auto-generated method stub
-
+		for(IUMLModifier m : list) {
+			m.addStyle(className, style);
+		}
 	}
 
 	@Override
 	public String getSubtext(String className) {
-		// TODO Auto-generated method stub
-		return null;
+		String result = "";
+		for(IUMLModifier m : list) {
+			result += m.getSubtext(className);
+		}
+		return result;
 	}
 
 	@Override
 	public void setSubtext(String className, String subtext) {
-		// TODO Auto-generated method stub
-
+		for(IUMLModifier m : list) {
+			m.setSubtext(className, subtext);
+		}
 	}
 
 	@Override
 	public List<UMLCluster> getClusters() {
-		// TODO Auto-generated method stub
-		return null;
+		List<UMLCluster> toReturn = new ArrayList<UMLCluster>();
+		for(IUMLModifier m : list) {
+			toReturn.addAll(m.getClusters());
+		}
+		return toReturn;
 	}
 
 	@Override
 	public void addCluster(Cluster cluster) {
-		// TODO Auto-generated method stub
-
+		for(IUMLModifier m : list) {
+			m.addCluster(cluster);
+		}
 	}
 
 	@Override
 	public void setEnabled(boolean enabled) {
-		// TODO Auto-generated method stub
-		
+		this.enabled = enabled;
 	}
 
 	@Override
 	public boolean getEnabled() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.enabled;
 	}
 
 	@Override
 	public String getDisplayName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.displayName;
 	}
 
 	@Override
 	public Set<String> getWhitelist() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<String> wl = new HashSet<String>();
+		for(IUMLModifier m : list) {
+			wl.addAll(m.getWhitelist());
+		}
+		return wl;
 	}
 
 	@Override
 	public List<IUMLModifier> getList() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.list;
 	}
 
 	@Override
 	public void setDisplayName(String newName) {
-		// TODO Auto-generated method stub
-		
+		this.displayName = newName;
 	}
 
 }
