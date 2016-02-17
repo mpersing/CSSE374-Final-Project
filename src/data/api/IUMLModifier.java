@@ -11,6 +11,7 @@ public interface IUMLModifier {
 	public boolean getEnabled();
 	
 	public String getDisplayName();
+	public void setDisplayName(String newName);
 	
 	public Set<String> getWhitelist();
 	public List<IUMLModifier> getList();

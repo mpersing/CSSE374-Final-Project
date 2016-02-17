@@ -2,6 +2,7 @@ package data.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,11 +15,15 @@ public class UMLModifier implements IUMLModifier {
 	private List<UMLCluster> clusters;
 	private Map<String, String> stylings;
 	private Map<String, String> subtexts;
+	private String displayName;
+	private boolean enabled;
 
 	public UMLModifier(){
 		clusters = new ArrayList<UMLCluster>();
 		stylings = new HashMap<String, String>();
 		subtexts = new HashMap<String, String>();
+		this.enabled = false;
+		
 	}
 
 	@Override
@@ -77,31 +82,37 @@ public class UMLModifier implements IUMLModifier {
 
 	@Override
 	public void setEnabled(boolean enabled) {
-		// TODO Auto-generated method stub
-		
+		this.enabled = enabled;
 	}
 
 	@Override
 	public boolean getEnabled() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.enabled;
 	}
 
 	@Override
 	public String getDisplayName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.displayName;
 	}
 
 	@Override
 	public Set<String> getWhitelist() {
-		// TODO Auto-generated method stub
-		return null;
+		Set<String> whitelist = new HashSet<String>();
+		whitelist.addAll(this.stylings.keySet());
+		whitelist.addAll(this.subtexts.keySet());
+		for(Cluster c : this.clusters) {
+			whitelist.addAll(c.getClasses());
+		}
+		return whitelist;
 	}
 
 	@Override
 	public List<IUMLModifier> getList() {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void setDisplayName(String newName) {
+		this.displayName = newName;
 	}
 }

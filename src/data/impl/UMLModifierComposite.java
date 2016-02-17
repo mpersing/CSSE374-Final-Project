@@ -81,4 +81,10 @@ public class UMLModifierComposite implements IUMLModifier {
 		return null;
 	}
 
+	@Override
+	public void setDisplayName(String newName) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
