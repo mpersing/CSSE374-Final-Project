@@ -8,7 +8,7 @@ import java.util.Set;
 import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
-import data.api.IUMLModifierManager;
+import data.api.IUMLModifier;
 import pattern.api.IPatternFinder;
 
 public class DecoratorPatternFinder implements IPatternFinder {
@@ -23,7 +23,7 @@ public class DecoratorPatternFinder implements IPatternFinder {
 	}
 
 	@Override
-	public void find(Map<String, IClass> classMap, IUMLModifierManager mm) {
+	public void find(Map<String, IClass> classMap, IUMLModifier mm) {
 		for(IClass c : classMap.values()) {
 			String[] implement = c.getImplements();
 			Set<String> assoc = c.getAssoc();

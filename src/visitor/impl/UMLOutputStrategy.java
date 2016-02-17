@@ -6,7 +6,7 @@ import java.util.Set;
 import visitor.api.IOutputStrategy;
 import data.api.Cluster;
 import data.api.IDataManager;
-import data.api.IUMLModifierManager;
+import data.api.IUMLModifier;
 
 public class UMLOutputStrategy implements IOutputStrategy{
 	
@@ -33,7 +33,7 @@ public class UMLOutputStrategy implements IOutputStrategy{
 		}
 		
 		// Add all of the clusters
-		IUMLModifierManager modMan = dm.getUMLModifierManager();
+		IUMLModifier modMan = dm.getUMLModifierManager();
 		for (Cluster cluster : modMan.getClusters()){
 			sb.append(cluster.toString());
 		}
@@ -42,7 +42,7 @@ public class UMLOutputStrategy implements IOutputStrategy{
 		this.postVisit(sb);
 	}
 	
-	public void addOutputVisitor(OutputVisitor v, IUMLModifierManager umlModMan, Set<String> whitelist) {
+	public void addOutputVisitor(OutputVisitor v, IUMLModifier umlModMan, Set<String> whitelist) {
 		v.setClassWhitelist(whitelist);
 		v.setIUMLModifierManager(umlModMan);
 		this.visitors.add(v);

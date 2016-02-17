@@ -8,13 +8,13 @@ import java.util.Set;
 import pattern.api.IPatternFinder;
 import data.api.Cluster;
 import data.api.IClass;
-import data.api.IUMLModifierManager;
+import data.api.IUMLModifier;
 import data.impl.UMLCluster;
 
 public class PackageClusterPatternFinder implements IPatternFinder {
 
 	@Override
-	public void find(Map<String, IClass> classMap, IUMLModifierManager mm) {
+	public void find(Map<String, IClass> classMap, IUMLModifier mm) {
 		Set<String> names = classMap.keySet();
 		Map<String, Set<String>> clustersData = new HashMap<String, Set<String>>();
 		

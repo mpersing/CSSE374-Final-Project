@@ -6,7 +6,7 @@ import java.util.Set;
 
 import data.api.IClass;
 import data.api.IField;
-import data.api.IUMLModifierManager;
+import data.api.IUMLModifier;
 import pattern.api.IPatternFinder;
 
 public class CompositePatternFinder implements IPatternFinder {
@@ -22,7 +22,7 @@ public class CompositePatternFinder implements IPatternFinder {
 	private static final String leafSub = "\\<\\<Leaf\\>\\>";
 
 	@Override
-	public void find(Map<String, IClass> classMap, IUMLModifierManager mm) {
+	public void find(Map<String, IClass> classMap, IUMLModifier mm) {
 		for(IClass c : classMap.values()) {
 			if(mm.getSubtext(c.getName()).contains("Comp")) { // avoid composite + component duplicates
 				continue;
@@ -40,7 +40,7 @@ public class CompositePatternFinder implements IPatternFinder {
 	
 	
 
-	private void markLeaves(Map<String, IClass> classMap, IUMLModifierManager mm) {
+	private void markLeaves(Map<String, IClass> classMap, IUMLModifier mm) {
 		for(IClass c: classMap.values()) {
 			String sub = mm.getSubtext(c.getName());
 			if(sub.contains("Composite") || sub.contains("Component")) {
@@ -53,7 +53,7 @@ public class CompositePatternFinder implements IPatternFinder {
 		}
 	}
 
-	private boolean hasLeafOrComponentParent(Map<String, IClass> classMap, String clas, IUMLModifierManager mm) {
+	private boolean hasLeafOrComponentParent(Map<String, IClass> classMap, String clas, IUMLModifier mm) {
 		String sub = mm.getSubtext(clas);
 		if(sub.contains("Component")||sub.contains("Leaf")) {
 			return true;
@@ -72,7 +72,7 @@ public class CompositePatternFinder implements IPatternFinder {
 
 
 
-	private void findKids(Map<String, IClass> classMap, IClass cl, IUMLModifierManager mm) {
+	private void findKids(Map<String, IClass> classMap, IClass cl, IUMLModifier mm) {
 		String name = cl.getName();
 		for(IClass c : classMap.values()) {
 			boolean found = false;
@@ -92,7 +92,7 @@ public class CompositePatternFinder implements IPatternFinder {
 		}
 	}
 
-	private boolean searchForMatch(Map<String, IClass> classMap, Set<String> multiFields, String clas, IUMLModifierManager mm) {
+	private boolean searchForMatch(Map<String, IClass> classMap, Set<String> multiFields, String clas, IUMLModifier mm) {
 		IClass c = classMap.get(clas);
 		if(c == null) {
 			return false;

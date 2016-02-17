@@ -10,7 +10,7 @@ import pattern.api.IPatternFinder;
 import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
-import data.api.IUMLModifierManager;
+import data.api.IUMLModifier;
 
 public class AdapterPatternFinder implements IPatternFinder {
 
@@ -26,7 +26,7 @@ public class AdapterPatternFinder implements IPatternFinder {
 	}
 	
 	@Override
-	public void find(Map<String, IClass> classMap, IUMLModifierManager mm) {
+	public void find(Map<String, IClass> classMap, IUMLModifier mm) {
 		for (String key : classMap.keySet()){
 			IClass c = classMap.get(key);
 			List<IField> fs = c.getFields();
@@ -70,7 +70,7 @@ public class AdapterPatternFinder implements IPatternFinder {
 		}
 	}
 
-	private void styleClasses(IUMLModifierManager mm, String adapterClass, String targetClass, String adapteeClass){
+	private void styleClasses(IUMLModifier mm, String adapterClass, String targetClass, String adapteeClass){
 		mm.addStyle(adapterClass, AdapterPatternFinder.style);
 		mm.setSubtext(adapterClass, AdapterPatternFinder.adapterSub);
 		

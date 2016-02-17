@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Set;
 
 import data.api.IDataManager;
-import data.api.IUMLModifierManager;
+import data.api.IUMLModifier;
 import data.impl.DataManager;
 import data.impl.UMLAddStrategy;
 import pattern.impl.AdapterPatternFinder;
@@ -25,7 +25,7 @@ import visitor.impl.UsesOutputVisitor;
 public class UMLCommandLineRunner extends CommandLineRunner {
 	public static void main(String[] args) throws IOException {
 		IDataManager data = new DataManager();
-		IUMLModifierManager modMan = data.getUMLModifierManager();
+		IUMLModifier modMan = data.getUMLModifierManager();
 		Set<String> whiteList = data.getWhitelist();
 		
 		// Set the adding strategy

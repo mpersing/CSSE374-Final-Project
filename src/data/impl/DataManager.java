@@ -15,7 +15,7 @@ import asm.ClassMethodVisitor;
 import data.api.AddStrategy;
 import data.api.IClass;
 import data.api.IDataManager;
-import data.api.IUMLModifierManager;
+import data.api.IUMLModifier;
 import jdk.internal.org.objectweb.asm.ClassReader;
 import jdk.internal.org.objectweb.asm.ClassVisitor;
 import jdk.internal.org.objectweb.asm.Opcodes;
@@ -30,12 +30,12 @@ public class DataManager implements IDataManager {
 	private List<IPatternFinder> pfList;
 	private IOutputStrategy outStrat;
 	private AddStrategy addStrat;
-	private IUMLModifierManager umlModMan;
+	private IUMLModifier umlModMan;
 	
 	public DataManager(){
 		this.classes = new HashMap<String,IClass>();
 		this.whiteList = new HashSet<String>();
-		this.umlModMan = new UMLModifierManager();
+		this.umlModMan = new UMLModifier();
 		this.pfList = new ArrayList<IPatternFinder>();
 	}
 	
@@ -100,7 +100,7 @@ public class DataManager implements IDataManager {
 		return this.whiteList;
 	}
 	
-	public IUMLModifierManager getUMLModifierManager() {
+	public IUMLModifier getUMLModifierManager() {
 		return this.umlModMan;
 	}
 

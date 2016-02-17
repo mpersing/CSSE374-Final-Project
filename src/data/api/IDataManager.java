@@ -20,7 +20,7 @@ public interface IDataManager extends ITraverser{
 	public void setAddStrategy(AddStrategy addStrat);
 	public IClass getClass(String s);
 	public Set<String> getWhitelist();
-	public IUMLModifierManager getUMLModifierManager();
+	public IUMLModifier getUMLModifierManager();
 	public void addPatternFinder(IPatternFinder pf);
 	
 }

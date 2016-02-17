@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import data.api.Cluster;
-import data.api.IUMLModifierManager;
+import data.api.IUMLModifier;
 
-public class UMLModifierManager implements IUMLModifierManager {
+public class UMLModifier implements IUMLModifier {
 
 	private List<UMLCluster> clusters;
 	private Map<String, String> stylings;
 	private Map<String, String> subtexts;
 
-	public UMLModifierManager(){
+	public UMLModifier(){
 		clusters = new ArrayList<UMLCluster>();
 		stylings = new HashMap<String, String>();
 		subtexts = new HashMap<String, String>();
@@ -72,5 +73,35 @@ public class UMLModifierManager implements IUMLModifierManager {
 	@Override
 	public void addCluster(Cluster cluster) {
 		this.clusters.add((UMLCluster) cluster);
+	}
+
+	@Override
+	public void setEnabled(boolean enabled) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean getEnabled() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public String getDisplayName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<String> getWhitelist() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<IUMLModifier> getList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
