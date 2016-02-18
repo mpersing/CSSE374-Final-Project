@@ -1,5 +1,6 @@
 package pattern.impl;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -7,6 +8,7 @@ import java.util.Set;
 import data.api.IClass;
 import data.api.IField;
 import data.api.IUMLModifier;
+import data.impl.UMLModifier;
 import pattern.api.IPatternFinder;
 
 public class CompositePatternFinder implements IPatternFinder {
@@ -15,12 +17,20 @@ public class CompositePatternFinder implements IPatternFinder {
 		PUBLIC,
 		PRIVATE
 	}
+	
+	private Map<String,IUMLModifier> modMap;
+	private IUMLModifier lastAccessed;
 
 	private static final String style = "style=filled, fillcolor=yellow,";
 	private static final String componentSub = "\\<\\<Component\\>\\>";
 	private static final String compositeSub = "\\<\\<Composite\\>\\>";
 	private static final String leafSub = "\\<\\<Leaf\\>\\>";
 
+	public CompositePatternFinder() {
+		this.modMap = new HashMap<String,IUMLModifier>();
+		this.lastAccessed = null;
+	}
+	
 	@Override
 	public void find(Map<String, IClass> classMap, IUMLModifier mm) {
 		for(IClass c : classMap.values()) {
@@ -30,8 +40,8 @@ public class CompositePatternFinder implements IPatternFinder {
 			Set<String> multiFields = findMultiFields(c);
 			boolean foundMatch = searchForMatch(classMap, multiFields, c.getName(), mm);
 			if(foundMatch) {
-				mm.setSubtext(c.getName(), compositeSub);
-				mm.addStyle(c.getName(), style);
+				lastAccessed.setSubtext(c.getName(), compositeSub);
+				lastAccessed.addStyle(c.getName(), style);
 				findKids(classMap, c, mm);
 			}
 		}
@@ -47,15 +57,15 @@ public class CompositePatternFinder implements IPatternFinder {
 				continue;
 			}
 			if(hasLeafOrComponentParent(classMap, c.getName(), mm)) {
-				mm.addStyle(c.getName(), style);
-				mm.setSubtext(c.getName(), leafSub);
+				lastAccessed.addStyle(c.getName(), style);
+				lastAccessed.setSubtext(c.getName(), leafSub);
 			}
 		}
 	}
 
 	private boolean hasLeafOrComponentParent(Map<String, IClass> classMap, String clas, IUMLModifier mm) {
-		String sub = mm.getSubtext(clas);
-		if(sub.contains("Component")||sub.contains("Leaf")) {
+		if(this.modMap.containsKey(clas)) {
+			this.lastAccessed = this.modMap.get(clas);
 			return true;
 		}
 		IClass c = classMap.get(clas);
@@ -85,8 +95,8 @@ public class CompositePatternFinder implements IPatternFinder {
 				if(mm.getSubtext(c.getName()).contains("Comp")) { // avoid composite + component duplicates
 					continue;
 				}
-				mm.setSubtext(c.getName(), compositeSub);
-				mm.addStyle(c.getName(), style);
+				lastAccessed.setSubtext(c.getName(), compositeSub);
+				lastAccessed.addStyle(c.getName(), style);
 				findKids(classMap, c, mm);
 			}
 		}
@@ -99,8 +109,13 @@ public class CompositePatternFinder implements IPatternFinder {
 		}
 		if(multiFields.contains(c.getName())) {
 			if(!mm.getSubtext(c.getName()).contains("Comp")) { // avoid composite + component duplicates
-				mm.setSubtext(clas, componentSub);
-				mm.addStyle(clas, style);
+				IUMLModifier mods = new UMLModifier();
+				mods.setSubtext(clas, componentSub);
+				mods.addStyle(clas, style);
+				mods.setDisplayName(clas);
+				mm.addUMLModifier(mods);
+				this.modMap.put(clas, mods);
+				this.lastAccessed = mods;
 			}
 			return true;
 		}
