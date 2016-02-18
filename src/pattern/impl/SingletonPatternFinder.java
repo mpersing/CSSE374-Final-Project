@@ -6,6 +6,7 @@ import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
 import data.api.IUMLModifier;
+import data.impl.UMLModifier;
 import pattern.api.IPatternFinder;
 
 public class SingletonPatternFinder implements IPatternFinder {
@@ -39,8 +40,11 @@ public class SingletonPatternFinder implements IPatternFinder {
 				}
 			}
 			if(foundMethod && foundField && privateConstructors) {
-				mm.setSubtext(cName, "\\<\\<Singleton\\>\\>");
-				mm.addStyle(cName, "color=blue");
+				IUMLModifier mods = new UMLModifier();
+				mm.addUMLModifier(mods);
+				mods.setDisplayName(c.getName());
+				mods.setSubtext(cName, "\\<\\<Singleton\\>\\>");
+				mods.addStyle(cName, "color=blue");
 			}
 		}
 	}
