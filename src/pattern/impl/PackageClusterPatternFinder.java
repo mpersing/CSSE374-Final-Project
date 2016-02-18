@@ -10,6 +10,7 @@ import data.api.Cluster;
 import data.api.IClass;
 import data.api.IUMLModifier;
 import data.impl.UMLCluster;
+import data.impl.UMLModifier;
 
 public class PackageClusterPatternFinder implements IPatternFinder {
 
@@ -33,6 +34,7 @@ public class PackageClusterPatternFinder implements IPatternFinder {
 		
 		// for each cluster
 		for (String clusterName: clusterNames){
+			IUMLModifier mods = new UMLModifier();
 			Cluster cluster = new UMLCluster();
 			cluster.setName(clusterName);
 			
@@ -46,7 +48,9 @@ public class PackageClusterPatternFinder implements IPatternFinder {
 			cluster.addStyle("");
 			
 			// Add the cluster
-			mm.addCluster(cluster);
+			mods.addCluster(cluster);
+			mods.setDisplayName(clusterName);
+			mm.addUMLModifier(mods);
 		}
 	}
 
