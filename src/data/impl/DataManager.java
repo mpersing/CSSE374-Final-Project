@@ -28,6 +28,7 @@ public class DataManager implements IDataManager {
 	private Map<String,IClass> classes;
 	private Set<String> whiteList;
 	private List<IPatternFinder> pfList;
+	private Map<String, IPatternFinder> pfMap;
 	private IOutputStrategy outStrat;
 	private AddStrategy addStrat;
 	private IUMLModifier umlModMan;
@@ -37,6 +38,7 @@ public class DataManager implements IDataManager {
 		this.whiteList = new HashSet<String>();
 		this.umlModMan = new UMLModifier();
 		this.pfList = new ArrayList<IPatternFinder>();
+		this.pfMap = new HashMap<String, IPatternFinder>();
 	}
 	
 	public void addClass(String toAdd) throws IOException{
@@ -114,6 +116,17 @@ public class DataManager implements IDataManager {
 	@Override
 	public void addPatternFinder(IPatternFinder pf) {
 		pfList.add(pf);
+	}
+
+	@Override
+	public void runPhase(String patternName) {
+		IPatternFinder pf = pfMap.get(patternName);
+		pf.find(this.classes, this.umlModMan);
+	}
+
+	@Override
+	public void addPatternFinderPhase(String patternName, IPatternFinder pf) {
+		pfMap.put(patternName, pf);
 	}
 
 }

@@ -14,6 +14,7 @@ public interface IDataManager extends ITraverser{
 	public void addClass(String toAdd) throws IOException;
 	public void output(StringBuffer sb);
 	public void findAllPatterns();
+	public void runPhase(String patternName);
 	
 	public Collection<IClass> getClasses();
 	public void setOutputStrategy(IOutputStrategy outputStrategy);
@@ -22,5 +23,6 @@ public interface IDataManager extends ITraverser{
 	public Set<String> getWhitelist();
 	public IUMLModifier getUMLModifierManager();
 	public void addPatternFinder(IPatternFinder pf);
+	public void addPatternFinderPhase(String patternName, IPatternFinder pf);
 	
 }
