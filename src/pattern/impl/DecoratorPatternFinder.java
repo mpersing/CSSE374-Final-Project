@@ -9,6 +9,7 @@ import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
 import data.api.IUMLModifier;
+import data.impl.UMLModifier;
 import pattern.api.IPatternFinder;
 
 public class DecoratorPatternFinder implements IPatternFinder {
@@ -56,15 +57,18 @@ public class DecoratorPatternFinder implements IPatternFinder {
 					allConstructors &= matchedArg;
 				}
 				if(allConstructors) {
+					IUMLModifier mods = new UMLModifier();
+					mods.setDisplayName(compName);
 					List<String> decors = new ArrayList<String>();
 					decors.add(c.getName());
 					this.chainDetect(decors, classMap, c.getName());
-					mm.setSubtext(compName, "\\<\\<component\\>\\>");
-					mm.addStyle(compName, "style=filled, fillcolor=green,");
+					mods.setSubtext(compName, "\\<\\<component\\>\\>");
+					mods.addStyle(compName, "style=filled, fillcolor=green,");
 					for(String s : decors) {
-						mm.setSubtext(s, "\\<\\<decorator\\>\\>");
-						mm.addStyle(s, "style=filled, fillcolor=green,");
+						mods.setSubtext(s, "\\<\\<decorator\\>\\>");
+						mods.addStyle(s, "style=filled, fillcolor=green,");
 					}
+					mm.addUMLModifier(mods);
 				}
 			}
 		}
