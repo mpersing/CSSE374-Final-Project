@@ -35,7 +35,7 @@ public class UMLCommandLineRunner extends CommandLineRunner {
 		data.addPatternFinder(new SingletonPatternFinder());
 		data.addPatternFinder(new PackageClusterPatternFinder());
 		data.addPatternFinder(new DecoratorPatternFinder());
-		data.addPatternFinder(new AdapterPatternFinder(whiteList));
+		data.addPatternFinder(new AdapterPatternFinder());
 		data.addPatternFinder(new CompositePatternFinder());
 		
 		// Create the output strategy

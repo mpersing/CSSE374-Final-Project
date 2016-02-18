@@ -14,15 +14,12 @@ import data.api.IUMLModifier;
 
 public class AdapterPatternFinder implements IPatternFinder {
 
-	private final Set<String> whiteList;
-	
 	private static final String style = "style=filled, fillcolor=red,";
 	private static final String adapterSub = "\\<\\<Adapter\\>\\>";
 	private static final String targetSub = "\\<\\<Target\\>\\>";
 	private static final String adapteeSub = "\\<\\<Adaptee\\>\\>";
 	
-	public AdapterPatternFinder(Set<String> whiteList){
-		this.whiteList = whiteList;
+	public AdapterPatternFinder(){
 	}
 	
 	@Override
@@ -33,7 +30,6 @@ public class AdapterPatternFinder implements IPatternFinder {
 			String[] impls = c.getImplements();
 			Set<String> assoc = c.getAssoc();
 			assoc.addAll(c.getUses());
-			assoc.retainAll(whiteList);
 			
 			if (	fs.size() == 1 &&
 					impls.length == 1 &&
