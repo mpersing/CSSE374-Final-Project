@@ -70,15 +70,19 @@ public class Configuration {
 							int iArg = other.indexOf("{");
 							String className = "";
 							String argString = "";
+							String[] args;
 							// arguments given
 							if (iArg > 0){
+								System.out.println(other);
 								className = other.substring(0, iArg-1);
 								argString = other.substring(iArg+1, other.length()-1);
+								args = argString.split("\\|");
 							} else {
 								// no arguments
 								className = other;
+								argString = "";
+								args = null;
 							}
-							String[] args = argString.split("\\|");
 							PhaseData pd = new PhaseData(className, args);
 							this.phaseData.put(name, pd);
 						}

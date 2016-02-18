@@ -2,12 +2,15 @@ package data.impl;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Set;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.Class;
 
 import data.api.IDataManager;
 import data.api.IUMLModifier;
 import gui.Configuration;
 import gui.PhaseData;
+import pattern.api.IPatternFinder;
 import visitor.impl.UMLOutputStrategy;
 
 public class DataManagerManager {
@@ -58,8 +61,25 @@ public class DataManagerManager {
 					this.progressText = "Loading class " + pData.getName();
 				}
 			} else {
+				// set the phase data
+				String className = pData.getName();
+				try {
+					Class c = Class.forName(className);
+					Constructor cons;
+					IPatternFinder pf;
+					if(pData.getArgs() != null && pData.getArgs().length > 0) {
+						cons = c.getConstructor(new Class[]{pData.getArgs().getClass()});
+						pf = (IPatternFinder) cons.newInstance(pData.getArgs());
+					} else {
+						cons = c.getConstructor(new Class[]{});
+						pf = (IPatternFinder) cons.newInstance();
+					}
+					this.data.addPatternFinderPhase(p, pf);
+				} catch (ClassNotFoundException | NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+					e.printStackTrace();
+				}
 				// run all the other phases
-				this.data.runPhase(pData.getName());
+				this.data.runPhase(p);
 				this.progressInt = (int) (100.0*(ip+1)/phases.length);
 				this.progressText = "Running phase " + pData.getName();
 			}
