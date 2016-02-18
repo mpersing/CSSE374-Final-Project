@@ -11,6 +11,7 @@ import data.api.IClass;
 import data.api.IField;
 import data.api.IMethod;
 import data.api.IUMLModifier;
+import data.impl.UMLModifier;
 
 public class AdapterPatternFinder implements IPatternFinder {
 
@@ -67,14 +68,17 @@ public class AdapterPatternFinder implements IPatternFinder {
 	}
 
 	private void styleClasses(IUMLModifier mm, String adapterClass, String targetClass, String adapteeClass){
-		mm.addStyle(adapterClass, AdapterPatternFinder.style);
-		mm.setSubtext(adapterClass, AdapterPatternFinder.adapterSub);
+		IUMLModifier mods = new UMLModifier();
+		mods.setDisplayName(adapteeClass);
+		mods.addStyle(adapterClass, AdapterPatternFinder.style);
+		mods.setSubtext(adapterClass, AdapterPatternFinder.adapterSub);
 		
-		mm.addStyle(targetClass, AdapterPatternFinder.style);
-		mm.setSubtext(targetClass, AdapterPatternFinder.targetSub);
+		mods.addStyle(targetClass, AdapterPatternFinder.style);
+		mods.setSubtext(targetClass, AdapterPatternFinder.targetSub);
 		
-		mm.addStyle(adapteeClass, AdapterPatternFinder.style);
-		mm.setSubtext(adapteeClass, AdapterPatternFinder.adapteeSub);
+		mods.addStyle(adapteeClass, AdapterPatternFinder.style);
+		mods.setSubtext(adapteeClass, AdapterPatternFinder.adapteeSub);
+		mm.addUMLModifier(mods);
 	}
 
 	@Override
