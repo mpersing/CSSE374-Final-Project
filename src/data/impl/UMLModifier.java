@@ -98,10 +98,12 @@ public class UMLModifier implements IUMLModifier {
 	@Override
 	public Set<String> getWhitelist() {
 		Set<String> whitelist = new HashSet<String>();
-		whitelist.addAll(this.stylings.keySet());
-		whitelist.addAll(this.subtexts.keySet());
-		for(Cluster c : this.clusters) {
-			whitelist.addAll(c.getClasses());
+		if(this.enabled) {
+			whitelist.addAll(this.stylings.keySet());
+			whitelist.addAll(this.subtexts.keySet());
+			for(Cluster c : this.clusters) {
+				whitelist.addAll(c.getClasses());
+			}
 		}
 		return whitelist;
 	}

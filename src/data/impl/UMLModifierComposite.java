@@ -69,6 +69,9 @@ public class UMLModifierComposite implements IUMLModifier {
 	@Override
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+		for(IUMLModifier m : list) {
+			m.setEnabled(enabled);
+		}
 	}
 
 	@Override
