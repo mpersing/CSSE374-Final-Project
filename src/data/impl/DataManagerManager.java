@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 import java.lang.Class;
 
 import data.api.IDataManager;
@@ -92,6 +93,10 @@ public class DataManagerManager {
 	
 	public String getProgressText(){
 		return this.progressText;
+	}
+	
+	public List<IUMLModifier> getList(){
+		return this.modMan.getList();
 	}
 	/* *
 	
