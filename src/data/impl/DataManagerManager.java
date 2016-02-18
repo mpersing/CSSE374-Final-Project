@@ -111,7 +111,7 @@ public class DataManagerManager {
 		Map<String, File> classMap = new HashMap<String, File>();
 		for(File f : arr) {
 			toNavigate.add(f);
-			toNavigateString.add(f.getName() + ".");
+			toNavigateString.add("");
 		}
 		while(!toNavigate.isEmpty()) {
 			File next = toNavigate.poll();
@@ -120,7 +120,7 @@ public class DataManagerManager {
 				arr = next.listFiles();
 				for(File f : arr) {
 					toNavigate.add(f);
-					toNavigateString.add(nextString + f.getName() + ".");
+					toNavigateString.add(nextString + next.getName() + ".");
 				}
 			} else {
 				if(next.getName().endsWith(".class")) {
