@@ -70,4 +70,9 @@ public class DecoratorPatternFinder implements IPatternFinder {
 		}
 	}
 
+	@Override
+	public String getName() {
+		return "Decorator";
+	}
+
 }

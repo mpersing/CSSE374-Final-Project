@@ -117,4 +117,9 @@ public class UMLModifier implements IUMLModifier {
 	public void setDisplayName(String newName) {
 		this.displayName = newName;
 	}
+
+	@Override
+	public void addUMLModifier(IUMLModifier toAdd) {
+		throw new UnsupportedOperationException();
+	}
 }

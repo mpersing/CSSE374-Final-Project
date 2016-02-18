@@ -80,5 +80,10 @@ public class AdapterPatternFinder implements IPatternFinder {
 		mm.addStyle(adapteeClass, AdapterPatternFinder.style);
 		mm.setSubtext(adapteeClass, AdapterPatternFinder.adapteeSub);
 	}
+
+	@Override
+	public String getName() {
+		return "Adapter";
+	}
 	
 }

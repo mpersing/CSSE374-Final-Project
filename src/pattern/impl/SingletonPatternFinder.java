@@ -45,4 +45,9 @@ public class SingletonPatternFinder implements IPatternFinder {
 		}
 	}
 
+	@Override
+	public String getName() {
+		return "Singleton";
+	}
+
 }

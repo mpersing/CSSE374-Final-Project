@@ -132,4 +132,11 @@ public class CompositePatternFinder implements IPatternFinder {
 		return multiFields;
 	}
 
+
+
+	@Override
+	public String getName() {
+		return "Composite";
+	}
+
 }

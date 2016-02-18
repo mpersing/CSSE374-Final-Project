@@ -50,4 +50,9 @@ public class PackageClusterPatternFinder implements IPatternFinder {
 		}
 	}
 
+	@Override
+	public String getName() {
+		return "Package";
+	}
+
 }

@@ -8,5 +8,6 @@ import data.api.IUMLModifier;
 public interface IPatternFinder {
 	
 	public void find(Map<String, IClass> classMap, IUMLModifier mm);
+	public String getName();
 
 }

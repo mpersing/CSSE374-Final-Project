@@ -31,12 +31,12 @@ public class DataManager implements IDataManager {
 	private Map<String, IPatternFinder> pfMap;
 	private IOutputStrategy outStrat;
 	private AddStrategy addStrat;
-	private IUMLModifier umlModMan;
+	private UMLModifierComposite umlModMan;
 	
 	public DataManager(){
 		this.classes = new HashMap<String,IClass>();
 		this.whiteList = new HashSet<String>();
-		this.umlModMan = new UMLModifier();
+		this.umlModMan = new UMLModifierComposite();
 		this.pfList = new ArrayList<IPatternFinder>();
 		this.pfMap = new HashMap<String, IPatternFinder>();
 	}
@@ -109,7 +109,10 @@ public class DataManager implements IDataManager {
 	@Override
 	public void findAllPatterns() {
 		for(IPatternFinder pf : pfList) {
-			pf.find(classes, umlModMan);
+			IUMLModifier m = new UMLModifierComposite();
+			m.setDisplayName(pf.getName());
+			this.umlModMan.addUMLModifier(m);
+			pf.find(classes, m);
 		}
 	}
 
@@ -122,7 +125,10 @@ public class DataManager implements IDataManager {
 	public void runPhase(String patternName) {
 		IPatternFinder pf = pfMap.get(patternName);
 		if(pf != null) {
-			pf.find(this.classes, this.umlModMan);
+			IUMLModifier m = new UMLModifierComposite();
+			m.setDisplayName(pf.getName());
+			this.umlModMan.addUMLModifier(m);
+			pf.find(this.classes, m);
 		}
 	}
 

@@ -103,4 +103,9 @@ public class UMLModifierComposite implements IUMLModifier {
 		this.displayName = newName;
 	}
 
+	@Override
+	public void addUMLModifier(IUMLModifier toAdd) {
+		list.add(toAdd);
+	}
+
 }

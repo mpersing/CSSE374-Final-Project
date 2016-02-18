@@ -15,6 +15,7 @@ public interface IUMLModifier {
 	
 	public Set<String> getWhitelist();
 	public List<IUMLModifier> getList();
+	public void addUMLModifier(IUMLModifier toAdd);
 	
 	public String getStyle(String className);
 	public void addStyle(String className, String style);
