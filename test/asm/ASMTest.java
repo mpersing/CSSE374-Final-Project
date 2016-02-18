@@ -486,7 +486,7 @@ public class ASMTest {
 		loadClass("asm.ITarget");
 		loadClass("asm.Adapter");
 		loadClass("asm.Adaptee");		
-		this.dm.addPatternFinder(new AdapterPatternFinder(this.dm.getWhitelist()));
+		this.dm.addPatternFinder(new AdapterPatternFinder());
 		this.dm.findAllPatterns();
 		IUMLModifier mm = this.dm.getUMLModifierManager();
 		
