@@ -10,7 +10,7 @@ import data.api.IUMLModifier;
 
 public class UMLOutputStrategy implements IOutputStrategy{
 	
-	private ArrayList<OutputVisitor> visitors;
+	protected ArrayList<OutputVisitor> visitors;
 	private IDataManager dm;
 	
 	public UMLOutputStrategy() {
