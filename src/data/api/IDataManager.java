@@ -1,6 +1,7 @@
 package data.api;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Collection;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import visitor.api.ITraverser;
 public interface IDataManager extends ITraverser{
 	
 	public void add(String[] toAdd) throws IOException;
+	public void addClass(String toAdd, InputStream is) throws IOException;
 	public void addClass(String toAdd) throws IOException;
 	public void output(StringBuffer sb);
 	public void findAllPatterns();

@@ -1,6 +1,7 @@
 package data.impl;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -41,6 +42,19 @@ public class DataManager implements IDataManager {
 		this.pfMap = new HashMap<String, IPatternFinder>();
 	}
 	
+	public void addClass(String toAdd, InputStream is) throws IOException {
+		IClass newClass = new Class();
+		if(this.classes.containsKey(toAdd)) {
+			return;
+		}
+		classes.put(toAdd, newClass);
+		whiteList.add(toAdd);
+		ClassReader reader = new ClassReader(is);
+		
+		this.decorateReader(reader, newClass);
+		System.out.println("Added: " + toAdd);
+	}
+	
 	public void addClass(String toAdd) throws IOException{
 		IClass newClass = new Class();
 		if(this.classes.containsKey(toAdd)) {
@@ -50,6 +64,10 @@ public class DataManager implements IDataManager {
 		whiteList.add(toAdd);
 		ClassReader reader = new ClassReader(toAdd);
 		
+		this.decorateReader(reader, newClass);
+	}
+	
+	private void decorateReader(ClassReader reader, IClass newClass) {
 		ClassDeclarationVisitor declVisitor = new ClassDeclarationVisitor(Opcodes.ASM5);
 		declVisitor.setClass(newClass);
 		
