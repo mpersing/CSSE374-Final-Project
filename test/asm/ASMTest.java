@@ -367,6 +367,7 @@ public class ASMTest {
 		this.dm.addPatternFinder(new SingletonPatternFinder());
 		this.dm.findAllPatterns();
 		IUMLModifier mm = this.dm.getUMLModifierManager();
+		mm.setEnabled(true);
 		assertTrue(mm.getStyle("asm.LazySingletonTest").equals("color=blue"));
 		assertTrue(mm.getSubtext("asm.LazySingletonTest").contains("\\<\\<Singleton\\>\\>"));
 	}
@@ -382,6 +383,7 @@ public class ASMTest {
 		this.dm.addPatternFinder(new SingletonPatternFinder());
 		this.dm.findAllPatterns();
 		IUMLModifier mm = this.dm.getUMLModifierManager();
+		mm.setEnabled(true);
 		assertTrue(mm.getStyle("asm.EagerSingletonTest").equals("color=blue"));
 		assertTrue(mm.getSubtext("asm.EagerSingletonTest").contains("\\<\\<Singleton\\>\\>"));
 	}
@@ -397,6 +399,7 @@ public class ASMTest {
 		this.dm.addPatternFinder(new SingletonPatternFinder());
 		this.dm.findAllPatterns();
 		IUMLModifier mm = this.dm.getUMLModifierManager();
+		mm.setEnabled(true);
 		assertTrue(mm.getStyle("java.lang.Runtime").equals("color=blue"));
 		assertTrue(mm.getSubtext("java.lang.Runtime").contains("\\<\\<Singleton\\>\\>"));
 	}
@@ -461,6 +464,7 @@ public class ASMTest {
 		this.dm.addPatternFinder(new DecoratorPatternFinder());
 		this.dm.findAllPatterns();
 		IUMLModifier mm = this.dm.getUMLModifierManager();
+		mm.setEnabled(true);
 		// check style
 		assertTrue(mm.getStyle("asm.AbstractDecorator").equals("style=filled, fillcolor=green,"));
 		assertTrue(mm.getStyle("asm.ConcreteDecorator1").equals("style=filled, fillcolor=green,"));
@@ -489,7 +493,7 @@ public class ASMTest {
 		this.dm.addPatternFinder(new AdapterPatternFinder());
 		this.dm.findAllPatterns();
 		IUMLModifier mm = this.dm.getUMLModifierManager();
-		
+		mm.setEnabled(true);
 		// Check style
 		assertTrue(mm.getStyle("asm.ITarget").equals("style=filled, fillcolor=red,"));
 		assertTrue(mm.getStyle("asm.Adapter").equals("style=filled, fillcolor=red,"));
@@ -515,6 +519,7 @@ public class ASMTest {
 		this.dm.addPatternFinder(new CompositePatternFinder());
 		this.dm.findAllPatterns();
 		IUMLModifier mm = this.dm.getUMLModifierManager();
+		mm.setEnabled(true);
 		
 		final String styleTarget = "style=filled, fillcolor=yellow,";
 		// Check style
@@ -552,6 +557,7 @@ public class ASMTest {
 		this.dm.addPatternFinder(new CompositePatternFinder());
 		this.dm.findAllPatterns();
 		IUMLModifier mm = this.dm.getUMLModifierManager();
+		mm.setEnabled(true);
 		
 		final String styleTarget = "style=filled, fillcolor=yellow,";
 		// Check style
