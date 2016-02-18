@@ -113,6 +113,7 @@ public class DataManager implements IDataManager {
 			m.setDisplayName(pf.getName());
 			this.umlModMan.addUMLModifier(m);
 			pf.find(classes, m);
+			m.setEnabled(false);
 		}
 	}
 
@@ -129,6 +130,7 @@ public class DataManager implements IDataManager {
 			m.setDisplayName(pf.getName());
 			this.umlModMan.addUMLModifier(m);
 			pf.find(this.classes, m);
+			m.setEnabled(false);
 		}
 	}
 

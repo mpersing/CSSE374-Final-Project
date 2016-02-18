@@ -22,13 +22,16 @@ public class UMLModifier implements IUMLModifier {
 		clusters = new ArrayList<UMLCluster>();
 		stylings = new HashMap<String, String>();
 		subtexts = new HashMap<String, String>();
-		this.enabled = false;
+		this.enabled = true;
 		
 	}
 
 	@Override
 	public String getStyle(String className) {
 		String result = "";
+		if(!enabled) {
+			return result;
+		}
 		
 		if (stylings.containsKey(className)){
 			result = stylings.get(className);
@@ -51,6 +54,9 @@ public class UMLModifier implements IUMLModifier {
 	@Override
 	public String getSubtext(String className) {
 		String result = "";
+		if(!enabled) {
+			return result;
+		}
 		
 		if (subtexts.containsKey(className)){
 			result = subtexts.get(className);
