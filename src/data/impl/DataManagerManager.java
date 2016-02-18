@@ -1,11 +1,17 @@
 package data.impl;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 import java.lang.Class;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Queue;
 
 import data.api.IDataManager;
 import data.api.IUMLModifier;
@@ -61,6 +67,17 @@ public class DataManagerManager {
 					this.progressInt = (int) (100.0*(il+1.0)/(toLoad.length*phases.length));
 					this.progressText = "Loading class " + pData.getName();
 				}
+				toLoad = this.config.getInputFolderPath();
+				for(int i = 0 ; i < toLoad.length ; ++i) {
+					Map<String, File> dirMap = this.getAllClasses(toLoad[i]);
+					for(Entry<String, File> e : dirMap.entrySet()) {
+						try {
+							data.addClass(e.getKey(), new FileInputStream(e.getValue()));
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+					}
+				}
 			} else {
 				// set the phase data
 				String className = pData.getName();
@@ -85,6 +102,34 @@ public class DataManagerManager {
 				this.progressText = "Running phase " + pData.getName();
 			}
 		}
+	}
+	
+	private Map<String,File> getAllClasses(String rootDir) {
+		File[] arr = new File(rootDir).listFiles();
+		Queue<File> toNavigate = new LinkedList<File>();
+		Queue<String> toNavigateString = new LinkedList<String>();
+		Map<String, File> classMap = new HashMap<String, File>();
+		for(File f : arr) {
+			toNavigate.add(f);
+			toNavigateString.add(f.getName() + ".");
+		}
+		while(!toNavigate.isEmpty()) {
+			File next = toNavigate.poll();
+			String nextString = toNavigateString.poll();
+			if(next.isDirectory()) {
+				arr = next.listFiles();
+				for(File f : arr) {
+					toNavigate.add(f);
+					toNavigateString.add(nextString + f.getName() + ".");
+				}
+			} else {
+				if(next.getName().endsWith(".class")) {
+					System.out.println(nextString + next.getName().substring(0,next.getName().length()-6));
+					classMap.put(nextString + next.getName().substring(0,next.getName().length()-6), next);
+				}
+			}
+		}
+		return classMap;
 	}
 	
 	public int getProgressInt(){
