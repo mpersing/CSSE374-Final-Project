@@ -121,7 +121,9 @@ public class DataManager implements IDataManager {
 	@Override
 	public void runPhase(String patternName) {
 		IPatternFinder pf = pfMap.get(patternName);
-		pf.find(this.classes, this.umlModMan);
+		if(pf != null) {
+			pf.find(this.classes, this.umlModMan);
+		}
 	}
 
 	@Override
