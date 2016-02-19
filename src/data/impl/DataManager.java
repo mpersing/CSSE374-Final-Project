@@ -38,6 +38,7 @@ public class DataManager implements IDataManager {
 		this.classes = new HashMap<String,IClass>();
 		this.whiteList = new HashSet<String>();
 		this.umlModMan = new UMLModifierComposite();
+		this.umlModMan.setEnabled(false);
 		this.pfList = new ArrayList<IPatternFinder>();
 		this.pfMap = new HashMap<String, IPatternFinder>();
 	}

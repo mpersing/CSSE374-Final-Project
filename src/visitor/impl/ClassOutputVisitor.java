@@ -14,7 +14,10 @@ public class ClassOutputVisitor extends OutputVisitor {
      ]
 	 */
 	
+	private boolean validated;
+	
 	public void visit(IField f) {
+		if(!validated) { return; }
 		// Decide prefix
 		String pre = f.isPrivate()?"- ":f.isPublic()?"+ ":f.isProtected()?"\\# ":"";
 		
@@ -27,6 +30,7 @@ public class ClassOutputVisitor extends OutputVisitor {
 	}
 	
 	public void visit(IMethod m) {
+		if(!validated) { return; }
 		// Decide prefix
 		String pre = m.isPrivate()?"- ":m.isPublic()?"+ ":"";
 		
@@ -50,8 +54,10 @@ public class ClassOutputVisitor extends OutputVisitor {
 	
 	@Override
 	public void visit(IClass c){
+		this.validated = false;
 		// Return if not in the whitelist
 		if (!classWhitelist.contains(c.getName())) return;
+		this.validated = true;
 		
 		// Open the class
 		this.sb.append("        ");
@@ -88,11 +94,13 @@ public class ClassOutputVisitor extends OutputVisitor {
 	}
 	
 	public void midVisit(IClass c) {
+		if (!classWhitelist.contains(c.getName())) return;
 		this.sb.append("|");
 	}
 	
 	public void postVisit(IClass c) {
 		// Close the label
+		if (!classWhitelist.contains(c.getName())) return;
 		this.sb.append("}\"\n        ];\n\n");
 	}
 	

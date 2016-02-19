@@ -91,12 +91,20 @@ public class ImageProxy extends JPanel {
 			        //close the stream
 			        bwr.close();
 			        
+			        File imageFile = new File(ImageProxy.this.folderPath + ImageProxy.this.fileName + ".png");
+			        
+			        if(imageFile.exists()) {
+			        	imageFile.delete();
+			        }
+			        
 			        // runs the dot
 			        CommandLineRunner.runApplication(ImageProxy.this.parent.dmm.config.getDotPath(), "-Tpng \"" + (ImageProxy.this.folderPath + ImageProxy.this.fileName) + ".gv\" -o \"" + (ImageProxy.this.folderPath + ImageProxy.this.fileName) + ".png\"");
 			        
-					ImageProxy.this.pic = ImageIO.read(new File(ImageProxy.this.folderPath + ImageProxy.this.fileName + ".png"));
+			        while(!imageFile.exists()) {}
+			        Thread.sleep(200);
+					ImageProxy.this.pic = ImageIO.read(imageFile);
 					ImageProxy.this.image.setIcon(new ImageIcon(pic));
-					
+					imageFile.delete();
 					ImageProxy.this.label.setVisible(false);
 					ImageProxy.this.image.setVisible(true);
 				} catch (Exception e){

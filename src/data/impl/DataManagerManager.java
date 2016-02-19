@@ -19,7 +19,13 @@ import data.api.IUMLModifier;
 import gui.Configuration;
 import gui.PhaseData;
 import pattern.api.IPatternFinder;
+import visitor.impl.AssocOutputVisitor;
+import visitor.impl.ClassOutputVisitor;
+import visitor.impl.ExtendOutputVisitor;
+import visitor.impl.GUIUMLOutputStrategy;
+import visitor.impl.ImplementOutputVisitor;
 import visitor.impl.UMLOutputStrategy;
+import visitor.impl.UsesOutputVisitor;
 
 public class DataManagerManager {
 	private IDataManager data;
@@ -32,8 +38,14 @@ public class DataManagerManager {
 	public DataManagerManager(){
 		this.data = new DataManager();
 		this.modMan = data.getUMLModifierManager();
-		this.outStrat = new UMLOutputStrategy();
+		this.outStrat = new GUIUMLOutputStrategy();
 		this.outStrat.setDataManager(this.data);
+		// Add all of the output visitors for that output strategy
+		outStrat.addOutputVisitor(new ClassOutputVisitor(), modMan, null);
+		outStrat.addOutputVisitor(new ExtendOutputVisitor(), modMan, null);
+		outStrat.addOutputVisitor(new ImplementOutputVisitor(), modMan, null);
+		outStrat.addOutputVisitor(new AssocOutputVisitor(), modMan, null);
+		outStrat.addOutputVisitor(new UsesOutputVisitor(), modMan, null);
 		this.data.setOutputStrategy(this.outStrat);
 		
 		this.data.setAddStrategy(new UMLAddStrategy());
