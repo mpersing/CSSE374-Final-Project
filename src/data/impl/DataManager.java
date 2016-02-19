@@ -58,7 +58,7 @@ public class DataManager implements IDataManager {
 		IClass newClass = new Class();
 		if(this.classes.containsKey(toAdd)) {
 			return;
-		}	
+		}
 		classes.put(toAdd, newClass);
 		whiteList.add(toAdd);
 		ClassReader reader = new ClassReader(toAdd);
