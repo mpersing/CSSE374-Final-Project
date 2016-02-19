@@ -85,7 +85,8 @@ public class DataManagerManager {
 							data.addClass(e.getKey(), new FileInputStream(e.getValue()));
 							this.progressInt = (int) (100.0*(++classesLoaded)/(totalClassesToLoad*phases.length));
 							this.progressText = "Loading class " + e.getKey();
-						} catch (IOException e1) {
+							// Thread.sleep(100);
+						} catch (Exception e1) {
 							e1.printStackTrace();
 						}
 					}
@@ -154,6 +155,10 @@ public class DataManagerManager {
 	
 	public List<IUMLModifier> getList(){
 		return this.modMan.getList();
+	}
+	
+	public void output(StringBuffer sb){
+		this.data.output(sb);
 	}
 	/* *
 	

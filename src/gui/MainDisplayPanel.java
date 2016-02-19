@@ -28,9 +28,7 @@ public class MainDisplayPanel extends JPanel {
 		selScroll.setPreferredSize(dim);
 		
 		
-		JPanel p = new JPanel();
-		p.setBackground(Color.red);
-		JScrollPane pScroll = new JScrollPane(p);
-		this.add(pScroll, BorderLayout.CENTER);
+		ImageProxy p = new ImageProxy(this.parent, this.parent.dmm.config.getOutputFolderPath(), "\\pleaseDontLookAtMe");
+		this.add(p, BorderLayout.CENTER);
 	}
 }

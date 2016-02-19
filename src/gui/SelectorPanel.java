@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +46,7 @@ public class SelectorPanel extends JPanel{
 		this.repopCheckBoxesHelper(list, 0);
 	}
 	
-	/**
+	/** Recursively iterates through each IUMLModifier level
 	 * 
 	 * @param l, The list to add
 	 * @param i, The indentation level
