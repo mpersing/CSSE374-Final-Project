@@ -85,6 +85,16 @@ Tags and their values are placed in the config file in the form "tag: value"
 * lists - items are separated by a bar, "|".
 * Phase - The value is the class name, and arguments can be appended by adding a list within curly brackets, i.e. "{arg1|arg2}"
 
+#### Available Phases
+ * Loader - should always be the first phase, no phase declaration required
+ * Adapter: pattern.impl.AdapterPatternFinder
+ * Composite: pattern.impl.CompositePatternFinder
+ * Decorator: pattern.impl.DecoratorPatternFinder
+ * Package: pattern.impl.PackageClusterPatternFinder
+ * Singleton: pattern.impl.SingletonPatternFinder
+ * No existing patterns use arguments
+ * New phases can be added so long as they implement pattern.api.IPatternFinder and are added to the classpath
+
 
 ## Work Distribution
 Milestone 1:
