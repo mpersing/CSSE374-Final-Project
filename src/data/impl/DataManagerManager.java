@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.Class;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -56,7 +57,18 @@ public class DataManagerManager {
 			
 			// load the classes
 			if (pData.getName().equals("Loader")){
-				String[] toLoad = this.config.getToLoad();
+				List<Map<String,File>> dirMapList = new ArrayList<Map<String,File>>();
+				String[] toLoad = this.config.getInputFolderPath();
+				int totalClassesToLoad = 0;
+				for(int i = 0 ; i < toLoad.length ; ++i) {
+					this.progressText = "Parsing directory " + toLoad[i];
+					Map<String,File> dirMap = this.getAllClasses(toLoad[i]);
+					dirMapList.add(dirMap);
+					totalClassesToLoad += dirMap.size();
+				}
+				toLoad = this.config.getToLoad();
+				totalClassesToLoad += toLoad.length;
+				int classesLoaded = 0;
 				for(int il = 0; il < toLoad.length; il++) {
 					String s = toLoad[il];
 					try {
@@ -64,15 +76,15 @@ public class DataManagerManager {
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
-					this.progressInt = (int) (100.0*(il+1.0)/(toLoad.length*phases.length));
+					this.progressInt = (int) (100.0*(++classesLoaded)/(totalClassesToLoad*phases.length));
 					this.progressText = "Loading class " + pData.getName();
 				}
-				toLoad = this.config.getInputFolderPath();
-				for(int i = 0 ; i < toLoad.length ; ++i) {
-					Map<String, File> dirMap = this.getAllClasses(toLoad[i]);
+				for(Map<String,File> dirMap : dirMapList) {
 					for(Entry<String, File> e : dirMap.entrySet()) {
 						try {
 							data.addClass(e.getKey(), new FileInputStream(e.getValue()));
+							this.progressInt = (int) (100.0*(++classesLoaded)/(totalClassesToLoad*phases.length));
+							this.progressText = "Loading class " + e.getKey();
 						} catch (IOException e1) {
 							e1.printStackTrace();
 						}
