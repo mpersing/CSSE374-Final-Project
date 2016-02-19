@@ -30,6 +30,7 @@ public class ImplementOutputVisitor extends OutputVisitor {
 			for (String i : impls){
 				if (!classWhitelist.contains(i)) continue;
 				
+				this.sb.append("\n        edge [\n                color = \"" + this.iumlmod.getArrowColor(c.getName(), i, "impls") + "\"\n        ]\n");
 				this.sb.append("        ");
 				this.sb.append("\"");
 				this.sb.append(c.getName());

@@ -30,6 +30,7 @@ public class ExtendOutputVisitor extends OutputVisitor {
 		for (String e : exts){
 			if (!classWhitelist.contains(e)) continue;
 			
+			this.sb.append("\n        edge [\n                color = \"" + this.iumlmod.getArrowColor(c.getName(), e, "ext") + "\"\n        ]\n");
 			this.sb.append("        ");
 			this.sb.append("\"");
 			this.sb.append(c.getName());
