@@ -15,6 +15,7 @@ public class UMLModifier implements IUMLModifier {
 	private List<UMLCluster> clusters;
 	private Map<String, String> stylings;
 	private Map<String, String> subtexts;
+	private Map<String, String> arrowColors;
 	private String displayName;
 	private boolean enabled;
 
@@ -22,6 +23,7 @@ public class UMLModifier implements IUMLModifier {
 		clusters = new ArrayList<UMLCluster>();
 		stylings = new HashMap<String, String>();
 		subtexts = new HashMap<String, String>();
+		this.arrowColors = new HashMap<String, String>();
 		this.enabled = true;
 		
 	}
@@ -131,5 +133,23 @@ public class UMLModifier implements IUMLModifier {
 	@Override
 	public void addUMLModifier(IUMLModifier toAdd) {
 		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public String getArrowColor(String source, String dest, String type) {
+		if(this.enabled) {
+			String toReturn = this.arrowColors.get(source + "|" + dest + "|" + type);
+			if(toReturn == null) {
+				return "";
+			}
+			return toReturn;
+		} else {
+			return "";
+		}
+	}
+
+	@Override
+	public void setArrowColor(String source, String dest, String type, String newColor) {
+		this.arrowColors.put(source + "|" + dest + "|" + type, newColor);
 	}
 }

@@ -81,6 +81,8 @@ public class AdapterPatternFinder implements IPatternFinder {
 		
 		mods.addStyle(adapteeClass, AdapterPatternFinder.style);
 		mods.setSubtext(adapteeClass, AdapterPatternFinder.adapteeSub);
+		
+		mods.setArrowColor(adapterClass, adapteeClass, "assoc", "red");
 		mm.addUMLModifier(mods);
 	}
 

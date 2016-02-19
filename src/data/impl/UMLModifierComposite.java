@@ -111,4 +111,20 @@ public class UMLModifierComposite implements IUMLModifier {
 		list.add(toAdd);
 	}
 
+	@Override
+	public String getArrowColor(String source, String dest, String type) {
+		String result = "";
+		for(IUMLModifier m : list) {
+			result += m.getArrowColor(source, dest, type);
+		}
+		return result;
+	}
+
+	@Override
+	public void setArrowColor(String source, String dest, String type, String newColor) {
+		for(IUMLModifier m : list) {
+			m.setArrowColor(source, dest, type, newColor);
+		}
+	}
+
 }

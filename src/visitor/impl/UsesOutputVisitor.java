@@ -25,6 +25,7 @@ public void visit(IClass c) {
 	for (String e : c.getUses()){
 		if(!classWhitelist.contains(e)) continue;
 		
+		this.sb.append("\n        edge [\n                color = \"" + this.iumlmod.getArrowColor(c.getName(), e, "uses") + "\"\n        ]\n");
 		this.sb.append("        ");
 		this.sb.append("\"");
 		this.sb.append(c.getName());
