@@ -68,6 +68,9 @@ public class AdapterPatternFinder implements IPatternFinder {
 	}
 
 	private void styleClasses(IUMLModifier mm, String adapterClass, String targetClass, String adapteeClass){
+		if(targetClass.equals(adapteeClass)) {
+			return;
+		}
 		IUMLModifier mods = new UMLModifier();
 		mods.setDisplayName(adapteeClass);
 		mods.addStyle(adapterClass, AdapterPatternFinder.style);
