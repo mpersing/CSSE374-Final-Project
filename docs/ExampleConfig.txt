@@ -1,8 +1,8 @@
-Input-Folder: C:\\Users\\whitehts\\Documents\\School\\3 Junior\\2 Winter\\CSSE374\\workspace\\Project\\CSSE374-Final-Project\\bin
+Input-Folder: C:\Users\whitehts\Documents\School\3 Junior\2 Winter\CSSE374\workspace\Project\CSSE374-Final-Project\bin
 
 Input-Classes: java.io.Reader|java.io.BufferedReader|java.lang.Runtime
 
-Output-Folder: C:\\Users\\whitehts\\Desktop\\output
+Output-Folder: C:\Users\whitehts\Desktop\output
 
 Dot-Path: "C:\Users\whitehts\Documents\School\3 Junior\2 Winter\CSSE374\release\bin\dot.exe"
 
