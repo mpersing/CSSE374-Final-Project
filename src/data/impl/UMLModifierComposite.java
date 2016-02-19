@@ -54,7 +54,10 @@ public class UMLModifierComposite implements IUMLModifier {
 	public List<UMLCluster> getClusters() {
 		List<UMLCluster> toReturn = new ArrayList<UMLCluster>();
 		for(IUMLModifier m : list) {
-			toReturn.addAll(m.getClusters());
+			List<UMLCluster> temp = m.getClusters();
+			if(temp != null) {
+				toReturn.addAll(m.getClusters());
+			}
 		}
 		return toReturn;
 	}

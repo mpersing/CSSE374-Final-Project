@@ -99,9 +99,12 @@ public class ImageProxy extends JPanel {
 			        
 			        // runs the dot
 			        CommandLineRunner.runApplication(ImageProxy.this.parent.dmm.config.getDotPath(), "-Tpng \"" + (ImageProxy.this.folderPath + ImageProxy.this.fileName) + ".gv\" -o \"" + (ImageProxy.this.folderPath + ImageProxy.this.fileName) + ".png\"");
-			        
-			        while(!imageFile.exists()) {}
-			        Thread.sleep(200);
+			        long oldLength = -1;
+			        while(!imageFile.exists() || imageFile.length() <= 0 || oldLength != imageFile.length()) {
+			        	oldLength = imageFile.length();
+			        	Thread.sleep(250);
+			        }
+			        //Thread.sleep(sb.length()/10);
 					ImageProxy.this.pic = ImageIO.read(imageFile);
 					ImageProxy.this.image.setIcon(new ImageIcon(pic));
 					imageFile.delete();

@@ -78,7 +78,11 @@ public class UMLModifier implements IUMLModifier {
 	
 	@Override
 	public List<UMLCluster> getClusters() {
-		return this.clusters;
+		if(this.enabled) {
+			return this.clusters;
+		} else {
+			return null;
+		}
 	}
 
 	@Override
