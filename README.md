@@ -36,6 +36,9 @@ Milestone 5 fit perfectly into the existing design and no design modifications n
 ### Milestone 6
 Milestone 6 once again fit perfectly into the existing design. We only added a CompositePatternFinder class and a line in the UMLCommandLineRunner to add the new pattern finder to the data manager.
 
+### Milestone 7
+Our overall design changed very little for milestone 7. We did change how we managed UML properties by adding a composite pattern which required the modification of all existing pattern finders. We also added an entire package for the GUI portion. The GUI classes sit entirely on top of the existing code, and looks into it.
+
 ## Usage Instructions
 This tool is designed for use on Windows and to be run from Eclipse. It is possible to be run outside of Eclipse, but instructions to do so will not be provided here.
 
@@ -53,6 +56,35 @@ This tool is designed for use on Windows and to be run from Eclipse. It is possi
 10. Change your run configuration for SDCommandRunner.java to have the classpath of the root class for your sequence diagram as the first argument, the method signature as the second argument, and the depth as the third (can be omitted - defaults to 5)
   * An example of arguments would be: runners.SDCommandLineRunner main(java.lang.String[]) 5
 11. If the Sequence Diagram is not gigantic, it should be in milestone3AutomaticSD.png in this directory. If it was too large, you'll have to open the SDEdit jar yourself and copy the text from milestone3AutomaticSD.sd into the text box.
+
+###GUI
+
+Follow the above steps 1, 2, and 3
+
+1. Open the application
+2. Click the "Config" button to open a dialogue to select and load a configuration file
+3. Click the "Analyze" button to analyze the classes and open the viewer
+4. In the left panel, select the patterns you would like to display
+5. In the right panel, click the "refresh" button to load the image.
+
+###Config File
+An example config file can be found [here](docs/ExampleConfig.txt)
+
+#### Available tags
+* "Input-Folder" - A list of paths to the binary folders
+* "Input-Classes" - The list of classes you would like to analyze
+* "Output-Folder" - The path to the folder to output the image file and graphviz file into
+* "Dot-Path" - The path to the dot.exe
+* "Phases" - The list of phases to run while analyzing
+* Phase - The tag is the individual phase which is noted in the "Phases" list, and the value is the class name with arguments (optional)
+
+#### Syntax
+Tags and their values are placed in the config file in the form "tag: value"
+* File paths - Absolute path to the folder
+* Dot-Path - Absolute path to the .exe, surrounded by quotation marks
+* lists - items are separated by a bar, "|".
+* Phase - The value is the class name, and arguments can be appended by adding a list within curly brackets, i.e. "{arg1|arg2}"
+
 
 ## Work Distribution
 Milestone 1:
@@ -99,3 +131,7 @@ Milestone 6:
 * Composite Pattern Finder Algorithm: Both
 * Composite Pattern Implementation and Testing: Matthew Persing
 
+Milestone 7:
+* README: Both
+* GUI Implimentation: Both
+* Backend Code: Matthew Persing
